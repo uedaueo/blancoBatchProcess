@@ -6,16 +6,16 @@ public class Sample2BatchProcessTest extends TestCase {
 
     public void testMain() {
         if (false) {
-            // ‚±‚ÌJUnit‚ðŽÀs‚·‚é‚ÆA“à•”“I‚É System.exit‚ªŽÀs‚³‚ê‚Ü‚·B
-            final String[] args = { "-require=•K{€–Ú", "-field_int_req=123",
+            // ã“ã®JUnitã‚’å®Ÿè¡Œã™ã‚‹ã¨ã€å†…éƒ¨çš„ã« System.exitãŒå®Ÿè¡Œã•ã‚Œã¾ã™ã€‚
+            final String[] args = { "-require=å¿…é ˆé …ç›®", "-field_int_req=123",
                     "-field_long_req=456", "-field_decimal_req=123.456" };
             Sample2BatchProcess.main(args);
         }
 
         if (false) {
-            // ‚±‚ÌJUnit‚ðŽÀs‚·‚é‚ÆA“à•”“I‚É System.exit‚ªŽÀs‚³‚ê‚Ü‚·B
-            final String[] args = { "-require=•K{€–Ú", "-field_int_req=123",
-                    "-field_long_req=456", "-field_decimal_req=ƒp[ƒX•s”\",
+            // ã“ã®JUnitã‚’å®Ÿè¡Œã™ã‚‹ã¨ã€å†…éƒ¨çš„ã« System.exitãŒå®Ÿè¡Œã•ã‚Œã¾ã™ã€‚
+            final String[] args = { "-require=å¿…é ˆé …ç›®", "-field_int_req=123",
+                    "-field_long_req=456", "-field_decimal_req=ãƒ‘ãƒ¼ã‚¹ä¸èƒ½",
                     "-field_boolean_req=false" };
             Sample2BatchProcess.main(args);
         }

@@ -14,54 +14,54 @@ import java.io.IOException;
 import blanco.sample.batchprocess.valueobject.SampleProcessInput;
 
 /**
- * ƒoƒbƒ`ˆ—ƒNƒ‰ƒX [SampleBatchProcess]B
+ * ãƒãƒƒãƒå‡¦ç†ã‚¯ãƒ©ã‚¹ [SampleBatchProcess]ã€‚
  *
- * <P>ƒoƒbƒ`ˆ—‚ÌŒÄ‚Ño‚µ—áB</P>
+ * <P>ãƒãƒƒãƒå‡¦ç†ã®å‘¼ã³å‡ºã—ä¾‹ã€‚</P>
  * <code>
- * java -classpath (ƒNƒ‰ƒXƒpƒX) blanco.sample.batchprocess.SampleBatchProcess -help
+ * java -classpath (ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹) blanco.sample.batchprocess.SampleBatchProcess -help
  * </code>
  */
 public class SampleBatchProcess {
     /**
-     * ³íI—¹B
+     * æ­£å¸¸çµ‚äº†ã€‚
      */
     public static final int END_SUCCESS = 0;
 
     /**
-     * ƒoƒbƒ`ˆ——áŠOI—¹B“à•”“I‚ÉBatchProcessException‚ª”­¶‚µ‚½ê‡B
+     * ãƒãƒƒãƒå‡¦ç†ä¾‹å¤–çµ‚äº†ã€‚å†…éƒ¨çš„ã«BatchProcessExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public static final int END_BATCHPROCESS_EXCEPTION = 6;
 
     /**
-     * “ü—ÍˆÙíI—¹B“à•”“I‚Éjava.lang.IllegalArgumentException‚ª”­¶‚µ‚½ê‡B
+     * å…¥åŠ›ç•°å¸¸çµ‚äº†ã€‚å†…éƒ¨çš„ã«java.lang.IllegalArgumentExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public static final int END_ILLEGAL_ARGUMENT_EXCEPTION = 7;
 
     /**
-     * “üo—Í—áŠOI—¹B“à•”“I‚Éjava.io.IOException‚ª”­¶‚µ‚½ê‡B
+     * å…¥å‡ºåŠ›ä¾‹å¤–çµ‚äº†ã€‚å†…éƒ¨çš„ã«java.io.IOExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public static final int END_IO_EXCEPTION = 8;
 
     /**
-     * ˆÙíI—¹Bƒoƒbƒ`‚Ìˆ—ŠJn‚É¸”s‚µ‚½ê‡A‚¨‚æ‚Ñ“à•”“I‚Éjava.lang.Error‚Ü‚½‚Íjava.lang.RuntimeException‚ª”­¶‚µ‚½ê‡B
+     * ç•°å¸¸çµ‚äº†ã€‚ãƒãƒƒãƒã®å‡¦ç†é–‹å§‹ã«å¤±æ•—ã—ãŸå ´åˆã€ãŠã‚ˆã³å†…éƒ¨çš„ã«java.lang.Errorã¾ãŸã¯java.lang.RuntimeExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public static final int END_ERROR = 9;
 
     /**
-     * ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚©‚çÀs‚³‚ê‚½Û‚ÌƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒg‚Å‚·B
+     * ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‹ã‚‰å®Ÿè¡Œã•ã‚ŒãŸéš›ã®ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆã§ã™ã€‚
      *
-     * @param args ƒRƒ“ƒ\[ƒ‹‚©‚çˆø‚«Œp‚ª‚ê‚½ˆø”B
+     * @param args ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‹ã‚‰å¼•ãç¶™ãŒã‚ŒãŸå¼•æ•°ã€‚
      */
     public static final void main(final String[] args) {
         final SampleBatchProcess batchProcess = new SampleBatchProcess();
 
-        // ƒoƒbƒ`ˆ—‚Ìˆø”B
+        // ãƒãƒƒãƒå‡¦ç†ã®å¼•æ•°ã€‚
         final SampleProcessInput input = new SampleProcessInput();
 
         boolean isNeedUsage = false;
         boolean isFieldRequireProcessed = false;
 
-        // ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”‚Ì‰ğÍ‚ğ‚¨‚±‚È‚¢‚Ü‚·B
+        // ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°ã®è§£æã‚’ãŠã“ãªã„ã¾ã™ã€‚
         for (int index = 0; index < args.length; index++) {
             String arg = args[index];
             if (arg.startsWith("-require=")) {
@@ -75,7 +75,7 @@ public class SampleBatchProcess {
                 usage();
                 System.exit(END_SUCCESS);
             } else {
-                System.out.println("SampleBatchProcess: “ü—Íƒpƒ‰ƒ[ƒ^[" + arg + "]‚Í–³‹‚³‚ê‚Ü‚µ‚½B");
+                System.out.println("SampleBatchProcess: å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[" + arg + "]ã¯ç„¡è¦–ã•ã‚Œã¾ã—ãŸã€‚");
                 isNeedUsage = true;
             }
         }
@@ -85,120 +85,120 @@ public class SampleBatchProcess {
         }
 
         if( isFieldRequireProcessed == false) {
-            System.out.println("SampleBatchProcess: ˆ—ŠJn¸”sB“ü—Íƒpƒ‰ƒ[ƒ^[input]‚Ì•K{ƒtƒB[ƒ‹ƒh’l[require]‚É’l‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+            System.out.println("SampleBatchProcess: å‡¦ç†é–‹å§‹å¤±æ•—ã€‚å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[input]ã®å¿…é ˆãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å€¤[require]ã«å€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
             System.exit(END_ILLEGAL_ARGUMENT_EXCEPTION);
         }
 
         int retCode = batchProcess.execute(input);
 
-        // I—¹ƒR[ƒh‚ğ–ß‚µ‚Ü‚·B
-        // ¦’ˆÓFSystem.exit()‚ğŒÄ‚Ño‚µ‚Ä‚¢‚é“_‚É’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢B
+        // çµ‚äº†ã‚³ãƒ¼ãƒ‰ã‚’æˆ»ã—ã¾ã™ã€‚
+        // â€»æ³¨æ„ï¼šSystem.exit()ã‚’å‘¼ã³å‡ºã—ã¦ã„ã‚‹ç‚¹ã«æ³¨æ„ã—ã¦ãã ã•ã„ã€‚
         System.exit(retCode);
     }
 
     /**
-     * ‹ï‘Ì“I‚Èƒoƒbƒ`ˆ—“à—e‚ğ‹Lq‚·‚é‚½‚ß‚Ìƒƒ\ƒbƒh‚Å‚·B
+     * å…·ä½“çš„ãªãƒãƒƒãƒå‡¦ç†å†…å®¹ã‚’è¨˜è¿°ã™ã‚‹ãŸã‚ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ã™ã€‚
      *
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÉÀÛ‚Ìˆ—“à—e‚ğ‹Lq‚µ‚Ü‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«å®Ÿéš›ã®å‡¦ç†å†…å®¹ã‚’è¨˜è¿°ã—ã¾ã™ã€‚
      *
-     * @param input ƒoƒbƒ`ˆ—‚Ì“ü—Íƒpƒ‰ƒ[ƒ^B
-     * @return ƒoƒbƒ`ˆ—‚ÌI—¹ƒR[ƒhBEND_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR, END_BATCHPROCESS_EXCEPTION ‚Ì‚¢‚¸‚ê‚©‚Ì’l‚ğ–ß‚µ‚Ü‚·B³íI—¹‚Ìê‡‚Í0B•s³“ü—ÍI—¹‚Ìê‡‚Í7BˆÙíI—¹‚Ìê‡‚Í9B
-     * @throws IOException “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
-     * @throws IllegalArgumentException “ü—Í’l‚É•s³‚ªŒ©‚Â‚©‚Á‚½ê‡B
+     * @param input ãƒãƒƒãƒå‡¦ç†ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚
+     * @return ãƒãƒƒãƒå‡¦ç†ã®çµ‚äº†ã‚³ãƒ¼ãƒ‰ã€‚END_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR, END_BATCHPROCESS_EXCEPTION ã®ã„ãšã‚Œã‹ã®å€¤ã‚’æˆ»ã—ã¾ã™ã€‚æ­£å¸¸çµ‚äº†ã®å ´åˆã¯0ã€‚ä¸æ­£å…¥åŠ›çµ‚äº†ã®å ´åˆã¯7ã€‚ç•°å¸¸çµ‚äº†ã®å ´åˆã¯9ã€‚
+     * @throws IOException å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
+     * @throws IllegalArgumentException å…¥åŠ›å€¤ã«ä¸æ­£ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã€‚
      */
     public int process(final SampleProcessInput input) throws IOException, IllegalArgumentException {
-        // “ü—Íƒpƒ‰ƒ[ƒ^‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B
+        // å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ãƒã‚§ãƒƒã‚¯ã—ã¾ã™ã€‚
         validateInput(input);
 
-        // ‚±‚Ì‰ÓŠ‚ÅƒRƒ“ƒpƒCƒ‹ƒGƒ‰[‚ª”­¶‚·‚éê‡ASampleProcessƒCƒ“ƒ^ƒtƒF[ƒX‚ğÀ‘•‚µ‚Ä blanco.sample.batchprocessƒpƒbƒP[ƒW‚É SampleProcessImplƒNƒ‰ƒX‚ğì¬‚·‚é‚±‚Æ‚É‚æ‚è‰ğŒˆ‚Å‚«‚éê‡‚ª‚ ‚è‚Ü‚·B
+        // ã“ã®ç®‡æ‰€ã§ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹å ´åˆã€SampleProcessã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã—ã¦ blanco.sample.batchprocessãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã« SampleProcessImplã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šè§£æ±ºã§ãã‚‹å ´åˆãŒã‚ã‚Šã¾ã™ã€‚
         final SampleProcess process = new SampleProcessImpl();
 
-        // ˆ—‚Ì–{‘Ì‚ğÀs‚µ‚Ü‚·B
+        // å‡¦ç†ã®æœ¬ä½“ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
         final int retCode = process.execute(input);
 
         return retCode;
     }
 
     /**
-     * ƒNƒ‰ƒX‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»‚µ‚Äƒoƒbƒ`‚ğÀs‚·‚éÛ‚ÌƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒg‚Å‚·B
+     * ã‚¯ãƒ©ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã—ã¦ãƒãƒƒãƒã‚’å®Ÿè¡Œã™ã‚‹éš›ã®ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆã§ã™ã€‚
      *
-     * ‚±‚Ìƒƒ\ƒbƒh‚Í‰º‹L‚Ìd—l‚ğ’ñ‹Ÿ‚µ‚Ü‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä¸‹è¨˜ã®ä»•æ§˜ã‚’æä¾›ã—ã¾ã™ã€‚
      * <ul>
-     * <li>ƒƒ\ƒbƒh‚Ì“ü—Íƒpƒ‰ƒ[ƒ^‚Ì“à—eƒ`ƒFƒbƒNB
-     * <li>IllegalArgumentException, RuntimeException, Error‚È‚Ç‚Ì—áŠO‚ğcatch‚µ‚Ä–ß‚è’l‚Ö‚Æ•ÏŠ·B
+     * <li>ãƒ¡ã‚½ãƒƒãƒ‰ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å†…å®¹ãƒã‚§ãƒƒã‚¯ã€‚
+     * <li>IllegalArgumentException, RuntimeException, Errorãªã©ã®ä¾‹å¤–ã‚’catchã—ã¦æˆ»ã‚Šå€¤ã¸ã¨å¤‰æ›ã€‚
      * </ul>
      *
-     * @param input ƒoƒbƒ`ˆ—‚Ì“ü—Íƒpƒ‰ƒ[ƒ^B
-     * @return ƒoƒbƒ`ˆ—‚ÌI—¹ƒR[ƒhBEND_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR, END_BATCHPROCESS_EXCEPTION ‚Ì‚¢‚¸‚ê‚©‚Ì’l‚ğ–ß‚µ‚Ü‚·B³íI—¹‚Ìê‡‚Í0B•s³“ü—ÍI—¹‚Ìê‡‚Í7BˆÙíI—¹‚Ìê‡‚Í9B
-     * @throws IllegalArgumentException “ü—Í’l‚É•s³‚ªŒ©‚Â‚©‚Á‚½ê‡B
+     * @param input ãƒãƒƒãƒå‡¦ç†ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚
+     * @return ãƒãƒƒãƒå‡¦ç†ã®çµ‚äº†ã‚³ãƒ¼ãƒ‰ã€‚END_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR, END_BATCHPROCESS_EXCEPTION ã®ã„ãšã‚Œã‹ã®å€¤ã‚’æˆ»ã—ã¾ã™ã€‚æ­£å¸¸çµ‚äº†ã®å ´åˆã¯0ã€‚ä¸æ­£å…¥åŠ›çµ‚äº†ã®å ´åˆã¯7ã€‚ç•°å¸¸çµ‚äº†ã®å ´åˆã¯9ã€‚
+     * @throws IllegalArgumentException å…¥åŠ›å€¤ã«ä¸æ­£ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã€‚
      */
     public final int execute(final SampleProcessInput input) throws IllegalArgumentException {
         try {
             System.out.println("SampleBatchProcess: begin");
 
-            // ƒoƒbƒ`ˆ—‚Ì–{‘Ì‚ğÀs‚µ‚Ü‚·B
+            // ãƒãƒƒãƒå‡¦ç†ã®æœ¬ä½“ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
             int retCode = process(input);
 
             System.out.println("SampleBatchProcess: end (" + retCode + ")");
             return retCode;
         } catch (BlancoBatchProcessException ex) {
-            System.out.println("SampleBatchProcess: ƒoƒbƒ`ˆ——áŠO‚ª”­¶‚µ‚Ü‚µ‚½Bƒoƒbƒ`ˆ—‚ğ’†’f‚µ‚Ü‚·B:" + ex.toString());
-            // ƒoƒbƒ`ˆ——áŠOI—¹B
+            System.out.println("SampleBatchProcess: ãƒãƒƒãƒå‡¦ç†ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ãƒãƒƒãƒå‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚:" + ex.toString());
+            // ãƒãƒƒãƒå‡¦ç†ä¾‹å¤–çµ‚äº†ã€‚
             return END_BATCHPROCESS_EXCEPTION;
         } catch (IllegalArgumentException ex) {
-            System.out.println("SampleBatchProcess: “ü—Í—áŠO‚ª”­¶‚µ‚Ü‚µ‚½Bƒoƒbƒ`ˆ—‚ğ’†’f‚µ‚Ü‚·B:" + ex.toString());
-            // “ü—ÍˆÙíI—¹B
+            System.out.println("SampleBatchProcess: å…¥åŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ãƒãƒƒãƒå‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚:" + ex.toString());
+            // å…¥åŠ›ç•°å¸¸çµ‚äº†ã€‚
             return END_ILLEGAL_ARGUMENT_EXCEPTION;
         } catch (IOException ex) {
-            System.out.println("SampleBatchProcess: “üo—Í—áŠO‚ª”­¶‚µ‚Ü‚µ‚½Bƒoƒbƒ`ˆ—‚ğ’†’f‚µ‚Ü‚·B:" + ex.toString());
-            // “ü—ÍˆÙíI—¹B
+            System.out.println("SampleBatchProcess: å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ãƒãƒƒãƒå‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚:" + ex.toString());
+            // å…¥åŠ›ç•°å¸¸çµ‚äº†ã€‚
             return END_IO_EXCEPTION;
         } catch (RuntimeException ex) {
-            System.out.println("SampleBatchProcess: ƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª”­¶‚µ‚Ü‚µ‚½Bƒoƒbƒ`ˆ—‚ğ’†’f‚µ‚Ü‚·B:" + ex.toString());
+            System.out.println("SampleBatchProcess: ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ãƒãƒƒãƒå‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚:" + ex.toString());
             ex.printStackTrace();
-            // ˆÙíI—¹B
+            // ç•°å¸¸çµ‚äº†ã€‚
             return END_ERROR;
         } catch (Error er) {
-            System.out.println("SampleBatchProcess: ƒ‰ƒ“ƒ^ƒCƒ€ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½Bƒoƒbƒ`ˆ—‚ğ’†’f‚µ‚Ü‚·B:" + er.toString());
+            System.out.println("SampleBatchProcess: ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ãƒãƒƒãƒå‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚:" + er.toString());
             er.printStackTrace();
-            // ˆÙíI—¹B
+            // ç•°å¸¸çµ‚äº†ã€‚
             return END_ERROR;
         }
     }
 
     /**
-     * ‚±‚Ìƒoƒbƒ`ˆ—ƒNƒ‰ƒX‚Ìg‚¢•û‚Ìà–¾‚ğ•W€o—Í‚É¦‚·‚½‚ß‚Ìƒƒ\ƒbƒh‚Å‚·B
+     * ã“ã®ãƒãƒƒãƒå‡¦ç†ã‚¯ãƒ©ã‚¹ã®ä½¿ã„æ–¹ã®èª¬æ˜ã‚’æ¨™æº–å‡ºåŠ›ã«ç¤ºã™ãŸã‚ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ã™ã€‚
      */
     public static final void usage() {
         System.out.println("SampleBatchProcess: Usage:");
-        System.out.println("  java blanco.sample.batchprocess.SampleBatchProcess -require=’l1 -dispstr=’l2 -normalparam=’l3");
+        System.out.println("  java blanco.sample.batchprocess.SampleBatchProcess -require=å€¤1 -dispstr=å€¤2 -normalparam=å€¤3");
         System.out.println("    -require");
-        System.out.println("      à–¾[•K{ˆø”‚ÌƒTƒ“ƒvƒ‹B]");
-        System.out.println("      Œ^[•¶š—ñ]");
-        System.out.println("      •K{ƒpƒ‰ƒ[ƒ^");
+        System.out.println("      èª¬æ˜[å¿…é ˆå¼•æ•°ã®ã‚µãƒ³ãƒ—ãƒ«ã€‚]");
+        System.out.println("      å‹[æ–‡å­—åˆ—]");
+        System.out.println("      å¿…é ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿");
         System.out.println("    -dispstr");
-        System.out.println("      à–¾[•\¦•¶š—ñ‚ÌƒTƒ“ƒvƒ‹B]");
-        System.out.println("      Œ^[•¶š—ñ]");
-        System.out.println("      ƒfƒtƒHƒ‹ƒg’l[“Á‚Éw’è‚ª–³‚¢ê‡‚Ì•¶š—ñ]");
+        System.out.println("      èª¬æ˜[è¡¨ç¤ºæ–‡å­—åˆ—ã®ã‚µãƒ³ãƒ—ãƒ«ã€‚]");
+        System.out.println("      å‹[æ–‡å­—åˆ—]");
+        System.out.println("      ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤[ç‰¹ã«æŒ‡å®šãŒç„¡ã„å ´åˆã®æ–‡å­—åˆ—]");
         System.out.println("    -normalparam");
-        System.out.println("      à–¾[•K{‚Å‚à‚È‚­A‚Ü‚½ƒfƒtƒHƒ‹ƒg‚à‚½‚È‚¢ˆø”‚Ì—áB]");
-        System.out.println("      Œ^[•¶š—ñ]");
+        System.out.println("      èª¬æ˜[å¿…é ˆã§ã‚‚ãªãã€ã¾ãŸãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚‚æŒãŸãªã„å¼•æ•°ã®ä¾‹ã€‚]");
+        System.out.println("      å‹[æ–‡å­—åˆ—]");
         System.out.println("    -? , -help");
-        System.out.println("      à–¾[g‚¢•û‚ğ•\¦‚µ‚Ü‚·B]");
+        System.out.println("      èª¬æ˜[ä½¿ã„æ–¹ã‚’è¡¨ç¤ºã—ã¾ã™ã€‚]");
     }
 
     /**
-     * ‚±‚Ìƒoƒbƒ`ˆ—ƒNƒ‰ƒX‚Ì“ü—Íƒpƒ‰ƒ[ƒ^‚Ì‘Ã“–«ƒ`ƒFƒbƒN‚ğÀ{‚·‚é‚½‚ß‚Ìƒƒ\ƒbƒh‚Å‚·B
+     * ã“ã®ãƒãƒƒãƒå‡¦ç†ã‚¯ãƒ©ã‚¹ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å¦¥å½“æ€§ãƒã‚§ãƒƒã‚¯ã‚’å®Ÿæ–½ã™ã‚‹ãŸã‚ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ã™ã€‚
      *
-     * @param input ƒoƒbƒ`ˆ—‚Ì“ü—Íƒpƒ‰ƒ[ƒ^B
-     * @throws IllegalArgumentException “ü—Í’l‚É•s³‚ªŒ©‚Â‚©‚Á‚½ê‡B
+     * @param input ãƒãƒƒãƒå‡¦ç†ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚
+     * @throws IllegalArgumentException å…¥åŠ›å€¤ã«ä¸æ­£ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã€‚
      */
     public void validateInput(final SampleProcessInput input) throws IllegalArgumentException {
         if (input == null) {
-            throw new IllegalArgumentException("BlancoBatchProcessBatchProcess: ˆ—ŠJn¸”sB“ü—Íƒpƒ‰ƒ[ƒ^[input]‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+            throw new IllegalArgumentException("BlancoBatchProcessBatchProcess: å‡¦ç†é–‹å§‹å¤±æ•—ã€‚å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[input]ã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
         if (input.getRequire() == null) {
-            throw new IllegalArgumentException("SampleBatchProcess: ˆ—ŠJn¸”sB“ü—Íƒpƒ‰ƒ[ƒ^[input]‚Ì•K{ƒtƒB[ƒ‹ƒh’l[require]‚É’l‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+            throw new IllegalArgumentException("SampleBatchProcess: å‡¦ç†é–‹å§‹å¤±æ•—ã€‚å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[input]ã®å¿…é ˆãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å€¤[require]ã«å€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
         }
     }
 }

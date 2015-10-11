@@ -1,5 +1,5 @@
 /*
- * ‚±‚ÌƒNƒ‰ƒX‚Í 'AbstractBlancoBatchProcessConstants' ‚Ì‹ïÛƒNƒ‰ƒX‚Æ‚µ‚Ä blanco Framework ‚É‚æ‚Á‚Ä©“®¶¬‚³‚ê‚Ü‚µ‚½B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ 'AbstractBlancoBatchProcessConstants' ã®å…·è±¡ã‚¯ãƒ©ã‚¹ã¨ã—ã¦ blanco Framework ã«ã‚ˆã£ã¦è‡ªå‹•ç”Ÿæˆã•ã‚Œã¾ã—ãŸã€‚
  */
 package blanco.batchprocess;
 
@@ -14,7 +14,7 @@ public class BlancoBatchProcessConstants extends AbstractBlancoBatchProcessConst
      *
      * [@BlancoConstantsVersion]
      */
-    public static final String VERSION = "0.6.2-I201202242007";
+    public static final String VERSION = "0.6.2-I201510120642";
 
     /**
      * Getter for version constants.
@@ -28,10 +28,10 @@ public class BlancoBatchProcessConstants extends AbstractBlancoBatchProcessConst
     }
 
     /**
-     * ?v???_?N?g???B?p????w??????B
+     * ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆåã€‚è‹±å­—ã§æŒ‡å®šã—ã¾ã™ã€‚
      * [@BlancoGetterSetter]
      *
-     * @return æ“¾‚µ‚½‚¢’lB
+     * @return å–å¾—ã—ãŸã„å€¤ã€‚
      */
     public static String getProductName() {
         return PRODUCT_NAME;

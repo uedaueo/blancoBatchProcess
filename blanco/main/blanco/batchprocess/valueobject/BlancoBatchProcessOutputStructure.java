@@ -10,201 +10,201 @@
 package blanco.batchprocess.valueobject;
 
 /**
- * blancoBatchProcess ��������������o�b�`�����N���X�̏o�͂�����킵�܂��B
+ * blancoBatchProcess が自動生成するバッチ処理クラスの出力をあらわします。
  */
 public class BlancoBatchProcessOutputStructure {
     /**
-     * ����I�����̖߂�l�B
+     * 正常終了時の戻り値。
      *
-     * �t�B�[���h: [END_SUCCESS]�B
-     * �f�t�H���g: ["0"]�B
+     * フィールド: [END_SUCCESS]。
+     * デフォルト: ["0"]。
      */
     private String fEndSuccess = "0";
 
     /**
-     * �o�b�`������O�I�����̖߂�l�B�w�肳��Ă���ꍇ�� BlancoBatchProcessException ����������܂��B�w�肳��Ȃ��ꍇ�ɂ� BlancoBatchProcessException �͐�������܂���B
+     * バッチ処理例外終了時の戻り値。指定されている場合に BlancoBatchProcessException が生成されます。指定されない場合には BlancoBatchProcessException は生成されません。
      *
-     * �t�B�[���h: [END_BATCH_PROCESS_EXCEPTION]�B
+     * フィールド: [END_BATCH_PROCESS_EXCEPTION]。
      */
     private String fEndBatchProcessException;
 
     /**
-     * ���ُ͈�I�����̖߂�l�B
+     * 入力異常終了時の戻り値。
      *
-     * �t�B�[���h: [END_ILLEGAL_ARGUMENT_EXCEPTION]�B
-     * �f�t�H���g: ["7"]�B
+     * フィールド: [END_ILLEGAL_ARGUMENT_EXCEPTION]。
+     * デフォルト: ["7"]。
      */
     private String fEndIllegalArgumentException = "7";
 
     /**
-     * ���o�͗�O�I���̖߂�l�B
+     * 入出力例外終了の戻り値。
      *
-     * �t�B�[���h: [END_IO_EXCEPTION]�B
-     * �f�t�H���g: ["8"]�B
+     * フィールド: [END_IO_EXCEPTION]。
+     * デフォルト: ["8"]。
      */
     private String fEndIoException = "8";
 
     /**
-     * �ُ�I�����̖߂�l�B
+     * 異常終了時の戻り値。
      *
-     * �t�B�[���h: [END_ERROR]�B
-     * �f�t�H���g: ["9"]�B
+     * フィールド: [END_ERROR]。
+     * デフォルト: ["9"]。
      */
     private String fEndError = "9";
 
     /**
-     * �����B
+     * 説明。
      *
-     * �t�B�[���h: [DESCRIPTION]�B
+     * フィールド: [DESCRIPTION]。
      */
     private String fDescription;
 
     /**
-     * �t�B�[���h [END_SUCCESS] �̒l��ݒ肵�܂��B
+     * フィールド [END_SUCCESS] の値を設定します。
      *
-     * �t�B�[���h�̐���: [����I�����̖߂�l�B]�B
+     * フィールドの説明: [正常終了時の戻り値。]。
      *
-     * @param argEndSuccess �t�B�[���h[END_SUCCESS]�ɐݒ肷��l�B
+     * @param argEndSuccess フィールド[END_SUCCESS]に設定する値。
      */
     public void setEndSuccess(final String argEndSuccess) {
         fEndSuccess = argEndSuccess;
     }
 
     /**
-     * �t�B�[���h [END_SUCCESS] �̒l���擾���܂��B
+     * フィールド [END_SUCCESS] の値を取得します。
      *
-     * �t�B�[���h�̐���: [����I�����̖߂�l�B]�B
-     * �f�t�H���g: ["0"]�B
+     * フィールドの説明: [正常終了時の戻り値。]。
+     * デフォルト: ["0"]。
      *
-     * @return �t�B�[���h[END_SUCCESS]����擾�����l�B
+     * @return フィールド[END_SUCCESS]から取得した値。
      */
     public String getEndSuccess() {
         return fEndSuccess;
     }
 
     /**
-     * �t�B�[���h [END_BATCH_PROCESS_EXCEPTION] �̒l��ݒ肵�܂��B
+     * フィールド [END_BATCH_PROCESS_EXCEPTION] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�o�b�`������O�I�����̖߂�l�B�w�肳��Ă���ꍇ�� BlancoBatchProcessException ����������܂��B�w�肳��Ȃ��ꍇ�ɂ� BlancoBatchProcessException �͐�������܂���B]�B
+     * フィールドの説明: [バッチ処理例外終了時の戻り値。指定されている場合に BlancoBatchProcessException が生成されます。指定されない場合には BlancoBatchProcessException は生成されません。]。
      *
-     * @param argEndBatchProcessException �t�B�[���h[END_BATCH_PROCESS_EXCEPTION]�ɐݒ肷��l�B
+     * @param argEndBatchProcessException フィールド[END_BATCH_PROCESS_EXCEPTION]に設定する値。
      */
     public void setEndBatchProcessException(final String argEndBatchProcessException) {
         fEndBatchProcessException = argEndBatchProcessException;
     }
 
     /**
-     * �t�B�[���h [END_BATCH_PROCESS_EXCEPTION] �̒l���擾���܂��B
+     * フィールド [END_BATCH_PROCESS_EXCEPTION] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�o�b�`������O�I�����̖߂�l�B�w�肳��Ă���ꍇ�� BlancoBatchProcessException ����������܂��B�w�肳��Ȃ��ꍇ�ɂ� BlancoBatchProcessException �͐�������܂���B]�B
+     * フィールドの説明: [バッチ処理例外終了時の戻り値。指定されている場合に BlancoBatchProcessException が生成されます。指定されない場合には BlancoBatchProcessException は生成されません。]。
      *
-     * @return �t�B�[���h[END_BATCH_PROCESS_EXCEPTION]����擾�����l�B
+     * @return フィールド[END_BATCH_PROCESS_EXCEPTION]から取得した値。
      */
     public String getEndBatchProcessException() {
         return fEndBatchProcessException;
     }
 
     /**
-     * �t�B�[���h [END_ILLEGAL_ARGUMENT_EXCEPTION] �̒l��ݒ肵�܂��B
+     * フィールド [END_ILLEGAL_ARGUMENT_EXCEPTION] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���ُ͈�I�����̖߂�l�B]�B
+     * フィールドの説明: [入力異常終了時の戻り値。]。
      *
-     * @param argEndIllegalArgumentException �t�B�[���h[END_ILLEGAL_ARGUMENT_EXCEPTION]�ɐݒ肷��l�B
+     * @param argEndIllegalArgumentException フィールド[END_ILLEGAL_ARGUMENT_EXCEPTION]に設定する値。
      */
     public void setEndIllegalArgumentException(final String argEndIllegalArgumentException) {
         fEndIllegalArgumentException = argEndIllegalArgumentException;
     }
 
     /**
-     * �t�B�[���h [END_ILLEGAL_ARGUMENT_EXCEPTION] �̒l���擾���܂��B
+     * フィールド [END_ILLEGAL_ARGUMENT_EXCEPTION] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���ُ͈�I�����̖߂�l�B]�B
-     * �f�t�H���g: ["7"]�B
+     * フィールドの説明: [入力異常終了時の戻り値。]。
+     * デフォルト: ["7"]。
      *
-     * @return �t�B�[���h[END_ILLEGAL_ARGUMENT_EXCEPTION]����擾�����l�B
+     * @return フィールド[END_ILLEGAL_ARGUMENT_EXCEPTION]から取得した値。
      */
     public String getEndIllegalArgumentException() {
         return fEndIllegalArgumentException;
     }
 
     /**
-     * �t�B�[���h [END_IO_EXCEPTION] �̒l��ݒ肵�܂��B
+     * フィールド [END_IO_EXCEPTION] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���o�͗�O�I���̖߂�l�B]�B
+     * フィールドの説明: [入出力例外終了の戻り値。]。
      *
-     * @param argEndIoException �t�B�[���h[END_IO_EXCEPTION]�ɐݒ肷��l�B
+     * @param argEndIoException フィールド[END_IO_EXCEPTION]に設定する値。
      */
     public void setEndIoException(final String argEndIoException) {
         fEndIoException = argEndIoException;
     }
 
     /**
-     * �t�B�[���h [END_IO_EXCEPTION] �̒l���擾���܂��B
+     * フィールド [END_IO_EXCEPTION] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���o�͗�O�I���̖߂�l�B]�B
-     * �f�t�H���g: ["8"]�B
+     * フィールドの説明: [入出力例外終了の戻り値。]。
+     * デフォルト: ["8"]。
      *
-     * @return �t�B�[���h[END_IO_EXCEPTION]����擾�����l�B
+     * @return フィールド[END_IO_EXCEPTION]から取得した値。
      */
     public String getEndIoException() {
         return fEndIoException;
     }
 
     /**
-     * �t�B�[���h [END_ERROR] �̒l��ݒ肵�܂��B
+     * フィールド [END_ERROR] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�ُ�I�����̖߂�l�B]�B
+     * フィールドの説明: [異常終了時の戻り値。]。
      *
-     * @param argEndError �t�B�[���h[END_ERROR]�ɐݒ肷��l�B
+     * @param argEndError フィールド[END_ERROR]に設定する値。
      */
     public void setEndError(final String argEndError) {
         fEndError = argEndError;
     }
 
     /**
-     * �t�B�[���h [END_ERROR] �̒l���擾���܂��B
+     * フィールド [END_ERROR] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�ُ�I�����̖߂�l�B]�B
-     * �f�t�H���g: ["9"]�B
+     * フィールドの説明: [異常終了時の戻り値。]。
+     * デフォルト: ["9"]。
      *
-     * @return �t�B�[���h[END_ERROR]����擾�����l�B
+     * @return フィールド[END_ERROR]から取得した値。
      */
     public String getEndError() {
         return fEndError;
     }
 
     /**
-     * �t�B�[���h [DESCRIPTION] �̒l��ݒ肵�܂��B
+     * フィールド [DESCRIPTION] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�����B]�B
+     * フィールドの説明: [説明。]。
      *
-     * @param argDescription �t�B�[���h[DESCRIPTION]�ɐݒ肷��l�B
+     * @param argDescription フィールド[DESCRIPTION]に設定する値。
      */
     public void setDescription(final String argDescription) {
         fDescription = argDescription;
     }
 
     /**
-     * �t�B�[���h [DESCRIPTION] �̒l���擾���܂��B
+     * フィールド [DESCRIPTION] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�����B]�B
+     * フィールドの説明: [説明。]。
      *
-     * @return �t�B�[���h[DESCRIPTION]����擾�����l�B
+     * @return フィールド[DESCRIPTION]から取得した値。
      */
     public String getDescription() {
         return fDescription;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {

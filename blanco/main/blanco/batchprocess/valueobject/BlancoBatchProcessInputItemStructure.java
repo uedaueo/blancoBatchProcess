@@ -10,168 +10,168 @@
 package blanco.batchprocess.valueobject;
 
 /**
- * blancoBatchProcess ‚ª©“®¶¬‚·‚éƒoƒbƒ`ˆ—ƒNƒ‰ƒX‚Ì“ü—Í‚ğ‚ ‚ç‚í‚µ‚Ü‚·B
+ * blancoBatchProcess ãŒè‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒãƒƒãƒå‡¦ç†ã‚¯ãƒ©ã‚¹ã®å…¥åŠ›ã‚’ã‚ã‚‰ã‚ã—ã¾ã™ã€‚
  */
 public class BlancoBatchProcessInputItemStructure {
     /**
-     * ƒpƒ‰ƒ[ƒ^–¼‚ğw’è‚µ‚Ü‚·B
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿åã‚’æŒ‡å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [name]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [name]ã€‚
      */
     private String fName;
 
     /**
-     * Œ^‚ğ¦‚µ‚Ü‚·B
+     * å‹ã‚’ç¤ºã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [type]B
-     * ƒfƒtƒHƒ‹ƒg: ["blanco:string"]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [type]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: ["blanco:string"]ã€‚
      */
     private String fType = "blanco:string";
 
     /**
-     * •K{€–Ú‚Å‚ ‚é‚©‚Ç‚¤‚©B
+     * å¿…é ˆé …ç›®ã§ã‚ã‚‹ã‹ã©ã†ã‹ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [require]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [require]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      */
     private boolean fRequire = false;
 
     /**
-     * ƒfƒtƒHƒ‹ƒg’lB
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [default]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [default]ã€‚
      */
     private String fDefault;
 
     /**
-     * à–¾B
+     * èª¬æ˜ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [description]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [description]ã€‚
      */
     private String fDescription;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [name] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [name] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒpƒ‰ƒ[ƒ^–¼‚ğw’è‚µ‚Ü‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿åã‚’æŒ‡å®šã—ã¾ã™ã€‚]ã€‚
      *
-     * @param argName ƒtƒB[ƒ‹ƒh[name]‚Éİ’è‚·‚é’lB
+     * @param argName ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[name]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setName(final String argName) {
         fName = argName;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [name] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [name] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒpƒ‰ƒ[ƒ^–¼‚ğw’è‚µ‚Ü‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿åã‚’æŒ‡å®šã—ã¾ã™ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[name]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[name]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getName() {
         return fName;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [type] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [type] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [Œ^‚ğ¦‚µ‚Ü‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [å‹ã‚’ç¤ºã—ã¾ã™ã€‚]ã€‚
      *
-     * @param argType ƒtƒB[ƒ‹ƒh[type]‚Éİ’è‚·‚é’lB
+     * @param argType ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[type]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setType(final String argType) {
         fType = argType;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [type] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [type] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [Œ^‚ğ¦‚µ‚Ü‚·B]B
-     * ƒfƒtƒHƒ‹ƒg: ["blanco:string"]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [å‹ã‚’ç¤ºã—ã¾ã™ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: ["blanco:string"]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[type]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[type]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getType() {
         return fType;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [require] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [require] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [•K{€–Ú‚Å‚ ‚é‚©‚Ç‚¤‚©B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [å¿…é ˆé …ç›®ã§ã‚ã‚‹ã‹ã©ã†ã‹ã€‚]ã€‚
      *
-     * @param argRequire ƒtƒB[ƒ‹ƒh[require]‚Éİ’è‚·‚é’lB
+     * @param argRequire ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[require]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setRequire(final boolean argRequire) {
         fRequire = argRequire;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [require] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [require] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [•K{€–Ú‚Å‚ ‚é‚©‚Ç‚¤‚©B]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [å¿…é ˆé …ç›®ã§ã‚ã‚‹ã‹ã©ã†ã‹ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[require]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[require]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public boolean getRequire() {
         return fRequire;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [default] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [default] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒfƒtƒHƒ‹ƒg’lB]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã€‚]ã€‚
      *
-     * @param argDefault ƒtƒB[ƒ‹ƒh[default]‚Éİ’è‚·‚é’lB
+     * @param argDefault ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[default]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setDefault(final String argDefault) {
         fDefault = argDefault;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [default] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [default] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒfƒtƒHƒ‹ƒg’lB]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[default]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[default]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getDefault() {
         return fDefault;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [description] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [description] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [à–¾B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [èª¬æ˜ã€‚]ã€‚
      *
-     * @param argDescription ƒtƒB[ƒ‹ƒh[description]‚Éİ’è‚·‚é’lB
+     * @param argDescription ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[description]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setDescription(final String argDescription) {
         fDescription = argDescription;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [description] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [description] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [à–¾B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [èª¬æ˜ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[description]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[description]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getDescription() {
         return fDescription;
     }
 
     /**
-     * ‚±‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»‚ğæ“¾‚µ‚Ü‚·B
+     * ã“ã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * <P>g—pã‚Ì’ˆÓ</P>
+     * <P>ä½¿ç”¨ä¸Šã®æ³¨æ„</P>
      * <UL>
-     * <LI>ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[”ÍˆÍ‚Ì‚İ•¶š—ñ‰»‚Ìˆ—‘ÎÛ‚Æ‚È‚è‚Ü‚·B
-     * <LI>ƒIƒuƒWƒFƒNƒg‚ªzŠÂQÆ‚µ‚Ä‚¢‚éê‡‚É‚ÍA‚±‚Ìƒƒ\ƒbƒh‚Íg‚í‚È‚¢‚Å‚­‚¾‚³‚¢B
+     * <LI>ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ç¯„å›²ã®ã¿æ–‡å­—åˆ—åŒ–ã®å‡¦ç†å¯¾è±¡ã¨ãªã‚Šã¾ã™ã€‚
+     * <LI>ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå¾ªç’°å‚ç…§ã—ã¦ã„ã‚‹å ´åˆã«ã¯ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä½¿ã‚ãªã„ã§ãã ã•ã„ã€‚
      * </UL>
      *
-     * @return ƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»B
+     * @return ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã€‚
      */
     @Override
     public String toString() {

@@ -18,61 +18,62 @@ import blanco.cg.valueobject.BlancoCgClass;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * blancoBatchProcess‚Ì‚½‚ß‚Ì—áŠOƒNƒ‰ƒX‚ğo—Í‚µ‚Ü‚·B
+ * blancoBatchProcessã®ãŸã‚ã®ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚
  */
 class BlancoBatchProcessExpandException {
     /**
-     * o—Í‘ÎÛ‚Æ‚È‚éƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     * å‡ºåŠ›å¯¾è±¡ã¨ãªã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      */
     private int fTargetLang = BlancoBatchProcessSupportedLangStringGroup.NOT_DEFINED;
 
     /**
-     * “à•”“I‚É—˜—p‚·‚éblancoCg—pƒtƒ@ƒNƒgƒŠB
+     * å†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹blancoCgç”¨ãƒ•ã‚¡ã‚¯ãƒˆãƒªã€‚
      */
     private BlancoCgObjectFactory fCgFactory = null;
 
     /**
-     * “à•”“I‚É—˜—p‚·‚éblancoCg—pƒ\[ƒXƒtƒ@ƒCƒ‹î•ñB
+     * å†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹blancoCgç”¨ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«æƒ…å ±ã€‚
      */
     private BlancoCgSourceFile fCgSourceFile = null;
 
     /**
-     * “à•”“I‚É—˜—p‚·‚éblancoCg—pƒNƒ‰ƒXî•ñB
+     * å†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹blancoCgç”¨ã‚¯ãƒ©ã‚¹æƒ…å ±ã€‚
      */
     private BlancoCgClass fCgClass = null;
 
     /**
-     * ûW‚³‚ê‚½î•ñ‚ğŒ³‚ÉAƒ\[ƒXƒR[ƒh‚ğ©“®¶¬‚µ‚Ü‚·B
+     * åé›†ã•ã‚ŒãŸæƒ…å ±ã‚’å…ƒã«ã€ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argRuntimePackage
-     *            ƒƒ^ƒtƒ@ƒCƒ‹‚©‚çûW‚Å‚«‚½ˆ—\‘¢ƒf[ƒ^B
+     *            ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰åé›†ã§ããŸå‡¦ç†æ§‹é€ ãƒ‡ãƒ¼ã‚¿ã€‚
      * @param argTargetLang
-     *            o—Í‘ÎÛƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argDirectoryTarget
-     *            ƒ\[ƒXƒR[ƒh‚Ìo—ÍæƒtƒHƒ‹ƒ_B
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å‡ºåŠ›å…ˆãƒ•ã‚©ãƒ«ãƒ€ã€‚
      */
     public void expandSourceFile(final String argRuntimePackage,
             final int argTargetLang, final File argDirectoryTarget) {
         fTargetLang = argTargetLang;
 
-        // ]—ˆ‚ÆŒİŠ·«‚ğ‚½‚¹‚é‚½‚ßA/mainƒTƒuƒtƒHƒ‹ƒ_‚Éo—Í‚µ‚Ü‚·B
+        // å¾“æ¥ã¨äº’æ›æ€§ã‚’æŒãŸã›ã‚‹ãŸã‚ã€/mainã‚µãƒ–ãƒ•ã‚©ãƒ«ãƒ€ã«å‡ºåŠ›ã—ã¾ã™ã€‚
         final File fileBlancoMain = new File(argDirectoryTarget
                 .getAbsolutePath()
                 + "/main");
 
         fCgFactory = BlancoCgObjectFactory.getInstance();
         fCgSourceFile = fCgFactory.createSourceFile(argRuntimePackage, null);
+        fCgSourceFile.setEncoding("UTF-8"); // FIXME set encoding from input info.
         fCgClass = fCgFactory.createClass("BlancoBatchProcessException",
-                "ƒoƒbƒ`ˆ—‚É‚¨‚¢‚Ä—áŠO‚ª”­¶‚µ‚½Û‚É—˜—p‚³‚ê‚Ü‚·BblancoBatchProcess‚Ì—áŠO‚Å‚·B");
+                "ãƒãƒƒãƒå‡¦ç†ã«ãŠã„ã¦ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸéš›ã«åˆ©ç”¨ã•ã‚Œã¾ã™ã€‚blancoBatchProcessã®ä¾‹å¤–ã§ã™ã€‚");
         fCgSourceFile.getClassList().add(fCgClass);
 
         fCgClass.getExtendClassList().add(
                 fCgFactory.createType("java.lang.RuntimeException"));
 
-        // ƒVƒŠƒAƒ‹ID‚ÌŒx‚ğ—}§B
+        // ã‚·ãƒªã‚¢ãƒ«IDã®è­¦å‘Šã‚’æŠ‘åˆ¶ã€‚
         fCgClass.getAnnotationList().add("SuppressWarnings(\"serial\")");
 
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ğ’Ç‰Á‚µ‚Ü‚·B
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‚’è¿½åŠ ã—ã¾ã™ã€‚
         BlancoCgUtil.addConstructorForException(fCgFactory, fCgClass);
 
         switch (fTargetLang) {

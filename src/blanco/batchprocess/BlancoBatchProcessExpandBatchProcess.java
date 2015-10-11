@@ -27,36 +27,36 @@ import blanco.commons.util.BlancoNameAdjuster;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * ƒoƒbƒ`ˆ—’ŠÛƒNƒ‰ƒX‚ğ“WŠJ‚µ‚Ü‚·B
+ * ãƒãƒƒãƒå‡¦ç†æŠ½è±¡ã‚¯ãƒ©ã‚¹ã‚’å±•é–‹ã—ã¾ã™ã€‚
  */
 class BlancoBatchProcessExpandBatchProcess {
     /**
-     * o—Í‘ÎÛ‚Æ‚È‚éƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     * å‡ºåŠ›å¯¾è±¡ã¨ãªã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      */
     private int fTargetLang = BlancoBatchProcessSupportedLangStringGroup.NOT_DEFINED;
 
     /**
-     * ƒ‰ƒ“ƒ^ƒCƒ€ƒpƒbƒP[ƒWB
+     * ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã€‚
      */
     private String fRuntimePackage = null;
 
     /**
-     * “à•”“I‚É—˜—p‚·‚éblancoCg—pƒtƒ@ƒNƒgƒŠB
+     * å†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹blancoCgç”¨ãƒ•ã‚¡ã‚¯ãƒˆãƒªã€‚
      */
     private BlancoCgObjectFactory fCgFactory = null;
 
     /**
-     * “à•”“I‚É—˜—p‚·‚éblancoCg—pƒ\[ƒXƒtƒ@ƒCƒ‹î•ñB
+     * å†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹blancoCgç”¨ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«æƒ…å ±ã€‚
      */
     private BlancoCgSourceFile fCgSourceFile = null;
 
     /**
-     * “à•”“I‚É—˜—p‚·‚éblancoCg—pƒNƒ‰ƒXî•ñB
+     * å†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹blancoCgç”¨ã‚¯ãƒ©ã‚¹æƒ…å ±ã€‚
      */
     private BlancoCgClass fCgClass = null;
 
     /**
-     * ©“®¶¬‚·‚éƒ\[ƒXƒtƒ@ƒCƒ‹‚Ì•¶šƒGƒ“ƒR[ƒfƒBƒ“ƒOB
+     * è‡ªå‹•ç”Ÿæˆã™ã‚‹ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã€‚
      */
     private String fEncoding = null;
 
@@ -65,16 +65,16 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * ûW‚³‚ê‚½î•ñ‚ğŒ³‚ÉAƒ\[ƒXƒR[ƒh‚ğ©“®¶¬‚µ‚Ü‚·B
+     * åé›†ã•ã‚ŒãŸæƒ…å ±ã‚’å…ƒã«ã€ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argProcessStructure
-     *            ƒƒ^ƒtƒ@ƒCƒ‹‚©‚çûW‚Å‚«‚½ˆ—\‘¢ƒf[ƒ^B
+     *            ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰åé›†ã§ããŸå‡¦ç†æ§‹é€ ãƒ‡ãƒ¼ã‚¿ã€‚
      * @param argRuntimePackage
-     *            ƒ‰ƒ“ƒ^ƒCƒ€ƒpƒbƒP[ƒWBnull‚¨‚æ‚Ñ’·‚³0‚Ì•¶š—ñ‚Ìê‡‚Í’è‹`‘‚²‚Æ‚Éƒ‰ƒ“ƒ^ƒCƒ€ƒNƒ‰ƒX‚ğ¶¬B
+     *            ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã€‚nullãŠã‚ˆã³é•·ã•0ã®æ–‡å­—åˆ—ã®å ´åˆã¯å®šç¾©æ›¸ã”ã¨ã«ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ã‚¯ãƒ©ã‚¹ã‚’ç”Ÿæˆã€‚
      * @param argTargetLang
-     *            o—Í‘ÎÛƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argDirectoryTarget
-     *            ƒ\[ƒXƒR[ƒh‚Ìo—ÍæƒtƒHƒ‹ƒ_B
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å‡ºåŠ›å…ˆãƒ•ã‚©ãƒ«ãƒ€ã€‚
      */
     public void expandSourceFile(
             final BlancoBatchProcessStructure argProcessStructure,
@@ -83,7 +83,7 @@ class BlancoBatchProcessExpandBatchProcess {
         fRuntimePackage = argRuntimePackage;
         fTargetLang = argTargetLang;
 
-        // ]—ˆ‚ÆŒİŠ·«‚ğ‚½‚¹‚é‚½‚ßA/mainƒTƒuƒtƒHƒ‹ƒ_‚Éo—Í‚µ‚Ü‚·B
+        // å¾“æ¥ã¨äº’æ›æ€§ã‚’æŒãŸã›ã‚‹ãŸã‚ã€/mainã‚µãƒ–ãƒ•ã‚©ãƒ«ãƒ€ã«å‡ºåŠ›ã—ã¾ã™ã€‚
         final File fileBlancoMain = new File(argDirectoryTarget
                 .getAbsolutePath()
                 + "/main");
@@ -97,14 +97,14 @@ class BlancoBatchProcessExpandBatchProcess {
                         .null2Blank(argProcessStructure.getDescription()));
         fCgSourceFile.getClassList().add(fCgClass);
 
-        fCgClass.setDescription("ƒoƒbƒ`ˆ—ƒNƒ‰ƒX ["
-                + getBatchProcessClassName(argProcessStructure) + "]B");
+        fCgClass.setDescription("ãƒãƒƒãƒå‡¦ç†ã‚¯ãƒ©ã‚¹ ["
+                + getBatchProcessClassName(argProcessStructure) + "]ã€‚");
         fCgClass.getLangDoc().getDescriptionList().add("");
-        fCgClass.getLangDoc().getDescriptionList().add("<P>ƒoƒbƒ`ˆ—‚ÌŒÄ‚Ño‚µ—áB</P>");
+        fCgClass.getLangDoc().getDescriptionList().add("<P>ãƒãƒƒãƒå‡¦ç†ã®å‘¼ã³å‡ºã—ä¾‹ã€‚</P>");
 
         fCgClass.getLangDoc().getDescriptionList().add("<code>");
         fCgClass.getLangDoc().getDescriptionList().add(
-                "java -classpath (ƒNƒ‰ƒXƒpƒX) " + argProcessStructure.getPackage()
+                "java -classpath (ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹) " + argProcessStructure.getPackage()
                         + "." + getBatchProcessClassName(argProcessStructure)
                         + " -help");
         fCgClass.getLangDoc().getDescriptionList().add("</code>");
@@ -119,18 +119,18 @@ class BlancoBatchProcessExpandBatchProcess {
         if (BlancoStringUtil.null2Blank(
                 argProcessStructure.getOutput().getEndBatchProcessException())
                 .length() > 0) {
-            // ƒoƒbƒ`ˆ——áŠOI—¹‚Ì’l‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚É‚Ì‚İ¶¬‚µ‚Ü‚·B
+            // ãƒãƒƒãƒå‡¦ç†ä¾‹å¤–çµ‚äº†ã®å€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã®ã¿ç”Ÿæˆã—ã¾ã™ã€‚
 
             fCgSourceFile.getImportList().add(
                     getBatchProcessExceptionClassName(argProcessStructure));
 
             if (BlancoStringUtil.null2Blank(fRuntimePackage).length() == 0) {
-                // ’è‹`‘‚²‚Æ‚É“¯ˆêƒpƒbƒP[ƒW‚Éƒ‰ƒ“ƒ^ƒCƒ€ƒNƒ‰ƒX‚ğ¶¬B
+                // å®šç¾©æ›¸ã”ã¨ã«åŒä¸€ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã«ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ã‚¯ãƒ©ã‚¹ã‚’ç”Ÿæˆã€‚
                 new BlancoBatchProcessExpandException().expandSourceFile(
                         argProcessStructure.getPackage(), fTargetLang,
                         argDirectoryTarget);
             } else {
-                // ƒ‰ƒ“ƒ^ƒCƒ€ƒpƒbƒP[ƒWw’è‚ª‚ ‚é‚Ì‚ÅAw’è‚Ìƒ‰ƒ“ƒ^ƒCƒ€ƒpƒbƒP[ƒW‚ÉƒNƒ‰ƒX‚ğ¶¬B
+                // ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸æŒ‡å®šãŒã‚ã‚‹ã®ã§ã€æŒ‡å®šã®ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã«ã‚¯ãƒ©ã‚¹ã‚’ç”Ÿæˆã€‚
                 new BlancoBatchProcessExpandException().expandSourceFile(
                         fRuntimePackage, fTargetLang, argDirectoryTarget);
             }
@@ -147,17 +147,17 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param argProcessStructure
-     *            ƒƒ^ƒtƒ@ƒCƒ‹‚©‚çûW‚Å‚«‚½ˆ—\‘¢ƒf[ƒ^B
+     *            ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰åé›†ã§ããŸå‡¦ç†æ§‹é€ ãƒ‡ãƒ¼ã‚¿ã€‚
      */
     private void expandField(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         {
             final BlancoCgField field = fCgFactory.createField("END_SUCCESS",
-                    "int", "³íI—¹B");
+                    "int", "æ­£å¸¸çµ‚äº†ã€‚");
             fCgClass.getFieldList().add(field);
 
             field.setAccess("public");
@@ -169,11 +169,11 @@ class BlancoBatchProcessExpandBatchProcess {
         if (BlancoStringUtil.null2Blank(
                 argProcessStructure.getOutput().getEndBatchProcessException())
                 .length() > 0) {
-            // ƒoƒbƒ`ˆ——áŠOI—¹‚Ì’l‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚É‚Ì‚İ¶¬‚µ‚Ü‚·B
+            // ãƒãƒƒãƒå‡¦ç†ä¾‹å¤–çµ‚äº†ã®å€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã®ã¿ç”Ÿæˆã—ã¾ã™ã€‚
 
             final BlancoCgField field = fCgFactory.createField(
                     "END_BATCHPROCESS_EXCEPTION", "int",
-                    "ƒoƒbƒ`ˆ——áŠOI—¹B“à•”“I‚ÉBatchProcessException‚ª”­¶‚µ‚½ê‡B");
+                    "ãƒãƒƒãƒå‡¦ç†ä¾‹å¤–çµ‚äº†ã€‚å†…éƒ¨çš„ã«BatchProcessExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€‚");
             fCgClass.getFieldList().add(field);
 
             field.setAccess("public");
@@ -186,7 +186,7 @@ class BlancoBatchProcessExpandBatchProcess {
         {
             final BlancoCgField field = fCgFactory.createField(
                     "END_ILLEGAL_ARGUMENT_EXCEPTION", "int",
-                    "“ü—ÍˆÙíI—¹B“à•”“I‚Éjava.lang.IllegalArgumentException‚ª”­¶‚µ‚½ê‡B");
+                    "å…¥åŠ›ç•°å¸¸çµ‚äº†ã€‚å†…éƒ¨çš„ã«java.lang.IllegalArgumentExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€‚");
             fCgClass.getFieldList().add(field);
 
             field.setAccess("public");
@@ -199,7 +199,7 @@ class BlancoBatchProcessExpandBatchProcess {
         {
             final BlancoCgField field = fCgFactory.createField(
                     "END_IO_EXCEPTION", "int",
-                    "“üo—Í—áŠOI—¹B“à•”“I‚Éjava.io.IOException‚ª”­¶‚µ‚½ê‡B");
+                    "å…¥å‡ºåŠ›ä¾‹å¤–çµ‚äº†ã€‚å†…éƒ¨çš„ã«java.io.IOExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€‚");
             fCgClass.getFieldList().add(field);
 
             field.setAccess("public");
@@ -214,7 +214,7 @@ class BlancoBatchProcessExpandBatchProcess {
                     .createField(
                             "END_ERROR",
                             "int",
-                            "ˆÙíI—¹Bƒoƒbƒ`‚Ìˆ—ŠJn‚É¸”s‚µ‚½ê‡A‚¨‚æ‚Ñ“à•”“I‚Éjava.lang.Error‚Ü‚½‚Íjava.lang.RuntimeException‚ª”­¶‚µ‚½ê‡B");
+                            "ç•°å¸¸çµ‚äº†ã€‚ãƒãƒƒãƒã®å‡¦ç†é–‹å§‹ã«å¤±æ•—ã—ãŸå ´åˆã€ãŠã‚ˆã³å†…éƒ¨çš„ã«java.lang.Errorã¾ãŸã¯java.lang.RuntimeExceptionãŒç™ºç”Ÿã—ãŸå ´åˆã€‚");
             fCgClass.getFieldList().add(field);
 
             field.setAccess("public");
@@ -225,30 +225,30 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * main ƒƒ\ƒbƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * main ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param argProcessStructure
-     *            ƒƒ^ƒtƒ@ƒCƒ‹‚©‚çûW‚Å‚«‚½ˆ—\‘¢ƒf[ƒ^B
+     *            ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰åé›†ã§ããŸå‡¦ç†æ§‹é€ ãƒ‡ãƒ¼ã‚¿ã€‚
      */
     private void expandMethodMain(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         final BlancoCgMethod method = fCgFactory.createMethod("main",
-                "ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚©‚çÀs‚³‚ê‚½Û‚ÌƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒg‚Å‚·B");
+                "ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‹ã‚‰å®Ÿè¡Œã•ã‚ŒãŸéš›ã®ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆã§ã™ã€‚");
         fCgClass.getMethodList().add(method);
 
         method.setStatic(true);
         method.setFinal(true);
         method.getParameterList().add(
                 fCgFactory.createParameter("args", "java.lang.String[]",
-                        "ƒRƒ“ƒ\[ƒ‹‚©‚çˆø‚«Œp‚ª‚ê‚½ˆø”B"));
+                        "ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‹ã‚‰å¼•ãç¶™ãŒã‚ŒãŸå¼•æ•°ã€‚"));
 
         final List<java.lang.String> listLine = method.getLineList();
         listLine.add("final " + getBatchProcessClassName(argProcessStructure)
                 + " batchProcess = new "
                 + getBatchProcessClassName(argProcessStructure) + "();");
         listLine.add("");
-        listLine.add("// ƒoƒbƒ`ˆ—‚Ìˆø”B");
+        listLine.add("// ãƒãƒƒãƒå‡¦ç†ã®å¼•æ•°ã€‚");
         final String valueObjectClassname = BlancoBatchProcessExpandProcessInput
                 .getBatchProcessValueObjectInputClassName(argProcessStructure);
         fCgSourceFile.getImportList().add(
@@ -271,7 +271,7 @@ class BlancoBatchProcessExpandBatchProcess {
         }
 
         listLine.add("");
-        listLine.add("// ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”‚Ì‰ğÍ‚ğ‚¨‚±‚È‚¢‚Ü‚·B");
+        listLine.add("// ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°ã®è§£æã‚’ãŠã“ãªã„ã¾ã™ã€‚");
         listLine.add("for (int index = 0; index < args.length; index++) {");
         listLine.add("String arg = args[index];");
         for (int index = 0; index < argProcessStructure.getInputItemList()
@@ -302,9 +302,9 @@ class BlancoBatchProcessExpandBatchProcess {
                 listLine.add("} catch (NumberFormatException e) {");
                 listLine.add("System.out.println(\""
                         + getBatchProcessClassName(argProcessStructure)
-                        + ": ˆ—ŠJn¸”sB“ü—Íƒpƒ‰ƒ[ƒ^[input]‚ÌƒtƒB[ƒ‹ƒh["
+                        + ": å‡¦ç†é–‹å§‹å¤±æ•—ã€‚å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[input]ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰["
                         + inputItem.getName()
-                        + "]‚ğ”’l(int)‚Æ‚µ‚Äƒp[ƒX‚ğ‚İ‚Ü‚µ‚½‚ª¸”s‚µ‚Ü‚µ‚½B: \" + e.toString());");
+                        + "]ã‚’æ•°å€¤(int)ã¨ã—ã¦ãƒ‘ãƒ¼ã‚¹ã‚’è©¦ã¿ã¾ã—ãŸãŒå¤±æ•—ã—ã¾ã—ãŸã€‚: \" + e.toString());");
                 listLine.add("System.exit(END_ILLEGAL_ARGUMENT_EXCEPTION);");
                 listLine.add("}");
                 break;
@@ -318,9 +318,9 @@ class BlancoBatchProcessExpandBatchProcess {
                 listLine
                         .add("System.out.println(\""
                                 + getBatchProcessClassName(argProcessStructure)
-                                + ": ˆ—ŠJn¸”sB“ü—Íƒpƒ‰ƒ[ƒ^[input]‚ÌƒtƒB[ƒ‹ƒh["
+                                + ": å‡¦ç†é–‹å§‹å¤±æ•—ã€‚å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[input]ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰["
                                 + inputItem.getName()
-                                + "]‚ğ”’l(long)‚Æ‚µ‚Äƒp[ƒX‚ğ‚İ‚Ü‚µ‚½‚ª¸”s‚µ‚Ü‚µ‚½B: \" + e.toString());");
+                                + "]ã‚’æ•°å€¤(long)ã¨ã—ã¦ãƒ‘ãƒ¼ã‚¹ã‚’è©¦ã¿ã¾ã—ãŸãŒå¤±æ•—ã—ã¾ã—ãŸã€‚: \" + e.toString());");
                 listLine.add("System.exit(END_ILLEGAL_ARGUMENT_EXCEPTION);");
                 listLine.add("}");
                 break;
@@ -335,9 +335,9 @@ class BlancoBatchProcessExpandBatchProcess {
                 listLine
                         .add("System.out.println(\""
                                 + getBatchProcessClassName(argProcessStructure)
-                                + ": ˆ—ŠJn¸”sB“ü—Íƒpƒ‰ƒ[ƒ^[input]‚ÌƒtƒB[ƒ‹ƒh["
+                                + ": å‡¦ç†é–‹å§‹å¤±æ•—ã€‚å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[input]ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰["
                                 + inputItem.getName()
-                                + "]‚ğ”’l(decimal)‚Æ‚µ‚Äƒp[ƒX‚ğ‚İ‚Ü‚µ‚½‚ª¸”s‚µ‚Ü‚µ‚½B: \" + e.toString());");
+                                + "]ã‚’æ•°å€¤(decimal)ã¨ã—ã¦ãƒ‘ãƒ¼ã‚¹ã‚’è©¦ã¿ã¾ã—ãŸãŒå¤±æ•—ã—ã¾ã—ãŸã€‚: \" + e.toString());");
                 listLine.add("System.exit(END_ILLEGAL_ARGUMENT_EXCEPTION);");
                 listLine.add("}");
                 break;
@@ -363,7 +363,7 @@ class BlancoBatchProcessExpandBatchProcess {
         listLine.add("} else {");
         listLine.add("System.out.println(\""
                 + getBatchProcessClassName(argProcessStructure)
-                + ": “ü—Íƒpƒ‰ƒ[ƒ^[\" + arg + \"]‚Í–³‹‚³‚ê‚Ü‚µ‚½B\");");
+                + ": å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[\" + arg + \"]ã¯ç„¡è¦–ã•ã‚Œã¾ã—ãŸã€‚\");");
         listLine.add("isNeedUsage = true;");
         listLine.add("}");
         listLine.add("}");
@@ -382,8 +382,8 @@ class BlancoBatchProcessExpandBatchProcess {
                         + "Processed == false) {");
                 listLine.add("System.out.println(\""
                         + getBatchProcessClassName(argProcessStructure)
-                        + ": ˆ—ŠJn¸”sB“ü—Íƒpƒ‰ƒ[ƒ^[input]‚Ì•K{ƒtƒB[ƒ‹ƒh’l["
-                        + inputItem.getName() + "]‚É’l‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB\");");
+                        + ": å‡¦ç†é–‹å§‹å¤±æ•—ã€‚å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[input]ã®å¿…é ˆãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å€¤["
+                        + inputItem.getName() + "]ã«å€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚\");");
                 listLine.add("System.exit(END_ILLEGAL_ARGUMENT_EXCEPTION);");
                 listLine.add("}");
             }
@@ -391,33 +391,33 @@ class BlancoBatchProcessExpandBatchProcess {
         listLine.add("");
         listLine.add("int retCode = batchProcess.execute(input);");
         listLine.add("");
-        listLine.add("// I—¹ƒR[ƒh‚ğ–ß‚µ‚Ü‚·B");
-        listLine.add("// ¦’ˆÓFSystem.exit()‚ğŒÄ‚Ño‚µ‚Ä‚¢‚é“_‚É’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢B");
+        listLine.add("// çµ‚äº†ã‚³ãƒ¼ãƒ‰ã‚’æˆ»ã—ã¾ã™ã€‚");
+        listLine.add("// â€»æ³¨æ„ï¼šSystem.exit()ã‚’å‘¼ã³å‡ºã—ã¦ã„ã‚‹ç‚¹ã«æ³¨æ„ã—ã¦ãã ã•ã„ã€‚");
         listLine.add("System.exit(retCode);");
     }
 
     /**
-     * execute ƒƒ\ƒbƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * execute ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param argProcessStructure
-     *            ƒƒ^ƒtƒ@ƒCƒ‹‚©‚çûW‚Å‚«‚½ˆ—\‘¢ƒf[ƒ^B
+     *            ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰åé›†ã§ããŸå‡¦ç†æ§‹é€ ãƒ‡ãƒ¼ã‚¿ã€‚
      */
     private void expandMethodExecute(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         final BlancoCgMethod method = fCgFactory.createMethod("execute",
-                "ƒNƒ‰ƒX‚ğƒCƒ“ƒXƒ^ƒ“ƒX‰»‚µ‚Äƒoƒbƒ`‚ğÀs‚·‚éÛ‚ÌƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒg‚Å‚·B");
+                "ã‚¯ãƒ©ã‚¹ã‚’ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã—ã¦ãƒãƒƒãƒã‚’å®Ÿè¡Œã™ã‚‹éš›ã®ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆã§ã™ã€‚");
         fCgClass.getMethodList().add(method);
         method.setFinal(true);
-        method.getLangDoc().getDescriptionList().add("‚±‚Ìƒƒ\ƒbƒh‚Í‰º‹L‚Ìd—l‚ğ’ñ‹Ÿ‚µ‚Ü‚·B");
+        method.getLangDoc().getDescriptionList().add("ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä¸‹è¨˜ã®ä»•æ§˜ã‚’æä¾›ã—ã¾ã™ã€‚");
         method.getLangDoc().getDescriptionList().add("<ul>");
         method.getLangDoc().getDescriptionList()
-                .add("<li>ƒƒ\ƒbƒh‚Ì“ü—Íƒpƒ‰ƒ[ƒ^‚Ì“à—eƒ`ƒFƒbƒNB");
+                .add("<li>ãƒ¡ã‚½ãƒƒãƒ‰ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å†…å®¹ãƒã‚§ãƒƒã‚¯ã€‚");
         method
                 .getLangDoc()
                 .getDescriptionList()
                 .add(
-                        "<li>IllegalArgumentException, RuntimeException, Error‚È‚Ç‚Ì—áŠO‚ğcatch‚µ‚Ä–ß‚è’l‚Ö‚Æ•ÏŠ·B");
+                        "<li>IllegalArgumentException, RuntimeException, Errorãªã©ã®ä¾‹å¤–ã‚’catchã—ã¦æˆ»ã‚Šå€¤ã¸ã¨å¤‰æ›ã€‚");
         method.getLangDoc().getDescriptionList().add("</ul>");
 
         method
@@ -430,13 +430,13 @@ class BlancoBatchProcessExpandBatchProcess {
                                                 + ".valueobject."
                                                 + BlancoBatchProcessExpandProcessInput
                                                         .getBatchProcessValueObjectInputClassName(argProcessStructure),
-                                        "ƒoƒbƒ`ˆ—‚Ì“ü—Íƒpƒ‰ƒ[ƒ^B"));
+                                        "ãƒãƒƒãƒå‡¦ç†ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚"));
         method.setReturn(fCgFactory.createReturn("int",
                 getReturnJavadocDescription(argProcessStructure)));
         method.getThrowList().add(
                 fCgFactory
                         .createException("java.lang.IllegalArgumentException",
-                                "“ü—Í’l‚É•s³‚ªŒ©‚Â‚©‚Á‚½ê‡B"));
+                                "å…¥åŠ›å€¤ã«ä¸æ­£ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã€‚"));
 
         final List<java.lang.String> listLine = method.getLineList();
 
@@ -448,7 +448,7 @@ class BlancoBatchProcessExpandBatchProcess {
             listLine.add("");
         }
 
-        listLine.add("// ƒoƒbƒ`ˆ—‚Ì–{‘Ì‚ğÀs‚µ‚Ü‚·B");
+        listLine.add("// ãƒãƒƒãƒå‡¦ç†ã®æœ¬ä½“ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚");
         listLine.add("int retCode = process(input);");
         listLine.add("");
         if (argProcessStructure.getShowMessageBeginEnd()) {
@@ -461,58 +461,58 @@ class BlancoBatchProcessExpandBatchProcess {
         if (BlancoStringUtil.null2Blank(
                 argProcessStructure.getOutput().getEndBatchProcessException())
                 .length() > 0) {
-            // ƒoƒbƒ`ˆ——áŠOI—¹‚Ì’l‚ªİ’è‚³‚ê‚Ä‚¢‚éê‡‚É‚Ì‚İ¶¬‚µ‚Ü‚·B
+            // ãƒãƒƒãƒå‡¦ç†ä¾‹å¤–çµ‚äº†ã®å€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã«ã®ã¿ç”Ÿæˆã—ã¾ã™ã€‚
 
             listLine.add("} catch (BlancoBatchProcessException ex) {");
             listLine.add("System.out.println(\""
                     + getBatchProcessClassName(argProcessStructure)
-                    + ": ƒoƒbƒ`ˆ——áŠO‚ª”­¶‚µ‚Ü‚µ‚½Bƒoƒbƒ`ˆ—‚ğ’†’f‚µ‚Ü‚·B:\" + ex.toString());");
-            listLine.add("// ƒoƒbƒ`ˆ——áŠOI—¹B");
+                    + ": ãƒãƒƒãƒå‡¦ç†ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ãƒãƒƒãƒå‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚:\" + ex.toString());");
+            listLine.add("// ãƒãƒƒãƒå‡¦ç†ä¾‹å¤–çµ‚äº†ã€‚");
             listLine.add("return END_BATCHPROCESS_EXCEPTION;");
         }
         listLine.add("} catch (IllegalArgumentException ex) {");
         listLine.add("System.out.println(\""
                 + getBatchProcessClassName(argProcessStructure)
-                + ": “ü—Í—áŠO‚ª”­¶‚µ‚Ü‚µ‚½Bƒoƒbƒ`ˆ—‚ğ’†’f‚µ‚Ü‚·B:\" + ex.toString());");
-        listLine.add("// “ü—ÍˆÙíI—¹B");
+                + ": å…¥åŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ãƒãƒƒãƒå‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚:\" + ex.toString());");
+        listLine.add("// å…¥åŠ›ç•°å¸¸çµ‚äº†ã€‚");
         listLine.add("return END_ILLEGAL_ARGUMENT_EXCEPTION;");
         listLine.add("} catch (IOException ex) {");
         listLine.add("System.out.println(\""
                 + getBatchProcessClassName(argProcessStructure)
-                + ": “üo—Í—áŠO‚ª”­¶‚µ‚Ü‚µ‚½Bƒoƒbƒ`ˆ—‚ğ’†’f‚µ‚Ü‚·B:\" + ex.toString());");
-        listLine.add("// “ü—ÍˆÙíI—¹B");
+                + ": å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ãƒãƒƒãƒå‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚:\" + ex.toString());");
+        listLine.add("// å…¥åŠ›ç•°å¸¸çµ‚äº†ã€‚");
         listLine.add("return END_IO_EXCEPTION;");
         listLine.add("} catch (RuntimeException ex) {");
         listLine.add("System.out.println(\""
                 + getBatchProcessClassName(argProcessStructure)
-                + ": ƒ‰ƒ“ƒ^ƒCƒ€—áŠO‚ª”­¶‚µ‚Ü‚µ‚½Bƒoƒbƒ`ˆ—‚ğ’†’f‚µ‚Ü‚·B:\" + ex.toString());");
+                + ": ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ãƒãƒƒãƒå‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚:\" + ex.toString());");
         listLine.add("ex.printStackTrace();");
-        listLine.add("// ˆÙíI—¹B");
+        listLine.add("// ç•°å¸¸çµ‚äº†ã€‚");
         listLine.add("return END_ERROR;");
         listLine.add("} catch (Error er) {");
         listLine.add("System.out.println(\""
                 + getBatchProcessClassName(argProcessStructure)
-                + ": ƒ‰ƒ“ƒ^ƒCƒ€ƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½Bƒoƒbƒ`ˆ—‚ğ’†’f‚µ‚Ü‚·B:\" + er.toString());");
+                + ": ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ãƒãƒƒãƒå‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã™ã€‚:\" + er.toString());");
         listLine.add("er.printStackTrace();");
-        listLine.add("// ˆÙíI—¹B");
+        listLine.add("// ç•°å¸¸çµ‚äº†ã€‚");
         listLine.add("return END_ERROR;");
         listLine.add("}");
     }
 
     /**
-     * process ƒƒ\ƒbƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * process ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param argProcessStructure
-     *            ƒƒ^ƒtƒ@ƒCƒ‹‚©‚çûW‚Å‚«‚½ˆ—\‘¢ƒf[ƒ^B
+     *            ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰åé›†ã§ããŸå‡¦ç†æ§‹é€ ãƒ‡ãƒ¼ã‚¿ã€‚
      */
     private void expandMethodProcess(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         final BlancoCgMethod method = fCgFactory.createMethod("process",
-                "‹ï‘Ì“I‚Èƒoƒbƒ`ˆ—“à—e‚ğ‹Lq‚·‚é‚½‚ß‚Ìƒƒ\ƒbƒh‚Å‚·B");
+                "å…·ä½“çš„ãªãƒãƒƒãƒå‡¦ç†å†…å®¹ã‚’è¨˜è¿°ã™ã‚‹ãŸã‚ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ã™ã€‚");
         fCgClass.getMethodList().add(method);
 
-        method.getLangDoc().getDescriptionList().add("‚±‚Ìƒƒ\ƒbƒh‚ÉÀÛ‚Ìˆ—“à—e‚ğ‹Lq‚µ‚Ü‚·B");
+        method.getLangDoc().getDescriptionList().add("ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«å®Ÿéš›ã®å‡¦ç†å†…å®¹ã‚’è¨˜è¿°ã—ã¾ã™ã€‚");
         method
                 .getParameterList()
                 .add(
@@ -523,50 +523,50 @@ class BlancoBatchProcessExpandBatchProcess {
                                                 + ".valueobject."
                                                 + BlancoBatchProcessExpandProcessInput
                                                         .getBatchProcessValueObjectInputClassName(argProcessStructure),
-                                        "ƒoƒbƒ`ˆ—‚Ì“ü—Íƒpƒ‰ƒ[ƒ^B"));
+                                        "ãƒãƒƒãƒå‡¦ç†ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚"));
         method.setReturn(fCgFactory.createReturn("int",
                 getReturnJavadocDescription(argProcessStructure)));
         method.getThrowList().add(
                 fCgFactory.createException("java.io.IOException",
-                        "“üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B"));
+                        "å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚"));
         method.getThrowList().add(
                 fCgFactory
                         .createException("java.lang.IllegalArgumentException",
-                                "“ü—Í’l‚É•s³‚ªŒ©‚Â‚©‚Á‚½ê‡B"));
+                                "å…¥åŠ›å€¤ã«ä¸æ­£ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã€‚"));
 
         final List<java.lang.String> listLine = method.getLineList();
-        listLine.add("// “ü—Íƒpƒ‰ƒ[ƒ^‚ğƒ`ƒFƒbƒN‚µ‚Ü‚·B");
+        listLine.add("// å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ãƒã‚§ãƒƒã‚¯ã—ã¾ã™ã€‚");
         listLine.add("validateInput(input);");
         listLine.add("");
-        listLine.add("// ‚±‚Ì‰ÓŠ‚ÅƒRƒ“ƒpƒCƒ‹ƒGƒ‰[‚ª”­¶‚·‚éê‡A"
+        listLine.add("// ã“ã®ç®‡æ‰€ã§ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã™ã‚‹å ´åˆã€"
                 + BlancoNameAdjuster.toClassName(argProcessStructure.getName())
-                + "ProcessƒCƒ“ƒ^ƒtƒF[ƒX‚ğÀ‘•‚µ‚Ä " + argProcessStructure.getPackage()
-                + "ƒpƒbƒP[ƒW‚É "
+                + "Processã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã—ã¦ " + argProcessStructure.getPackage()
+                + "ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã« "
                 + BlancoNameAdjuster.toClassName(argProcessStructure.getName())
-                + "ProcessImplƒNƒ‰ƒX‚ğì¬‚·‚é‚±‚Æ‚É‚æ‚è‰ğŒˆ‚Å‚«‚éê‡‚ª‚ ‚è‚Ü‚·B");
+                + "ProcessImplã‚¯ãƒ©ã‚¹ã‚’ä½œæˆã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šè§£æ±ºã§ãã‚‹å ´åˆãŒã‚ã‚Šã¾ã™ã€‚");
         listLine.add("final "
                 + BlancoNameAdjuster.toClassName(argProcessStructure.getName())
                 + "Process process = new "
                 + BlancoNameAdjuster.toClassName(argProcessStructure.getName())
                 + "ProcessImpl();");
         listLine.add("");
-        listLine.add("// ˆ—‚Ì–{‘Ì‚ğÀs‚µ‚Ü‚·B");
+        listLine.add("// å‡¦ç†ã®æœ¬ä½“ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚");
         listLine.add("final int retCode = process.execute(input);");
         listLine.add("");
         listLine.add("return retCode;");
     }
 
     /**
-     * execute ƒƒ\ƒbƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * execute ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param argProcessStructure
-     *            ƒƒ^ƒtƒ@ƒCƒ‹‚©‚çûW‚Å‚«‚½ˆ—\‘¢ƒf[ƒ^B
+     *            ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰åé›†ã§ããŸå‡¦ç†æ§‹é€ ãƒ‡ãƒ¼ã‚¿ã€‚
      */
     private void expandMethodUsage(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         final BlancoCgMethod method = fCgFactory.createMethod("usage",
-                "‚±‚Ìƒoƒbƒ`ˆ—ƒNƒ‰ƒX‚Ìg‚¢•û‚Ìà–¾‚ğ•W€o—Í‚É¦‚·‚½‚ß‚Ìƒƒ\ƒbƒh‚Å‚·B");
+                "ã“ã®ãƒãƒƒãƒå‡¦ç†ã‚¯ãƒ©ã‚¹ã®ä½¿ã„æ–¹ã®èª¬æ˜ã‚’æ¨™æº–å‡ºåŠ›ã«ç¤ºã™ãŸã‚ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ã™ã€‚");
         fCgClass.getMethodList().add(method);
 
         method.setStatic(true);
@@ -584,7 +584,7 @@ class BlancoBatchProcessExpandBatchProcess {
                     .size(); index++) {
                 final BlancoBatchProcessInputItemStructure inparam = (BlancoBatchProcessInputItemStructure) argProcessStructure
                         .getInputItemList().get(index);
-                strArg += " -" + inparam.getName() + "=’l" + (index + 1) + "";
+                strArg += " -" + inparam.getName() + "=å€¤" + (index + 1) + "";
             }
             strArg += "\");";
             listLine.add(strArg);
@@ -597,7 +597,7 @@ class BlancoBatchProcessExpandBatchProcess {
             listLine.add("System.out.println(\"    -" + inputItem.getName()
                     + "\");");
             if (inputItem.getDescription() != null) {
-                listLine.add("System.out.println(\"      à–¾["
+                listLine.add("System.out.println(\"      èª¬æ˜["
                         + BlancoJavaSourceUtil
                                 .escapeStringAsJavaSource(inputItem
                                         .getDescription()) + "]\");");
@@ -605,46 +605,46 @@ class BlancoBatchProcessExpandBatchProcess {
             switch (new BlancoBatchProcessBlancoTypeStringGroup()
                     .convertToInt(inputItem.getType())) {
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_STRING:
-                listLine.add("System.out.println(\"      Œ^[•¶š—ñ]\");");
+                listLine.add("System.out.println(\"      å‹[æ–‡å­—åˆ—]\");");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_INT:
-                listLine.add("System.out.println(\"      Œ^[”’l(int)]\");");
+                listLine.add("System.out.println(\"      å‹[æ•°å€¤(int)]\");");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_LONG:
-                listLine.add("System.out.println(\"      Œ^[”’l(long)]\");");
+                listLine.add("System.out.println(\"      å‹[æ•°å€¤(long)]\");");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_DECIMAL:
-                listLine.add("System.out.println(\"      Œ^[”’l(decimal)]\");");
+                listLine.add("System.out.println(\"      å‹[æ•°å€¤(decimal)]\");");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_BOOLEAN:
-                listLine.add("System.out.println(\"      Œ^[^‹U]\");");
+                listLine.add("System.out.println(\"      å‹[çœŸå½]\");");
                 break;
             }
             if (inputItem.getRequire()) {
-                listLine.add("System.out.println(\"      •K{ƒpƒ‰ƒ[ƒ^\");");
+                listLine.add("System.out.println(\"      å¿…é ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿\");");
             }
             if (inputItem.getDefault() != null) {
-                listLine.add("System.out.println(\"      ƒfƒtƒHƒ‹ƒg’l["
+                listLine.add("System.out.println(\"      ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤["
                         + BlancoJavaSourceUtil
                                 .escapeStringAsJavaSource(inputItem
                                         .getDefault()) + "]\");");
             }
         }
         listLine.add("System.out.println(\"    -? , -help\");");
-        listLine.add("System.out.println(\"      à–¾[g‚¢•û‚ğ•\¦‚µ‚Ü‚·B]\");");
+        listLine.add("System.out.println(\"      èª¬æ˜[ä½¿ã„æ–¹ã‚’è¡¨ç¤ºã—ã¾ã™ã€‚]\");");
     }
 
     /**
-     * validateInput ƒƒ\ƒbƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * validateInput ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param argProcessStructure
-     *            ƒƒ^ƒtƒ@ƒCƒ‹‚©‚çûW‚Å‚«‚½ˆ—\‘¢ƒf[ƒ^B
+     *            ãƒ¡ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰åé›†ã§ããŸå‡¦ç†æ§‹é€ ãƒ‡ãƒ¼ã‚¿ã€‚
      */
     private void expandValidateInput(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         final BlancoCgMethod method = fCgFactory.createMethod("validateInput",
-                "‚±‚Ìƒoƒbƒ`ˆ—ƒNƒ‰ƒX‚Ì“ü—Íƒpƒ‰ƒ[ƒ^‚Ì‘Ã“–«ƒ`ƒFƒbƒN‚ğÀ{‚·‚é‚½‚ß‚Ìƒƒ\ƒbƒh‚Å‚·B");
+                "ã“ã®ãƒãƒƒãƒå‡¦ç†ã‚¯ãƒ©ã‚¹ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å¦¥å½“æ€§ãƒã‚§ãƒƒã‚¯ã‚’å®Ÿæ–½ã™ã‚‹ãŸã‚ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ã™ã€‚");
         fCgClass.getMethodList().add(method);
 
         method
@@ -657,17 +657,17 @@ class BlancoBatchProcessExpandBatchProcess {
                                                 + ".valueobject."
                                                 + BlancoBatchProcessExpandProcessInput
                                                         .getBatchProcessValueObjectInputClassName(argProcessStructure),
-                                        "ƒoƒbƒ`ˆ—‚Ì“ü—Íƒpƒ‰ƒ[ƒ^B"));
+                                        "ãƒãƒƒãƒå‡¦ç†ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚"));
         method.getThrowList().add(
                 fCgFactory
                         .createException("java.lang.IllegalArgumentException",
-                                "“ü—Í’l‚É•s³‚ªŒ©‚Â‚©‚Á‚½ê‡B"));
+                                "å…¥åŠ›å€¤ã«ä¸æ­£ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã€‚"));
 
         final List<java.lang.String> listLine = method.getLineList();
 
         listLine.add("if (input == null) {");
         listLine
-                .add("throw new IllegalArgumentException(\"BlancoBatchProcessBatchProcess: ˆ—ŠJn¸”sB“ü—Íƒpƒ‰ƒ[ƒ^[input]‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B\");");
+                .add("throw new IllegalArgumentException(\"BlancoBatchProcessBatchProcess: å‡¦ç†é–‹å§‹å¤±æ•—ã€‚å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[input]ã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚\");");
         listLine.add("}");
 
         for (int index = 0; index < argProcessStructure.getInputItemList()
@@ -678,15 +678,15 @@ class BlancoBatchProcessExpandBatchProcess {
                     .convertToInt(inputItem.getType())) {
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_STRING:
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_DECIMAL:
-                // •K{‚©‚Ç‚¤‚©‚ÅŒ^‚ª•Ï‚í‚ç‚È‚¢‚à‚Ì‚Ì‚İƒ`ƒFƒbƒN‚µ‚Ü‚·B
+                // å¿…é ˆã‹ã©ã†ã‹ã§å‹ãŒå¤‰ã‚ã‚‰ãªã„ã‚‚ã®ã®ã¿ãƒã‚§ãƒƒã‚¯ã—ã¾ã™ã€‚
                 if (inputItem.getRequire()) {
                     listLine.add("if (input.get"
                             + BlancoNameAdjuster.toClassName(inputItem
                                     .getName()) + "() == null) {");
                     listLine.add("throw new IllegalArgumentException(\""
                             + getBatchProcessClassName(argProcessStructure)
-                            + ": ˆ—ŠJn¸”sB“ü—Íƒpƒ‰ƒ[ƒ^[input]‚Ì•K{ƒtƒB[ƒ‹ƒh’l["
-                            + inputItem.getName() + "]‚É’l‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB\");");
+                            + ": å‡¦ç†é–‹å§‹å¤±æ•—ã€‚å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[input]ã®å¿…é ˆãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å€¤["
+                            + inputItem.getName() + "]ã«å€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚\");");
                     listLine.add("}");
                 }
                 break;
@@ -695,7 +695,7 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * o—Íæ‚Æ‚È‚éƒoƒbƒ`ˆ—ƒNƒ‰ƒX–¼‚ğæ“¾‚µ‚Ü‚·B
+     * å‡ºåŠ›å…ˆã¨ãªã‚‹ãƒãƒƒãƒå‡¦ç†ã‚¯ãƒ©ã‚¹åã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param argProcessStructure
      * @return
@@ -707,7 +707,7 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * ƒoƒbƒ`ˆ——áŠOƒNƒ‰ƒX–¼‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒãƒƒãƒå‡¦ç†ä¾‹å¤–ã‚¯ãƒ©ã‚¹åã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param argProcessStructure
      * @return
@@ -718,7 +718,7 @@ class BlancoBatchProcessExpandBatchProcess {
                 argProcessStructure.getOutput().getEndBatchProcessException())
                 .length() == 0) {
             throw new IllegalArgumentException(
-                    "ƒoƒbƒ`ˆ——áŠOI—¹‚ªOFF‚Å‚ ‚é‚Ì‚ÉABlancoBatchProcessException ƒNƒ‰ƒX–¼æ“¾‚Ìƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B–µ‚‚µ‚Ä‚¢‚Ü‚·");
+                    "ãƒãƒƒãƒå‡¦ç†ä¾‹å¤–çµ‚äº†ãŒOFFã§ã‚ã‚‹ã®ã«ã€BlancoBatchProcessException ã‚¯ãƒ©ã‚¹åå–å¾—ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚çŸ›ç›¾ã—ã¦ã„ã¾ã™");
         }
 
         if (BlancoStringUtil.null2Blank(fRuntimePackage).length() == 0) {
@@ -730,19 +730,19 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * ƒoƒbƒ`‚Ìƒƒ\ƒbƒh‚Ì–ß‚è’l‚ÌJavaDocà–¾‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒãƒƒãƒã®ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã®JavaDocèª¬æ˜ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param argProcessStructure
      * @return
      */
     private static String getReturnJavadocDescription(
             final BlancoBatchProcessStructure argProcessStructure) {
-        return "ƒoƒbƒ`ˆ—‚ÌI—¹ƒR[ƒhBEND_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR"
+        return "ãƒãƒƒãƒå‡¦ç†ã®çµ‚äº†ã‚³ãƒ¼ãƒ‰ã€‚END_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR"
                 + (BlancoStringUtil.null2Blank(
                         argProcessStructure.getOutput()
                                 .getEndBatchProcessException()).length() == 0 ? ""
                         : ", END_BATCHPROCESS_EXCEPTION")
-                + " ‚Ì‚¢‚¸‚ê‚©‚Ì’l‚ğ–ß‚µ‚Ü‚·B"
+                + " ã®ã„ãšã‚Œã‹ã®å€¤ã‚’æˆ»ã—ã¾ã™ã€‚"
                 + BlancoStringUtil.null2Blank(argProcessStructure.getOutput()
                         .getDescription());
     }

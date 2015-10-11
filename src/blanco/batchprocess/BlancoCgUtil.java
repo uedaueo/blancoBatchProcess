@@ -14,25 +14,25 @@ import blanco.cg.valueobject.BlancoCgClass;
 import blanco.cg.valueobject.BlancoCgMethod;
 
 /**
- * blancoCg‚Ì‚½‚ß‚Ì“TŒ^“I‚Èƒ†[ƒeƒBƒŠƒeƒBB
+ * blancoCgã®ãŸã‚ã®å…¸å‹çš„ãªãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã€‚
  * 
- * TODO blancoCg‚É•¹‡‚Å‚«‚È‚¢‚©‚Ç‚¤‚©ŒŸ“¢‚·‚é‚±‚ÆB
+ * TODO blancoCgã«ä½µåˆã§ããªã„ã‹ã©ã†ã‹æ¤œè¨ã™ã‚‹ã“ã¨ã€‚
  */
 class BlancoCgUtil {
     /**
-     * —áŠOƒNƒ‰ƒX‚Ì‚½‚ß‚Ì“TŒ^“I‚ÈƒRƒ“ƒXƒgƒ‰ƒNƒ^4‚Â‚ğ’Ç‰Á‚µ‚Ü‚·B
+     * ä¾‹å¤–ã‚¯ãƒ©ã‚¹ã®ãŸã‚ã®å…¸å‹çš„ãªã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿4ã¤ã‚’è¿½åŠ ã—ã¾ã™ã€‚
      * 
      * @param argCgFactory
-     *            blancoCgƒIƒuƒWƒFƒNƒgƒtƒ@ƒNƒgƒŠ‚ÌƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            blancoCgã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚¡ã‚¯ãƒˆãƒªã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      * @param argCgClass
-     *            ƒNƒ‰ƒXî•ñB
+     *            ã‚¯ãƒ©ã‚¹æƒ…å ±ã€‚
      */
     public static void addConstructorForException(
             final BlancoCgObjectFactory argCgFactory,
             final BlancoCgClass argCgClass) {
         {
             final BlancoCgMethod method = argCgFactory.createMethod(argCgClass
-                    .getName(), "Ú×ƒƒbƒZ[ƒW‚ğ‚½‚È‚¢—áŠO‚ğ\’z‚µ‚Ü‚·B");
+                    .getName(), "è©³ç´°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æŒãŸãªã„ä¾‹å¤–ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚");
             argCgClass.getMethodList().add(method);
 
             method.setConstructor(true);
@@ -41,7 +41,7 @@ class BlancoCgUtil {
 
         {
             final BlancoCgMethod method = argCgFactory.createMethod(argCgClass
-                    .getName(), "w’è‚³‚ê‚½Ú×ƒƒbƒZ[ƒW‚ğ‚Â—áŠO‚ğ\’z‚µ‚Ü‚·B");
+                    .getName(), "æŒ‡å®šã•ã‚ŒãŸè©³ç´°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æŒã¤ä¾‹å¤–ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚");
             argCgClass.getMethodList().add(method);
 
             method.setConstructor(true);
@@ -49,12 +49,12 @@ class BlancoCgUtil {
 
             method.getParameterList().add(
                     argCgFactory.createParameter("message", "java.lang.String",
-                            "Ú×ƒƒbƒZ[ƒWB"));
+                            "è©³ç´°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€‚"));
         }
 
         {
             final BlancoCgMethod method = argCgFactory.createMethod(argCgClass
-                    .getName(), "w’è‚³‚ê‚½Ú×ƒƒbƒZ[ƒW‚¨‚æ‚ÑŒ´ˆö‚ğw’è‚µ‚Ä—áŠO‚ğ\’z‚µ‚Ü‚·B");
+                    .getName(), "æŒ‡å®šã•ã‚ŒãŸè©³ç´°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŠã‚ˆã³åŸå› ã‚’æŒ‡å®šã—ã¦ä¾‹å¤–ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚");
             argCgClass.getMethodList().add(method);
 
             method.setConstructor(true);
@@ -62,16 +62,16 @@ class BlancoCgUtil {
 
             method.getParameterList().add(
                     argCgFactory.createParameter("message", "java.lang.String",
-                            "Ú×ƒƒbƒZ[ƒWB"));
+                            "è©³ç´°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€‚"));
             method.getParameterList().add(
                     argCgFactory.createParameter("cause",
-                            "java.lang.Throwable", "Œ´ˆöB"));
+                            "java.lang.Throwable", "åŸå› ã€‚"));
 
         }
 
         {
             final BlancoCgMethod method = argCgFactory.createMethod(argCgClass
-                    .getName(), "Œ´ˆö‚ğw’è‚µ‚Ä—áŠO‚ğ\’z‚µ‚Ü‚·B");
+                    .getName(), "åŸå› ã‚’æŒ‡å®šã—ã¦ä¾‹å¤–ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚");
             argCgClass.getMethodList().add(method);
 
             method.setConstructor(true);
@@ -79,7 +79,7 @@ class BlancoCgUtil {
 
             method.getParameterList().add(
                     argCgFactory.createParameter("cause",
-                            "java.lang.Throwable", "Œ´ˆöB"));
+                            "java.lang.Throwable", "åŸå› ã€‚"));
 
         }
     }

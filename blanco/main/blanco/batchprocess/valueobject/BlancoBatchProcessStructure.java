@@ -12,226 +12,226 @@ package blanco.batchprocess.valueobject;
 import java.util.List;
 
 /**
- * blancoBatchProcess ‚ª©“®¶¬‚·‚éƒoƒbƒ`ˆ—ƒNƒ‰ƒX‚ÌŠeíî•ñ‚ğ‚ ‚ç‚í‚µ‚Ü‚·B
+ * blancoBatchProcess ãŒè‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒãƒƒãƒå‡¦ç†ã‚¯ãƒ©ã‚¹ã®å„ç¨®æƒ…å ±ã‚’ã‚ã‚‰ã‚ã—ã¾ã™ã€‚
  */
 public class BlancoBatchProcessStructure {
     /**
-     * ƒƒbƒZ[ƒW’è‹`ID‚ğw’è‚µ‚Ü‚·B•K{€–Ú‚Å‚·B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å®šç¾©IDã‚’æŒ‡å®šã—ã¾ã™ã€‚å¿…é ˆé …ç›®ã§ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [name]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [name]ã€‚
      */
     private String fName;
 
     /**
-     * ƒpƒbƒP[ƒW–¼‚ğw’è‚µ‚Ü‚·B•K{€–Ú‚Å‚·B
+     * ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã‚’æŒ‡å®šã—ã¾ã™ã€‚å¿…é ˆé …ç›®ã§ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [package]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [package]ã€‚
      */
     private String fPackage;
 
     /**
-     * ƒƒbƒZ[ƒW’è‹`‚Ìà–¾‚ğ‹LÚ‚µ‚Ü‚·B
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å®šç¾©ã®èª¬æ˜ã‚’è¨˜è¼‰ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [description]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [description]ã€‚
      */
     private String fDescription;
 
     /**
-     * ƒNƒ‰ƒX–¼‚ÌŒã•û‚É•t—^‚³‚ê‚éƒTƒtƒBƒbƒNƒXB
+     * ã‚¯ãƒ©ã‚¹åã®å¾Œæ–¹ã«ä»˜ä¸ã•ã‚Œã‚‹ã‚µãƒ•ã‚£ãƒƒã‚¯ã‚¹ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [suffix]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [suffix]ã€‚
      */
     private String fSuffix;
 
     /**
-     * ƒtƒB[ƒ‹ƒh‚ğ•Û‚·‚éƒŠƒXƒgB
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ä¿æŒã™ã‚‹ãƒªã‚¹ãƒˆã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [inputItemList]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [inputItemList]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure>()]ã€‚
      */
     private List<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure> fInputItemList = new java.util.ArrayList<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure>();
 
     /**
-     * –ß‚è’l‚ğ‹L‰¯‚·‚éƒtƒB[ƒ‹ƒhB
+     * æˆ»ã‚Šå€¤ã‚’è¨˜æ†¶ã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [output]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [output]ã€‚
      */
     private BlancoBatchProcessOutputStructure fOutput;
 
     /**
-     * ƒoƒbƒ`‚ÌŠJnEI—¹ƒƒbƒZ[ƒW‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©BblancoBatchProcess’P‘Ì‚Å—˜—p‚·‚éê‡‚É‚Ítrue‚ğİ’è‚µ‚Ü‚·B‘¼ƒvƒƒ_ƒNƒg‚Ö‚Ì‘g‚İ‚İ‚Ífalse‚ğİ’è‚µ‚Ü‚·B
+     * ãƒãƒƒãƒã®é–‹å§‹ãƒ»çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚blancoBatchProcesså˜ä½“ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯trueã‚’è¨­å®šã—ã¾ã™ã€‚ä»–ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆã¸ã®çµ„ã¿è¾¼ã¿æ™‚ã¯falseã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [showMessageBeginEnd]B
-     * ƒfƒtƒHƒ‹ƒg: [true]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [showMessageBeginEnd]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [true]ã€‚
      */
     private boolean fShowMessageBeginEnd = true;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [name] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [name] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒƒbƒZ[ƒW’è‹`ID‚ğw’è‚µ‚Ü‚·B•K{€–Ú‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å®šç¾©IDã‚’æŒ‡å®šã—ã¾ã™ã€‚å¿…é ˆé …ç›®ã§ã™ã€‚]ã€‚
      *
-     * @param argName ƒtƒB[ƒ‹ƒh[name]‚Éİ’è‚·‚é’lB
+     * @param argName ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[name]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setName(final String argName) {
         fName = argName;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [name] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [name] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒƒbƒZ[ƒW’è‹`ID‚ğw’è‚µ‚Ü‚·B•K{€–Ú‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å®šç¾©IDã‚’æŒ‡å®šã—ã¾ã™ã€‚å¿…é ˆé …ç›®ã§ã™ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[name]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[name]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getName() {
         return fName;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [package] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [package] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒpƒbƒP[ƒW–¼‚ğw’è‚µ‚Ü‚·B•K{€–Ú‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã‚’æŒ‡å®šã—ã¾ã™ã€‚å¿…é ˆé …ç›®ã§ã™ã€‚]ã€‚
      *
-     * @param argPackage ƒtƒB[ƒ‹ƒh[package]‚Éİ’è‚·‚é’lB
+     * @param argPackage ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[package]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setPackage(final String argPackage) {
         fPackage = argPackage;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [package] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [package] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒpƒbƒP[ƒW–¼‚ğw’è‚µ‚Ü‚·B•K{€–Ú‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã‚’æŒ‡å®šã—ã¾ã™ã€‚å¿…é ˆé …ç›®ã§ã™ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[package]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[package]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getPackage() {
         return fPackage;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [description] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [description] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒƒbƒZ[ƒW’è‹`‚Ìà–¾‚ğ‹LÚ‚µ‚Ü‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å®šç¾©ã®èª¬æ˜ã‚’è¨˜è¼‰ã—ã¾ã™ã€‚]ã€‚
      *
-     * @param argDescription ƒtƒB[ƒ‹ƒh[description]‚Éİ’è‚·‚é’lB
+     * @param argDescription ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[description]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setDescription(final String argDescription) {
         fDescription = argDescription;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [description] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [description] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒƒbƒZ[ƒW’è‹`‚Ìà–¾‚ğ‹LÚ‚µ‚Ü‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å®šç¾©ã®èª¬æ˜ã‚’è¨˜è¼‰ã—ã¾ã™ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[description]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[description]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getDescription() {
         return fDescription;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [suffix] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [suffix] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒNƒ‰ƒX–¼‚ÌŒã•û‚É•t—^‚³‚ê‚éƒTƒtƒBƒbƒNƒXB]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã‚¯ãƒ©ã‚¹åã®å¾Œæ–¹ã«ä»˜ä¸ã•ã‚Œã‚‹ã‚µãƒ•ã‚£ãƒƒã‚¯ã‚¹ã€‚]ã€‚
      *
-     * @param argSuffix ƒtƒB[ƒ‹ƒh[suffix]‚Éİ’è‚·‚é’lB
+     * @param argSuffix ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[suffix]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setSuffix(final String argSuffix) {
         fSuffix = argSuffix;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [suffix] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [suffix] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒNƒ‰ƒX–¼‚ÌŒã•û‚É•t—^‚³‚ê‚éƒTƒtƒBƒbƒNƒXB]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã‚¯ãƒ©ã‚¹åã®å¾Œæ–¹ã«ä»˜ä¸ã•ã‚Œã‚‹ã‚µãƒ•ã‚£ãƒƒã‚¯ã‚¹ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[suffix]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[suffix]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getSuffix() {
         return fSuffix;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [inputItemList] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [inputItemList] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒtƒB[ƒ‹ƒh‚ğ•Û‚·‚éƒŠƒXƒgB]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ä¿æŒã™ã‚‹ãƒªã‚¹ãƒˆã€‚]ã€‚
      *
-     * @param argInputItemList ƒtƒB[ƒ‹ƒh[inputItemList]‚Éİ’è‚·‚é’lB
+     * @param argInputItemList ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[inputItemList]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setInputItemList(final List<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure> argInputItemList) {
         fInputItemList = argInputItemList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [inputItemList] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [inputItemList] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒtƒB[ƒ‹ƒh‚ğ•Û‚·‚éƒŠƒXƒgB]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ä¿æŒã™ã‚‹ãƒªã‚¹ãƒˆã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure>()]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[inputItemList]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[inputItemList]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public List<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure> getInputItemList() {
         return fInputItemList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [output] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [output] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [–ß‚è’l‚ğ‹L‰¯‚·‚éƒtƒB[ƒ‹ƒhB]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [æˆ»ã‚Šå€¤ã‚’è¨˜æ†¶ã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã€‚]ã€‚
      *
-     * @param argOutput ƒtƒB[ƒ‹ƒh[output]‚Éİ’è‚·‚é’lB
+     * @param argOutput ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[output]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setOutput(final BlancoBatchProcessOutputStructure argOutput) {
         fOutput = argOutput;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [output] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [output] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [–ß‚è’l‚ğ‹L‰¯‚·‚éƒtƒB[ƒ‹ƒhB]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [æˆ»ã‚Šå€¤ã‚’è¨˜æ†¶ã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[output]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[output]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public BlancoBatchProcessOutputStructure getOutput() {
         return fOutput;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [showMessageBeginEnd] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [showMessageBeginEnd] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒoƒbƒ`‚ÌŠJnEI—¹ƒƒbƒZ[ƒW‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©BblancoBatchProcess’P‘Ì‚Å—˜—p‚·‚éê‡‚É‚Ítrue‚ğİ’è‚µ‚Ü‚·B‘¼ƒvƒƒ_ƒNƒg‚Ö‚Ì‘g‚İ‚İ‚Ífalse‚ğİ’è‚µ‚Ü‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒãƒƒãƒã®é–‹å§‹ãƒ»çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚blancoBatchProcesså˜ä½“ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯trueã‚’è¨­å®šã—ã¾ã™ã€‚ä»–ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆã¸ã®çµ„ã¿è¾¼ã¿æ™‚ã¯falseã‚’è¨­å®šã—ã¾ã™ã€‚]ã€‚
      *
-     * @param argShowMessageBeginEnd ƒtƒB[ƒ‹ƒh[showMessageBeginEnd]‚Éİ’è‚·‚é’lB
+     * @param argShowMessageBeginEnd ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[showMessageBeginEnd]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setShowMessageBeginEnd(final boolean argShowMessageBeginEnd) {
         fShowMessageBeginEnd = argShowMessageBeginEnd;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [showMessageBeginEnd] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [showMessageBeginEnd] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒoƒbƒ`‚ÌŠJnEI—¹ƒƒbƒZ[ƒW‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©BblancoBatchProcess’P‘Ì‚Å—˜—p‚·‚éê‡‚É‚Ítrue‚ğİ’è‚µ‚Ü‚·B‘¼ƒvƒƒ_ƒNƒg‚Ö‚Ì‘g‚İ‚İ‚Ífalse‚ğİ’è‚µ‚Ü‚·B]B
-     * ƒfƒtƒHƒ‹ƒg: [true]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ãƒãƒƒãƒã®é–‹å§‹ãƒ»çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã€‚blancoBatchProcesså˜ä½“ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯trueã‚’è¨­å®šã—ã¾ã™ã€‚ä»–ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆã¸ã®çµ„ã¿è¾¼ã¿æ™‚ã¯falseã‚’è¨­å®šã—ã¾ã™ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [true]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[showMessageBeginEnd]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[showMessageBeginEnd]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public boolean getShowMessageBeginEnd() {
         return fShowMessageBeginEnd;
     }
 
     /**
-     * ‚±‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»‚ğæ“¾‚µ‚Ü‚·B
+     * ã“ã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * <P>g—pã‚Ì’ˆÓ</P>
+     * <P>ä½¿ç”¨ä¸Šã®æ³¨æ„</P>
      * <UL>
-     * <LI>ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[”ÍˆÍ‚Ì‚İ•¶š—ñ‰»‚Ìˆ—‘ÎÛ‚Æ‚È‚è‚Ü‚·B
-     * <LI>ƒIƒuƒWƒFƒNƒg‚ªzŠÂQÆ‚µ‚Ä‚¢‚éê‡‚É‚ÍA‚±‚Ìƒƒ\ƒbƒh‚Íg‚í‚È‚¢‚Å‚­‚¾‚³‚¢B
+     * <LI>ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ç¯„å›²ã®ã¿æ–‡å­—åˆ—åŒ–ã®å‡¦ç†å¯¾è±¡ã¨ãªã‚Šã¾ã™ã€‚
+     * <LI>ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå¾ªç’°å‚ç…§ã—ã¦ã„ã‚‹å ´åˆã«ã¯ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä½¿ã‚ãªã„ã§ãã ã•ã„ã€‚
      * </UL>
      *
-     * @return ƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»B
+     * @return ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã€‚
      */
     @Override
     public String toString() {

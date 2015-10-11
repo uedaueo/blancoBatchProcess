@@ -33,18 +33,18 @@ import blanco.gettersetter.BlancoGetterSetter;
 @BlancoConstantsVersion(prefix = "0.6.2-I")
 public abstract class AbstractBlancoBatchProcessConstants {
 	/**
-	 * ƒvƒƒ_ƒNƒg–¼B‰pš‚Åw’è‚µ‚Ü‚·B
+	 * ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆåã€‚è‹±å­—ã§æŒ‡å®šã—ã¾ã™ã€‚
 	 */
 	@BlancoGetterSetter(setter = false)
 	public static final String PRODUCT_NAME = "BlancoDbTableAccessor";
 
 	/**
-	 * ƒvƒƒ_ƒNƒg–¼‚Ì¬•¶š”ÅB‰pš‚Åw’è‚µ‚Ü‚·B
+	 * ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆåã®å°æ–‡å­—ç‰ˆã€‚è‹±å­—ã§æŒ‡å®šã—ã¾ã™ã€‚
 	 */
 	public static final String PRODUCT_NAME_LOWER = "blancobatchprocess";
 
 	/**
-	 * ˆ—‚Ì‰ß’ö‚Å—˜—p‚³‚ê‚éƒTƒuƒfƒBƒŒƒNƒgƒŠB
+	 * å‡¦ç†ã®éç¨‹ã§åˆ©ç”¨ã•ã‚Œã‚‹ã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚
 	 */
 	public static final String TARGET_SUBDIRECTORY = "/batchprocess";
 }

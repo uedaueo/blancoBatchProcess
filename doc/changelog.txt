@@ -1,146 +1,146 @@
 2012.02.24 (0.6.2)
-  �r���h�E�v���Z�X�� Blanco2g �ɑΉ������܂����B
-  Ant �� encoding ���K�؂ɓ`�B����Ă��Ȃ��o�O������B
-  jar �t�@�C���ނ̍X�V
+  ビルド・プロセスを Blanco2g に対応させました。
+  Ant の encoding が適切に伝達されていないバグを訂正。
+  jar ファイル類の更新
 
 2009.07.21 (0.6.1)
-  �t�@�C���E�w�b�_�[�� blancoCg �ɂ䂾�˂�悤�ɂ���B
-  jar �t�@�C���ނ̍X�V�B
+  ファイル・ヘッダーを blancoCg にゆだねるようにする。
+  jar ファイル類の更新。
 
 2009.05.27 (0.6.0)
-  �i�����R�[���o�b�N���邽�߂̃��\�b�h��������������悤�ɋ@�\�ǉ��B
-  ����: �C���^�t�F�[�X�Ƀ��\�b�h��������Ă��܂��B
+  進捗をコールバックするためのメソッドを自動生成するように機能追加。
+  注意: インタフェースにメソッドが一つ増えています。
 
 2008.12.12 (0.5.4)
-  jar�t�@�C���ނ̍X�V�B
-  ���������\�[�X�R�[�h�� JavaDoc ���ꕔ���P�B
+  jarファイル類の更新。
+  生成されるソースコードの JavaDoc を一部改善。
 
 2008.11.22 (0.5.3)
-  �\�[�X�t�@�C���̕����G���R�[�f�B���O�w��@�\��ǉ��B
+  ソースファイルの文字エンコーディング指定機能を追加。
 
 2008.11.07 (0.5.2)
-  ��������������O�N���X�ɂ��āA�V���A��ID�������x�����o�Ȃ��悤�ɃA�m�e�[�V������ǉ��B
+  自動生成される例外クラスについて、シリアルIDが無い警告が出ないようにアノテーションを追加。
 
 2008.10.24 (0.5.1)
-  JDK 1.5 �Ή��B
+  JDK 1.5 対応。
 
-2007.12.24 (0.4.1) Eclipse 3.3 �΍�
-  ������Ɍ��� plugin�̂݃o�[�W�����ԍ��̔Ԃ̂��������[�X���܂��B
-  (plugin)�o�[�W�����ԍ����̔ԍX�V�B
-  (plugin) workbenchMonitor�𗘗p����̂��~���܂����B
-    ������́AEclipse 3.3 �� workbenchMonitor �𗘗p����� org.eclipse.swt.SWTException: Invalid thread access ���������Ă��܂��̂ŁA���������邽�߂ł��B
-  (plugin)about.html���X�V�B
-  (plugin)build.xml���X�V�B
-  (plugin)plugin.xml�̍Đ���
-  (plugin)�E�B�U�[�h�̐����f�B���N�g���Ɋւ���L�q���X�V (Blanco*WizardPage4)
-  (jar)jar�t�@�C���ނ��X�V�`�F�b�N�B
+2007.12.24 (0.4.1) Eclipse 3.3 対策
+  ※今回に限り pluginのみバージョン番号採番のうえリリースします。
+  (plugin)バージョン番号を採番更新。
+  (plugin) workbenchMonitorを利用するのを停止しました。
+    →これは、Eclipse 3.3 で workbenchMonitor を利用すると org.eclipse.swt.SWTException: Invalid thread access が発生してしまうので、これを避けるためです。
+  (plugin)about.htmlを更新。
+  (plugin)build.xmlを更新。
+  (plugin)plugin.xmlの再生成
+  (plugin)ウィザードの生成ディレクトリに関する記述を更新 (Blanco*WizardPage4)
+  (jar)jarファイル類を更新チェック。
 
 2007.12.07 (0.4.0) RC1
-  ����łƈʒu�Â��B
-  blanco�t�H���_���Đ���
-  (plugin)about.html��ǉ��B
+  安定版と位置づけ。
+  blancoフォルダを再生成
+  (plugin)about.htmlを追加。
 
-2007.12.06 (0.3.2) �����I(!)
-  �o�����[�I�u�W�F�N�g�� java.util.ArrayList�t�B�[���h�� java.util.List�ɕύX(!)
-  blancoValueObject�ŐV�ł���荞�݁B
-  (�폜)BlancoBatchProcessMessageResourceBundle.xls
-  (�폜)BlancoBatchProcessMessageResourceBundle.java
+2007.12.06 (0.3.2) 実験的(!)
+  バリューオブジェクトの java.util.ArrayListフィールドを java.util.Listに変更(!)
+  blancoValueObject最新版を取り込み。
+  (削除)BlancoBatchProcessMessageResourceBundle.xls
+  (削除)BlancoBatchProcessMessageResourceBundle.java
 
-2007.12.05 (0.3.1) �����I(!)
-  blancoValueObject�̍ŐV�łɑΉ��B
+2007.12.05 (0.3.1) 実験的(!)
+  blancoValueObjectの最新版に対応。
 
-2007.12.03 (0.3.0) �����I(!)
-  �����I�r���h�I
-  ����(Process)�C���^�t�F�[�X����������
-  TODO: END_SUCCESS�Ȃǂ� �����C���^�t�F�[�X���Ɉړ����ׂ������m��܂���B����������B
+2007.12.03 (0.3.0) 実験的(!)
+  実験的ビルド！
+  処理(Process)インタフェース導入を検討
+  TODO: END_SUCCESSなどは 処理インタフェース側に移動すべきかも知れません。これを検討。
 
 2007.11.16 (0.2.0)
-  (jar)blancoAntTask���ŐV���B
+  (jar)blancoAntTaskを最新化。
 
 2007.11.06 (0.1.9)
-  ���͂�parse�`�F�b�N�̎����B
-  usage�̋����B
-  readme.txt���ꕔ���P�B
+  入力のparseチェックの実装。
+  usageの強化。
+  readme.txtを一部改善。
 
-2007.11.05 (0.1.8) �J����
-  (�o�O�C��)���̋ǖʂł�getBoolean�͎g�p���s�K�؁B������C���B
+2007.11.05 (0.1.8) 開発版
+  (バグ修正)この局面でのgetBooleanは使用が不適切。これを修正。
 
-2007.11.05 (0.1.7) �J����
-  �K�{���ڂ̈����ɂ��ĕύX�B
-  �K�{���K�{�`�F�b�N�̎��{�݂̂Ƃ��A���l�n�̓v���~�e�B�u�ŕ\�����̂Ƃ��܂��B
-  main���\�b�h: �����ɕK�{�̈������w�肳��Ă��Ȃ��ꍇ�̕s�����͗�O�����̎�����ǉ��B
+2007.11.05 (0.1.7) 開発版
+  必須項目の扱いについて変更。
+  必須→必須チェックの実施のみとし、数値系はプリミティブで表すものとします。
+  mainメソッド: 引数に必須の引数が指定されていない場合の不正入力例外処理の実装を追加。
 
-2007.11.05 (0.1.6) �J����
-  �^�w�肪�\�Ȃ悤�ɋ@�\�g�����B
-  TODO(sf�o�^��): usage���\�b�h: �^��\������@�\���s�����Ă���̂ł�����@�\�ǉ����邱�ƁB
-  TODO(sf�o�^��): main���\�b�h: �^����ꂽ�������parse���s�̍ۂ̗�O�����̎�����ǉ����邱�ƁB
+2007.11.05 (0.1.6) 開発版
+  型指定が可能なように機能拡張中。
+  TODO(sf登録済): usageメソッド: 型を表示する機能が不足しているのでこれを機能追加すること。
+  TODO(sf登録済): mainメソッド: 与えられた文字列のparse失敗の際の例外処理の実装を追加すること。
 
 2007.11.04 (0.1.5)
-  (jar)blancoAntTask���X�V�B
+  (jar)blancoAntTaskを更新。
 
 2007.11.04 (0.1.4)
-  ��r�I��|����ȕύX�����܂����B
-  ���̓`�F�b�N�������B
-  ���o�͗�O��ʓr�����悤�Ɏd�l�ύX�B
+  比較的大掛かりな変更をしました。
+  入力チェックを強化。
+  入出力例外を別途扱うように仕様変更。
 
 2007.11.02 (0.1.3)
-  execute���\�b�h�̖߂�l�Ȃ� JavaDoc�̐������������B
-  �\�[�X�R�[�h�̍ŏI�`�F�b�N�B
+  executeメソッドの戻り値など JavaDocの説明文を強化。
+  ソースコードの最終チェック。
 
-2007.10.26 (0.1.2) �J����
-  ��������� JavaDoc���������P�B
-  Abstract�N���X���p�b�P�[�W�A�N�Z�X�ɐ����B
-  (plugin)�v���O�C�������啶������J�n����Ă����ԈႢ���C���B
+2007.10.26 (0.1.2) 開発版
+  生成される JavaDoc部分を改善。
+  Abstractクラスをパッケージアクセスに制限。
+  (plugin)プラグイン名が大文字から開始されていた間違いを修正。
 
-2007.10.26 (0.1.1) �J����
-  XmlParser: parseFile, parseDocument�� parse�Ƀ��\�b�h���𓝈�B
+2007.10.26 (0.1.1) 開発版
+  XmlParser: parseFile, parseDocumentは parseにメソッド名を統一。
 
-2007.10.25 (0.1.0) �J����
-  �o�b�`��O�N���X�̐����^�C�~���O�𒲐��B
-  �p�����[�^�ɂ��ăo�����[�I�u�W�F�N�g�Ŏ擾����悤�Ɏd�l�ύX�B
-  BlancoBatchProcessInparameterListStructure �� BlancoBatchProcessInputItemStructure
+2007.10.25 (0.1.0) 開発版
+  バッチ例外クラスの生成タイミングを調整。
+  パラメータについてバリューオブジェクトで取得するように仕様変更。
+  BlancoBatchProcessInparameterListStructure → BlancoBatchProcessInputItemStructure
 
-2007.10.19 (0.0.9) �J����
-  META2XML.ELEMENT_COMMON ���폜�B
-  ���b�Z�[�W��`����V���ɍ쐬���邱�ƁB
+2007.10.19 (0.0.9) 開発版
+  META2XML.ELEMENT_COMMON を削除。
+  メッセージ定義書を新たに作成すること。
 
-2007.10.18 (0.0.8) �J����
-  �s�v�Ȏ������gjar�t�@�C�����������邱�ƁB
-  (jar)jar�t�@�C���ނ̍X�V�B
-  blancoValueObject (0.9.3) �̂悤��Parser�N���X��V���ɍ쐬�B
-  �����������ꂽ�o�����[�I�u�W�F�N�g�̃e�X�g�R�[�h�ɂ��āA������폜
-  TODO �������{�B
+2007.10.18 (0.0.8) 開発版
+  不要な自分自身jarファイルを除去すること。
+  (jar)jarファイル類の更新。
+  blancoValueObject (0.9.3) のようにParserクラスを新たに作成。
+  自動生成されたバリューオブジェクトのテストコードについて、これを削除
+  TODO 試験実施。
 
 2007.04.12 (0.0.7)
-  �o�b�`������`���ɂ����āA���̓p�����[�^�̐����������͂̏ꍇ
-  �����������G���[�ƂȂ��肪�������C������Ă��Ȃ��������ɑΉ��B
-  TODO: blanco/main �ȉ��� �蓮�쐬�� SampleBatchProcess �N���X������_�ɒ��ӁB
+  バッチ処理定義書において、入力パラメータの説明が未入力の場合
+  自動生成時エラーとなる問題が正しく修正されていなかった問題に対応。
+  TODO: blanco/main 以下に 手動作成の SampleBatchProcess クラスがある点に注意。
 
 2007.04.12 (0.0.6)
-  (jar)jar�t�@�C���ނ̍X�V�B
-  TODO: blanco/main �ȉ��� �蓮�쐬�� SampleBatchProcess �N���X������_�ɒ��ӁB
+  (jar)jarファイル類の更新。
+  TODO: blanco/main 以下に 手動作成の SampleBatchProcess クラスがある点に注意。
 
 2007.04.10 (0.0.5)
-  �o�b�`������`���ɂ����āA���̓p�����[�^�̐����������͂̏ꍇ
-  �����������G���[�ƂȂ�����C���B
-  �����^�C���p�b�P�[�W�w�莞�ɁA��O�N���X��������import����Ȃ������C���B
-  (plugin)�v���O�C����V�K�ɍ쐬�B
+  バッチ処理定義書において、入力パラメータの説明が未入力の場合
+  自動生成時エラーとなる問題を修正。
+  ランタイムパッケージ指定時に、例外クラスが正しくimportされない問題を修正。
+  (plugin)プラグインを新規に作成。
 
 2006.10.25 (0.0.4)
-  IllegalArgumentException �̏ꍇ�̕W���o�͂ɂ��āA�ʂɏ�������悤�ɋ@�\�ǉ��B
-  usage���o�͂���悤�ɕύX�B
-  �e�X�g�P�[�X��ǉ��B
+  IllegalArgumentException の場合の標準出力について、個別に処理するように機能追加。
+  usageを出力するように変更。
+  テストケースを追加。
 
 2006.10.24 (0.0.3)
-  ���\�b�h���𒲐��B
-  execute �� process �̘A�g���ǂ��Ƃ̌��_�Ɏ���܂����B
-  jar�t�@�C�����X�V�B
+  メソッド名を調整。
+  execute → process の連携が良いとの結論に至りました。
+  jarファイルを更新。
 
 2006.10.24 (0.0.2)
-  TODO: ���̓p�����[�^�Ɍ^��^���邱�Ƃ������B������A���l�A���t �Ȃǂ�OK�ƍl���܂��B
-  TODO: C#.NET�\�[�X�R�[�h���������ɂ͖��Ή��ł��B
-  �������������\�[�X�R�[�h���e�̌����������{���܂����B
+  TODO: 入力パラメータに型を与えることを検討。文字列、数値、日付 などでOKと考えます。
+  TODO: C#.NETソースコード自動生成には未対応です。
+  自動生成されるソースコード内容の見直しを実施しました。
 
 2006.03.30 (0.0.1)
-  �V�K�쐬
+  新規作成
   

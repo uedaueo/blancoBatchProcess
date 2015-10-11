@@ -14,27 +14,27 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 /**
- * BlancoBatchProcess�����p���郊�\�[�X�o���h����~���܂��B
+ * BlancoBatchProcessが利用するリソースバンドルを蓄えます。
  *
- * ���\�[�X�o���h����`: [BlancoBatchProcess]�B<BR>
- * ���̃N���X�̓��\�[�X�o���h����`�����玩���������ꂽ���\�[�X�o���h���N���X�ł��B<BR>
- * ���m�̃��P�[��<BR>
+ * リソースバンドル定義: [BlancoBatchProcess]。<BR>
+ * このクラスはリソースバンドル定義書から自動生成されたリソースバンドルクラスです。<BR>
+ * 既知のロケール<BR>
  * <UL>
  * <LI>ja
  * </UL>
  */
 public class BlancoBatchProcessResourceBundle {
     /**
-     * ���\�[�X�o���h���I�u�W�F�N�g�B
+     * リソースバンドルオブジェクト。
      *
-     * �����I�Ɏ��ۂɓ��͂��s�����\�[�X�o���h�����L�����܂��B
+     * 内部的に実際に入力を行うリソースバンドルを記憶します。
      */
     private ResourceBundle fResourceBundle;
 
     /**
-     * BlancoBatchProcessResourceBundle�N���X�̃R���X�g���N�^�B
+     * BlancoBatchProcessResourceBundleクラスのコンストラクタ。
      *
-     * ��ꖼ[BlancoBatchProcess]�A�f�t�H���g�̃��P�[���A�Ăяo�����̃N���X���[�_���g�p���āA���\�[�X�o���h�����擾���܂��B
+     * 基底名[BlancoBatchProcess]、デフォルトのロケール、呼び出し側のクラスローダを使用して、リソースバンドルを取得します。
      */
     public BlancoBatchProcessResourceBundle() {
         try {
@@ -44,11 +44,11 @@ public class BlancoBatchProcessResourceBundle {
     }
 
     /**
-     * BlancoBatchProcessResourceBundle�N���X�̃R���X�g���N�^�B
+     * BlancoBatchProcessResourceBundleクラスのコンストラクタ。
      *
-     * ��ꖼ[BlancoBatchProcess]�A�w�肳�ꂽ���P�[���A�Ăяo�����̃N���X���[�_���g�p���āA���\�[�X�o���h�����擾���܂��B
+     * 基底名[BlancoBatchProcess]、指定されたロケール、呼び出し側のクラスローダを使用して、リソースバンドルを取得します。
      *
-     * @param locale ���P�[���̎w��
+     * @param locale ロケールの指定
      */
     public BlancoBatchProcessResourceBundle(final Locale locale) {
         try {
@@ -58,12 +58,12 @@ public class BlancoBatchProcessResourceBundle {
     }
 
     /**
-     * BlancoBatchProcessResourceBundle�N���X�̃R���X�g���N�^�B
+     * BlancoBatchProcessResourceBundleクラスのコンストラクタ。
      *
-     * ��ꖼ[BlancoBatchProcess]�A�w�肳�ꂽ���P�[���A�w�肳�ꂽ�N���X���[�_���g�p���āA���\�[�X�o���h�����擾���܂��B
+     * 基底名[BlancoBatchProcess]、指定されたロケール、指定されたクラスローダを使用して、リソースバンドルを取得します。
      *
-     * @param locale ���P�[���̎w��
-     * @param loader �N���X���[�_�̎w��
+     * @param locale ロケールの指定
+     * @param loader クラスローダの指定
      */
     public BlancoBatchProcessResourceBundle(final Locale locale, final ClassLoader loader) {
         try {
@@ -73,9 +73,9 @@ public class BlancoBatchProcessResourceBundle {
     }
 
     /**
-     * �����I�ɕێ����Ă��郊�\�[�X�o���h���I�u�W�F�N�g���擾���܂��B
+     * 内部的に保持しているリソースバンドルオブジェクトを取得します。
      *
-     * @return �����I�ɕێ����Ă��郊�\�[�X�o���h���I�u�W�F�N�g�B
+     * @return 内部的に保持しているリソースバンドルオブジェクト。
      */
     public ResourceBundle getResourceBundle() {
         return fResourceBundle;
@@ -84,20 +84,20 @@ public class BlancoBatchProcessResourceBundle {
     /**
      * bundle[BlancoBatchProcess], key[METAFILE_DISPLAYNAME]
      *
-     * [�o�b�`������`��] (ja)<br>
+     * [バッチ処理定義書] (ja)<br>
      *
-     * @return key[METAFILE_DISPLAYNAME]�ɑΉ�����l�B�O������ǂݍ��݂��ł��Ȃ��ꍇ�ɂ́A��`���̒l��߂��܂��B�K��null�ȊO�̒l���߂�܂��B
+     * @return key[METAFILE_DISPLAYNAME]に対応する値。外部から読み込みができない場合には、定義書の値を戻します。必ずnull以外の値が戻ります。
      */
     public String getMetafileDisplayname() {
-        // �����l�Ƃ��Ē�`���̒l�𗘗p���܂��B
-        String strFormat = "�o�b�`������`��";
+        // 初期値として定義書の値を利用します。
+        String strFormat = "バッチ処理定義書";
         try {
             if (fResourceBundle != null) {
                 strFormat = fResourceBundle.getString("METAFILE_DISPLAYNAME");
             }
         } catch (MissingResourceException ex) {
         }
-        // �u��������͂ЂƂ�����܂���B
+        // 置換文字列はひとつもありません。
         return strFormat;
     }
 }

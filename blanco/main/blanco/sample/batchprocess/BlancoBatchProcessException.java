@@ -10,40 +10,40 @@
 package blanco.sample.batchprocess;
 
 /**
- * ƒoƒbƒ`ˆ—‚É‚¨‚¢‚Ä—áŠO‚ª”­¶‚µ‚½Û‚É—˜—p‚³‚ê‚Ü‚·BblancoBatchProcess‚Ì—áŠO‚Å‚·B
+ * ãƒãƒƒãƒå‡¦ç†ã«ãŠã„ã¦ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸéš›ã«åˆ©ç”¨ã•ã‚Œã¾ã™ã€‚blancoBatchProcessã®ä¾‹å¤–ã§ã™ã€‚
  */
 @SuppressWarnings("serial")
 public class BlancoBatchProcessException extends RuntimeException {
     /**
-     * Ú×ƒƒbƒZ[ƒW‚ğ‚½‚È‚¢—áŠO‚ğ\’z‚µ‚Ü‚·B
+     * è©³ç´°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æŒãŸãªã„ä¾‹å¤–ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      */
     public BlancoBatchProcessException() {
         super();
     }
 
     /**
-     * w’è‚³‚ê‚½Ú×ƒƒbƒZ[ƒW‚ğ‚Â—áŠO‚ğ\’z‚µ‚Ü‚·B
+     * æŒ‡å®šã•ã‚ŒãŸè©³ç´°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æŒã¤ä¾‹å¤–ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      *
-     * @param message Ú×ƒƒbƒZ[ƒWB
+     * @param message è©³ç´°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€‚
      */
     public BlancoBatchProcessException(final String message) {
         super(message);
     }
 
     /**
-     * w’è‚³‚ê‚½Ú×ƒƒbƒZ[ƒW‚¨‚æ‚ÑŒ´ˆö‚ğw’è‚µ‚Ä—áŠO‚ğ\’z‚µ‚Ü‚·B
+     * æŒ‡å®šã•ã‚ŒãŸè©³ç´°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŠã‚ˆã³åŸå› ã‚’æŒ‡å®šã—ã¦ä¾‹å¤–ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      *
-     * @param message Ú×ƒƒbƒZ[ƒWB
-     * @param cause Œ´ˆöB
+     * @param message è©³ç´°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€‚
+     * @param cause åŸå› ã€‚
      */
     public BlancoBatchProcessException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
     /**
-     * Œ´ˆö‚ğw’è‚µ‚Ä—áŠO‚ğ\’z‚µ‚Ü‚·B
+     * åŸå› ã‚’æŒ‡å®šã—ã¦ä¾‹å¤–ã‚’æ§‹ç¯‰ã—ã¾ã™ã€‚
      *
-     * @param cause Œ´ˆöB
+     * @param cause åŸå› ã€‚
      */
     public BlancoBatchProcessException(final Throwable cause) {
         super(cause);

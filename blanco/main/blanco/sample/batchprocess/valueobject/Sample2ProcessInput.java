@@ -12,324 +12,324 @@ package blanco.sample.batchprocess.valueobject;
 import java.math.BigDecimal;
 
 /**
- * ˆ—ƒNƒ‰ƒX [Sample2Process]‚Ì“ü—ÍƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒgƒNƒ‰ƒX‚Å‚·B
+ * å‡¦ç†ã‚¯ãƒ©ã‚¹ [Sample2Process]ã®å…¥åŠ›ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  */
 public class Sample2ProcessInput {
     /**
-     * •K{ˆø”‚ÌƒTƒ“ƒvƒ‹B
+     * å¿…é ˆå¼•æ•°ã®ã‚µãƒ³ãƒ—ãƒ«ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [require]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [require]ã€‚
      */
     private String fRequire;
 
     /**
-     * •\¦•¶š—ñ‚ÌƒTƒ“ƒvƒ‹B
+     * è¡¨ç¤ºæ–‡å­—åˆ—ã®ã‚µãƒ³ãƒ—ãƒ«ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [dispstr]B
-     * ƒfƒtƒHƒ‹ƒg: [“Á‚Éw’è‚ª–³‚¢ê‡‚Ì•¶š—ñ]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [dispstr]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [ç‰¹ã«æŒ‡å®šãŒç„¡ã„å ´åˆã®æ–‡å­—åˆ—]ã€‚
      */
-    private String fDispstr = "“Á‚Éw’è‚ª–³‚¢ê‡‚Ì•¶š—ñ";
+    private String fDispstr = "ç‰¹ã«æŒ‡å®šãŒç„¡ã„å ´åˆã®æ–‡å­—åˆ—";
 
     /**
-     * •K{‚Å‚à‚È‚­A‚Ü‚½ƒfƒtƒHƒ‹ƒg‚à‚½‚È‚¢ˆø”‚Ì—áB
+     * å¿…é ˆã§ã‚‚ãªãã€ã¾ãŸãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚‚æŒãŸãªã„å¼•æ•°ã®ä¾‹ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [normalparam]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [normalparam]ã€‚
      */
     private String fNormalparam;
 
     /**
-     * ƒtƒB[ƒ‹ƒh: [field_int_req]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [field_int_req]ã€‚
      */
     private int fFieldIntReq;
 
     /**
-     * ƒtƒB[ƒ‹ƒh: [field_int]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [field_int]ã€‚
      */
     private int fFieldInt;
 
     /**
-     * ƒtƒB[ƒ‹ƒh: [field_long_req]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [field_long_req]ã€‚
      */
     private long fFieldLongReq;
 
     /**
-     * ƒtƒB[ƒ‹ƒh: [field_long]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [field_long]ã€‚
      */
     private long fFieldLong;
 
     /**
-     * ƒtƒB[ƒ‹ƒh: [field_decimal_req]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [field_decimal_req]ã€‚
      */
     private BigDecimal fFieldDecimalReq;
 
     /**
-     * ƒtƒB[ƒ‹ƒh: [field_decimal]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [field_decimal]ã€‚
      */
     private BigDecimal fFieldDecimal;
 
     /**
-     * ƒtƒB[ƒ‹ƒh: [field_boolean_req]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [field_boolean_req]ã€‚
      */
     private boolean fFieldBooleanReq;
 
     /**
-     * ƒtƒB[ƒ‹ƒh: [field_boolean]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [field_boolean]ã€‚
      */
     private boolean fFieldBoolean;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [require] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [require] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [•K{ˆø”‚ÌƒTƒ“ƒvƒ‹B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [å¿…é ˆå¼•æ•°ã®ã‚µãƒ³ãƒ—ãƒ«ã€‚]ã€‚
      *
-     * @param argRequire ƒtƒB[ƒ‹ƒh[require]‚Éİ’è‚·‚é’lB
+     * @param argRequire ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[require]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setRequire(final String argRequire) {
         fRequire = argRequire;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [require] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [require] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [•K{ˆø”‚ÌƒTƒ“ƒvƒ‹B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [å¿…é ˆå¼•æ•°ã®ã‚µãƒ³ãƒ—ãƒ«ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[require]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[require]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getRequire() {
         return fRequire;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [dispstr] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [dispstr] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [•\¦•¶š—ñ‚ÌƒTƒ“ƒvƒ‹B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [è¡¨ç¤ºæ–‡å­—åˆ—ã®ã‚µãƒ³ãƒ—ãƒ«ã€‚]ã€‚
      *
-     * @param argDispstr ƒtƒB[ƒ‹ƒh[dispstr]‚Éİ’è‚·‚é’lB
+     * @param argDispstr ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[dispstr]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setDispstr(final String argDispstr) {
         fDispstr = argDispstr;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [dispstr] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [dispstr] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [•\¦•¶š—ñ‚ÌƒTƒ“ƒvƒ‹B]B
-     * ƒfƒtƒHƒ‹ƒg: [“Á‚Éw’è‚ª–³‚¢ê‡‚Ì•¶š—ñ]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [è¡¨ç¤ºæ–‡å­—åˆ—ã®ã‚µãƒ³ãƒ—ãƒ«ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [ç‰¹ã«æŒ‡å®šãŒç„¡ã„å ´åˆã®æ–‡å­—åˆ—]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[dispstr]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[dispstr]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getDispstr() {
         return fDispstr;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [normalparam] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [normalparam] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [•K{‚Å‚à‚È‚­A‚Ü‚½ƒfƒtƒHƒ‹ƒg‚à‚½‚È‚¢ˆø”‚Ì—áB]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [å¿…é ˆã§ã‚‚ãªãã€ã¾ãŸãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚‚æŒãŸãªã„å¼•æ•°ã®ä¾‹ã€‚]ã€‚
      *
-     * @param argNormalparam ƒtƒB[ƒ‹ƒh[normalparam]‚Éİ’è‚·‚é’lB
+     * @param argNormalparam ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[normalparam]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setNormalparam(final String argNormalparam) {
         fNormalparam = argNormalparam;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [normalparam] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [normalparam] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [•K{‚Å‚à‚È‚­A‚Ü‚½ƒfƒtƒHƒ‹ƒg‚à‚½‚È‚¢ˆø”‚Ì—áB]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [å¿…é ˆã§ã‚‚ãªãã€ã¾ãŸãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚‚æŒãŸãªã„å¼•æ•°ã®ä¾‹ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[normalparam]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[normalparam]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getNormalparam() {
         return fNormalparam;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_int_req] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_int_req] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @param argFieldIntReq ƒtƒB[ƒ‹ƒh[field_int_req]‚Éİ’è‚·‚é’lB
+     * @param argFieldIntReq ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_int_req]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setFieldIntReq(final int argFieldIntReq) {
         fFieldIntReq = argFieldIntReq;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_int_req] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_int_req] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[field_int_req]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_int_req]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public int getFieldIntReq() {
         return fFieldIntReq;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_int] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_int] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @param argFieldInt ƒtƒB[ƒ‹ƒh[field_int]‚Éİ’è‚·‚é’lB
+     * @param argFieldInt ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_int]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setFieldInt(final int argFieldInt) {
         fFieldInt = argFieldInt;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_int] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_int] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[field_int]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_int]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public int getFieldInt() {
         return fFieldInt;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_long_req] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_long_req] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @param argFieldLongReq ƒtƒB[ƒ‹ƒh[field_long_req]‚Éİ’è‚·‚é’lB
+     * @param argFieldLongReq ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_long_req]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setFieldLongReq(final long argFieldLongReq) {
         fFieldLongReq = argFieldLongReq;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_long_req] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_long_req] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[field_long_req]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_long_req]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public long getFieldLongReq() {
         return fFieldLongReq;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_long] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_long] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @param argFieldLong ƒtƒB[ƒ‹ƒh[field_long]‚Éİ’è‚·‚é’lB
+     * @param argFieldLong ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_long]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setFieldLong(final long argFieldLong) {
         fFieldLong = argFieldLong;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_long] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_long] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[field_long]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_long]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public long getFieldLong() {
         return fFieldLong;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_decimal_req] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_decimal_req] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @param argFieldDecimalReq ƒtƒB[ƒ‹ƒh[field_decimal_req]‚Éİ’è‚·‚é’lB
+     * @param argFieldDecimalReq ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_decimal_req]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setFieldDecimalReq(final BigDecimal argFieldDecimalReq) {
         fFieldDecimalReq = argFieldDecimalReq;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_decimal_req] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_decimal_req] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[field_decimal_req]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_decimal_req]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public BigDecimal getFieldDecimalReq() {
         return fFieldDecimalReq;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_decimal] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_decimal] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @param argFieldDecimal ƒtƒB[ƒ‹ƒh[field_decimal]‚Éİ’è‚·‚é’lB
+     * @param argFieldDecimal ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_decimal]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setFieldDecimal(final BigDecimal argFieldDecimal) {
         fFieldDecimal = argFieldDecimal;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_decimal] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_decimal] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[field_decimal]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_decimal]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public BigDecimal getFieldDecimal() {
         return fFieldDecimal;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_boolean_req] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_boolean_req] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @param argFieldBooleanReq ƒtƒB[ƒ‹ƒh[field_boolean_req]‚Éİ’è‚·‚é’lB
+     * @param argFieldBooleanReq ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_boolean_req]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setFieldBooleanReq(final boolean argFieldBooleanReq) {
         fFieldBooleanReq = argFieldBooleanReq;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_boolean_req] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_boolean_req] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[field_boolean_req]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_boolean_req]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public boolean getFieldBooleanReq() {
         return fFieldBooleanReq;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_boolean] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_boolean] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @param argFieldBoolean ƒtƒB[ƒ‹ƒh[field_boolean]‚Éİ’è‚·‚é’lB
+     * @param argFieldBoolean ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_boolean]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setFieldBoolean(final boolean argFieldBoolean) {
         fFieldBoolean = argFieldBoolean;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [field_boolean] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [field_boolean] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: []B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: []ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[field_boolean]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[field_boolean]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public boolean getFieldBoolean() {
         return fFieldBoolean;
     }
 
     /**
-     * ‚±‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»‚ğæ“¾‚µ‚Ü‚·B
+     * ã“ã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * <P>g—pã‚Ì’ˆÓ</P>
+     * <P>ä½¿ç”¨ä¸Šã®æ³¨æ„</P>
      * <UL>
-     * <LI>ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[”ÍˆÍ‚Ì‚İ•¶š—ñ‰»‚Ìˆ—‘ÎÛ‚Æ‚È‚è‚Ü‚·B
-     * <LI>ƒIƒuƒWƒFƒNƒg‚ªzŠÂQÆ‚µ‚Ä‚¢‚éê‡‚É‚ÍA‚±‚Ìƒƒ\ƒbƒh‚Íg‚í‚È‚¢‚Å‚­‚¾‚³‚¢B
+     * <LI>ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ç¯„å›²ã®ã¿æ–‡å­—åˆ—åŒ–ã®å‡¦ç†å¯¾è±¡ã¨ãªã‚Šã¾ã™ã€‚
+     * <LI>ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå¾ªç’°å‚ç…§ã—ã¦ã„ã‚‹å ´åˆã«ã¯ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä½¿ã‚ãªã„ã§ãã ã•ã„ã€‚
      * </UL>
      *
-     * @return ƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»B
+     * @return ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã€‚
      */
     @Override
     public String toString() {

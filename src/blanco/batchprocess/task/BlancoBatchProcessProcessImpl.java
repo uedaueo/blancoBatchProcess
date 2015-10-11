@@ -21,28 +21,28 @@ import blanco.batchprocess.message.BlancoBatchProcessMessage;
 import blanco.batchprocess.task.valueobject.BlancoBatchProcessProcessInput;
 
 /**
- * ƒoƒbƒ`ˆ—¶¬ˆ—‚ÌÀÛ‚Ìˆ—“à—eB
+ * ãƒãƒƒãƒå‡¦ç†ç”Ÿæˆå‡¦ç†ã®å®Ÿéš›ã®å‡¦ç†å†…å®¹ã€‚
  */
 public class BlancoBatchProcessProcessImpl implements BlancoBatchProcessProcess {
     /**
-     * ƒƒbƒZ[ƒWƒNƒ‰ƒXB
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚¯ãƒ©ã‚¹ã€‚
      */
     protected final BlancoBatchProcessMessage fMsg = new BlancoBatchProcessMessage();
 
     protected BlancoBatchProcessProcessInput fInput;
 
     /**
-     * ‹ï‘Ì“I‚Èƒoƒbƒ`ˆ—“à—e‚ğ‹Lq‚·‚é‚½‚ß‚Ìƒƒ\ƒbƒh‚Å‚·B
+     * å…·ä½“çš„ãªãƒãƒƒãƒå‡¦ç†å†…å®¹ã‚’è¨˜è¿°ã™ã‚‹ãŸã‚ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ã™ã€‚
      * 
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÉÀÛ‚Ìˆ—“à—e‚ğ‹Lq‚µ‚Ü‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«å®Ÿéš›ã®å‡¦ç†å†…å®¹ã‚’è¨˜è¿°ã—ã¾ã™ã€‚
      * 
      * @param input
-     *            ƒoƒbƒ`ˆ—‚Ì“ü—Íƒpƒ‰ƒ[ƒ^B
-     * @return ƒoƒbƒ`ˆ—‚ÌI—¹ƒR[ƒhB³íI—¹‚Ìê‡‚É‚ÍABlancoBatchProcessBatchProcess.END_SUCCESSB
+     *            ãƒãƒƒãƒå‡¦ç†ã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚
+     * @return ãƒãƒƒãƒå‡¦ç†ã®çµ‚äº†ã‚³ãƒ¼ãƒ‰ã€‚æ­£å¸¸çµ‚äº†ã®å ´åˆã«ã¯ã€BlancoBatchProcessBatchProcess.END_SUCCESSã€‚
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      * @throws IllegalArgumentException
-     *             “ü—Í’l‚É•s³‚ªŒ©‚Â‚©‚Á‚½ê‡B
+     *             å…¥åŠ›å€¤ã«ä¸æ­£ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã€‚
      */
     public int execute(final BlancoBatchProcessProcessInput input)
             throws IOException, IllegalArgumentException {
@@ -57,16 +57,16 @@ public class BlancoBatchProcessProcessImpl implements BlancoBatchProcessProcess 
                         .getMetadir()));
             }
 
-            // ƒeƒ“ƒ|ƒ‰ƒŠƒfƒBƒŒƒNƒgƒŠ‚ğì¬B
+            // ãƒ†ãƒ³ãƒãƒ©ãƒªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œæˆã€‚
             new File(input.getTmpdir()
                     + BlancoBatchProcessConstants.TARGET_SUBDIRECTORY).mkdirs();
 
-            // w’è‚³‚ê‚½ƒƒ^ƒfƒBƒŒƒNƒgƒŠ‚ğˆ—‚µ‚Ü‚·B
+            // æŒ‡å®šã•ã‚ŒãŸãƒ¡ã‚¿ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’å‡¦ç†ã—ã¾ã™ã€‚
             new BlancoBatchProcessMeta2Xml().processDirectory(fileMetadir,
                     input.getTmpdir()
                             + BlancoBatchProcessConstants.TARGET_SUBDIRECTORY);
 
-            // XML‰»‚³‚ê‚½’†ŠÔƒtƒ@ƒCƒ‹‚©‚çƒ\[ƒXƒR[ƒh‚ğ¶¬
+            // XMLåŒ–ã•ã‚ŒãŸä¸­é–“ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆ
             final File[] fileMeta2 = new File(input.getTmpdir()
                     + BlancoBatchProcessConstants.TARGET_SUBDIRECTORY)
                     .listFiles();
@@ -75,8 +75,8 @@ public class BlancoBatchProcessProcessImpl implements BlancoBatchProcessProcess 
                     continue;
                 }
 
-                if (progress("ƒtƒ@ƒCƒ‹ [" + fileMeta2[index].getName()
-                        + "] ‚ğˆ—’†...")) {
+                if (progress("ãƒ•ã‚¡ã‚¤ãƒ« [" + fileMeta2[index].getName()
+                        + "] ã‚’å‡¦ç†ä¸­...")) {
                     return BlancoBatchProcessBatchProcess.END_ERROR;
                 }
 
@@ -88,16 +88,16 @@ public class BlancoBatchProcessProcessImpl implements BlancoBatchProcessProcess 
 
             return BlancoBatchProcessBatchProcess.END_SUCCESS;
         } catch (TransformerException ex) {
-            throw new IOException("XML•ÏŠ·‚Ì‰ß’ö‚Å—áŠO‚ª”­¶‚µ‚Ü‚µ‚½: " + ex.toString());
+            throw new IOException("XMLå¤‰æ›ã®éç¨‹ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸ: " + ex.toString());
         }
     }
 
     /**
-     * ˆ—‚Ì’†‚ÅƒAƒCƒeƒ€‚ªˆ—‚³‚ê‚é‚½‚Ñ‚Éi’»•ñ‚Æ‚µ‚ÄƒR[ƒ‹ƒoƒbƒN‚µ‚Ü‚·B
+     * å‡¦ç†ã®ä¸­ã§ã‚¢ã‚¤ãƒ†ãƒ ãŒå‡¦ç†ã•ã‚Œã‚‹ãŸã³ã«é€²æ—å ±å‘Šã¨ã—ã¦ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ã—ã¾ã™ã€‚
      * 
      * @param argProgressMessage
-     *            Œ»İˆ—‚µ‚Ä‚¢‚éƒAƒCƒeƒ€‚ÉŠÖ‚·‚éƒƒbƒZ[ƒWB
-     * @return ˆ—‚ğ‚»‚Ì‚Ü‚ÜŒp‘±‚·‚éê‡‚Í falseBˆ—’†’f‚ğƒŠƒNƒGƒXƒg‚µ‚½‚¢ê‡‚Í trueB
+     *            ç¾åœ¨å‡¦ç†ã—ã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã«é–¢ã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã€‚
+     * @return å‡¦ç†ã‚’ãã®ã¾ã¾ç¶™ç¶šã™ã‚‹å ´åˆã¯ falseã€‚å‡¦ç†ä¸­æ–­ã‚’ãƒªã‚¯ã‚¨ã‚¹ãƒˆã—ãŸã„å ´åˆã¯ trueã€‚
      */
     public boolean progress(String argProgressMessage) {
         if (fInput.getVerbose()) {

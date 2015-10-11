@@ -10,68 +10,68 @@
 package blanco.batchprocess.stringgroup;
 
 /**
- * ƒTƒ|[ƒg‚·‚éblancoŒ^‚Ìˆê——‚ğ‚ ‚ç‚í‚µ‚Ü‚·B
+ * ã‚µãƒãƒ¼ãƒˆã™ã‚‹blancoå‹ã®ä¸€è¦§ã‚’ã‚ã‚‰ã‚ã—ã¾ã™ã€‚
  */
 public class BlancoBatchProcessBlancoTypeStringGroup {
     /**
-     * No.1 à–¾:•¶š—ñB
+     * No.1 èª¬æ˜:æ–‡å­—åˆ—ã€‚
      */
     public static final int BLANCO_STRING = 1;
 
     /**
-     * No.2 à–¾:®”(int)B
+     * No.2 èª¬æ˜:æ•´æ•°(int)ã€‚
      */
     public static final int BLANCO_INT = 2;
 
     /**
-     * No.3 à–¾:®”(long)B
+     * No.3 èª¬æ˜:æ•´æ•°(long)ã€‚
      */
     public static final int BLANCO_LONG = 3;
 
     /**
-     * No.4 à–¾:”’l(decimal)B
+     * No.4 èª¬æ˜:æ•°å€¤(decimal)ã€‚
      */
     public static final int BLANCO_DECIMAL = 4;
 
     /**
-     * No.5 à–¾:^‹UB
+     * No.5 èª¬æ˜:çœŸå½ã€‚
      */
     public static final int BLANCO_BOOLEAN = 5;
 
     /**
-     * –¢’è‹`B•¶š—ñƒOƒ‹[ƒvˆÈŠO‚Ì•¶š—ñ‚Ü‚½‚Í’è”‚ª–¢’è‹`‚Ì‚à‚ÌB
+     * æœªå®šç¾©ã€‚æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—ä»¥å¤–ã®æ–‡å­—åˆ—ã¾ãŸã¯å®šæ•°ãŒæœªå®šç¾©ã®ã‚‚ã®ã€‚
      */
     public static final int NOT_DEFINED = -1;
 
     /**
-     * •¶š—ñƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚é•¶š—ñ‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğ”»’è‚µ‚Ü‚·B
+     * æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’åˆ¤å®šã—ã¾ã™ã€‚
      *
-     * @param argCheck ƒ`ƒFƒbƒN‚ğs‚¢‚½‚¢•¶š—ñB
-     * @return •¶š—ñƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚ê‚ÎtureBƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚È‚¢•¶š—ñ‚Å‚ ‚ê‚ÎfalseB
+     * @param argCheck ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã„ãŸã„æ–‡å­—åˆ—ã€‚
+     * @return æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œã¦ã„ã‚Œã°tureã€‚ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œãªã„æ–‡å­—åˆ—ã§ã‚ã‚Œã°falseã€‚
      */
     public boolean match(final String argCheck) {
         // No.1
-        // à–¾:•¶š—ñB
+        // èª¬æ˜:æ–‡å­—åˆ—ã€‚
         if ("blanco:string".equals(argCheck)) {
             return true;
         }
         // No.2
-        // à–¾:®”(int)B
+        // èª¬æ˜:æ•´æ•°(int)ã€‚
         if ("blanco:int".equals(argCheck)) {
             return true;
         }
         // No.3
-        // à–¾:®”(long)B
+        // èª¬æ˜:æ•´æ•°(long)ã€‚
         if ("blanco:long".equals(argCheck)) {
             return true;
         }
         // No.4
-        // à–¾:”’l(decimal)B
+        // èª¬æ˜:æ•°å€¤(decimal)ã€‚
         if ("blanco:decimal".equals(argCheck)) {
             return true;
         }
         // No.5
-        // à–¾:^‹UB
+        // èª¬æ˜:çœŸå½ã€‚
         if ("blanco:boolean".equals(argCheck)) {
             return true;
         }
@@ -79,34 +79,34 @@ public class BlancoBatchProcessBlancoTypeStringGroup {
     }
 
     /**
-     * •¶š—ñƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚é•¶š—ñ‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğA‘å•¶š¬•¶š‚ğ‹æ•Ê‚¹‚¸”»’è‚µ‚Ü‚·B
+     * æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’ã€å¤§æ–‡å­—å°æ–‡å­—ã‚’åŒºåˆ¥ã›ãšåˆ¤å®šã—ã¾ã™ã€‚
      *
-     * @param argCheck ƒ`ƒFƒbƒN‚ğs‚¢‚½‚¢•¶š—ñB
-     * @return •¶š—ñƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚ê‚ÎtureBƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚È‚¢•¶š—ñ‚Å‚ ‚ê‚ÎfalseB
+     * @param argCheck ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã„ãŸã„æ–‡å­—åˆ—ã€‚
+     * @return æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œã¦ã„ã‚Œã°tureã€‚ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œãªã„æ–‡å­—åˆ—ã§ã‚ã‚Œã°falseã€‚
      */
     public boolean matchIgnoreCase(final String argCheck) {
         // No.1
-        // à–¾:•¶š—ñB
+        // èª¬æ˜:æ–‡å­—åˆ—ã€‚
         if ("blanco:string".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.2
-        // à–¾:®”(int)B
+        // èª¬æ˜:æ•´æ•°(int)ã€‚
         if ("blanco:int".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.3
-        // à–¾:®”(long)B
+        // èª¬æ˜:æ•´æ•°(long)ã€‚
         if ("blanco:long".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.4
-        // à–¾:”’l(decimal)B
+        // èª¬æ˜:æ•°å€¤(decimal)ã€‚
         if ("blanco:decimal".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.5
-        // à–¾:^‹UB
+        // èª¬æ˜:çœŸå½ã€‚
         if ("blanco:boolean".equalsIgnoreCase(argCheck)) {
             return true;
         }
@@ -114,84 +114,84 @@ public class BlancoBatchProcessBlancoTypeStringGroup {
     }
 
     /**
-     * •¶š—ñ‚©‚ç’è”‚É•ÏŠ·‚µ‚Ü‚·B
+     * æ–‡å­—åˆ—ã‹ã‚‰å®šæ•°ã«å¤‰æ›ã—ã¾ã™ã€‚
      *
-     * ’è”‚ª–¢’è‹`‚Ìê‡‚â —^‚¦‚ç‚ê‚½•¶š—ñ‚ª•¶š—ñƒOƒ‹[ƒvŠO‚Ìê‡‚É‚Í NOT_DEFINED ‚ğ–ß‚µ‚Ü‚·B
+     * å®šæ•°ãŒæœªå®šç¾©ã®å ´åˆã‚„ ä¸ãˆã‚‰ã‚ŒãŸæ–‡å­—åˆ—ãŒæ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—å¤–ã®å ´åˆã«ã¯ NOT_DEFINED ã‚’æˆ»ã—ã¾ã™ã€‚
      *
-     * @param argCheck •ÏŠ·‚ğs‚¢‚½‚¢•¶š—ñB
-     * @return ’è”‚É•ÏŠ·Œã‚Ì’lB
+     * @param argCheck å¤‰æ›ã‚’è¡Œã„ãŸã„æ–‡å­—åˆ—ã€‚
+     * @return å®šæ•°ã«å¤‰æ›å¾Œã®å€¤ã€‚
      */
     public int convertToInt(final String argCheck) {
         // No.1
-        // à–¾:•¶š—ñB
+        // èª¬æ˜:æ–‡å­—åˆ—ã€‚
         if ("blanco:string".equals(argCheck)) {
             return BLANCO_STRING;
         }
         // No.2
-        // à–¾:®”(int)B
+        // èª¬æ˜:æ•´æ•°(int)ã€‚
         if ("blanco:int".equals(argCheck)) {
             return BLANCO_INT;
         }
         // No.3
-        // à–¾:®”(long)B
+        // èª¬æ˜:æ•´æ•°(long)ã€‚
         if ("blanco:long".equals(argCheck)) {
             return BLANCO_LONG;
         }
         // No.4
-        // à–¾:”’l(decimal)B
+        // èª¬æ˜:æ•°å€¤(decimal)ã€‚
         if ("blanco:decimal".equals(argCheck)) {
             return BLANCO_DECIMAL;
         }
         // No.5
-        // à–¾:^‹UB
+        // èª¬æ˜:çœŸå½ã€‚
         if ("blanco:boolean".equals(argCheck)) {
             return BLANCO_BOOLEAN;
         }
 
-        // ŠY“–‚·‚é’è”‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B
+        // è©²å½“ã™ã‚‹å®šæ•°ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚
         return NOT_DEFINED;
     }
 
     /**
-     * ’è”‚©‚ç•¶š—ñ‚É•ÏŠ·‚µ‚Ü‚·B
+     * å®šæ•°ã‹ã‚‰æ–‡å­—åˆ—ã«å¤‰æ›ã—ã¾ã™ã€‚
      *
-     * ’è”‚Æ‘Î‰‚Ã‚­•¶š—ñ‚É•ÏŠ·‚µ‚Ü‚·B
+     * å®šæ•°ã¨å¯¾å¿œã¥ãæ–‡å­—åˆ—ã«å¤‰æ›ã—ã¾ã™ã€‚
      *
-     * @param argCheck •ÏŠ·‚ğs‚¢‚½‚¢•¶š’è”B
-     * @return •¶š—ñ‚É•ÏŠ·Œã‚Ì’lBNOT_DEFINED‚Ìê‡‚É‚Í’·‚³0‚Ì•¶š—ñB
+     * @param argCheck å¤‰æ›ã‚’è¡Œã„ãŸã„æ–‡å­—å®šæ•°ã€‚
+     * @return æ–‡å­—åˆ—ã«å¤‰æ›å¾Œã®å€¤ã€‚NOT_DEFINEDã®å ´åˆã«ã¯é•·ã•0ã®æ–‡å­—åˆ—ã€‚
      */
     public String convertToString(final int argCheck) {
         // No.1
-        // à–¾:•¶š—ñB
+        // èª¬æ˜:æ–‡å­—åˆ—ã€‚
         if (argCheck == BLANCO_STRING) {
             return "blanco:string";
         }
         // No.2
-        // à–¾:®”(int)B
+        // èª¬æ˜:æ•´æ•°(int)ã€‚
         if (argCheck == BLANCO_INT) {
             return "blanco:int";
         }
         // No.3
-        // à–¾:®”(long)B
+        // èª¬æ˜:æ•´æ•°(long)ã€‚
         if (argCheck == BLANCO_LONG) {
             return "blanco:long";
         }
         // No.4
-        // à–¾:”’l(decimal)B
+        // èª¬æ˜:æ•°å€¤(decimal)ã€‚
         if (argCheck == BLANCO_DECIMAL) {
             return "blanco:decimal";
         }
         // No.5
-        // à–¾:^‹UB
+        // èª¬æ˜:çœŸå½ã€‚
         if (argCheck == BLANCO_BOOLEAN) {
             return "blanco:boolean";
         }
-        // –¢’è‹`B
+        // æœªå®šç¾©ã€‚
         if (argCheck == NOT_DEFINED) {
             return "";
         }
 
-        // ‚¢‚¸‚ê‚É‚àŠY“–‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B
-        throw new IllegalArgumentException("—^‚¦‚ç‚ê‚½’l(" + argCheck + ")‚Í•¶š—ñƒOƒ‹[ƒv[BlancoBatchProcessBlancoType]‚Å‚Í’è‹`‚³‚ê‚È‚¢’l‚Å‚·B");
+        // ã„ãšã‚Œã«ã‚‚è©²å½“ã—ã¾ã›ã‚“ã§ã—ãŸã€‚
+        throw new IllegalArgumentException("ä¸ãˆã‚‰ã‚ŒãŸå€¤(" + argCheck + ")ã¯æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—[BlancoBatchProcessBlancoType]ã§ã¯å®šç¾©ã•ã‚Œãªã„å€¤ã§ã™ã€‚");
     }
 }

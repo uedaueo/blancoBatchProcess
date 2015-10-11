@@ -17,46 +17,46 @@ import blanco.batchprocess.stringgroup.BlancoBatchProcessSupportedLangStringGrou
 import blanco.batchprocess.valueobject.BlancoBatchProcessStructure;
 
 /**
- * uƒoƒbƒ`ˆ—’è‹`‘vExcel—lŽ®‚©‚çƒoƒbƒ`ˆ—‚ðˆ—‚·‚é’ŠÛeƒNƒ‰ƒXEƒ\[ƒXƒR[ƒh‚ð¶¬B
+ * ã€Œãƒãƒƒãƒå‡¦ç†å®šç¾©æ›¸ã€Excelæ§˜å¼ã‹ã‚‰ãƒãƒƒãƒå‡¦ç†ã‚’å‡¦ç†ã™ã‚‹æŠ½è±¡è¦ªã‚¯ãƒ©ã‚¹ãƒ»ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍA’†ŠÔXMLƒtƒ@ƒCƒ‹‚©‚çƒ\[ƒXƒR[ƒh‚ðŽ©“®¶¬‚·‚é‹@”\‚ð’S‚¢‚Ü‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€ä¸­é–“XMLãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹æ©Ÿèƒ½ã‚’æ‹…ã„ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoBatchProcessXml2SourceFile {
     /**
-     * ƒƒbƒZ[ƒWƒNƒ‰ƒXB
+     * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚¯ãƒ©ã‚¹ã€‚
      */
     protected final BlancoBatchProcessMessage fMsg = new BlancoBatchProcessMessage();
 
     /**
-     * Ž©“®¶¬‚·‚éƒ\[ƒXƒtƒ@ƒCƒ‹‚Ì•¶ŽšƒGƒ“ƒR[ƒfƒBƒ“ƒOB
+     * è‡ªå‹•ç”Ÿæˆã™ã‚‹ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã€‚
      */
     private String fEncoding = null;
 
     /**
-     * Ž©“®¶¬‚·‚éƒ\[ƒXƒtƒ@ƒCƒ‹‚Ì•¶ŽšƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ðŽw’è‚µ‚Ü‚·B
+     * è‡ªå‹•ç”Ÿæˆã™ã‚‹ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚’æŒ‡å®šã—ã¾ã™ã€‚
      * 
      * @param argEncoding
-     *            Ž©“®¶¬‚·‚éƒ\[ƒXƒtƒ@ƒCƒ‹‚Ì•¶ŽšƒGƒ“ƒR[ƒfƒBƒ“ƒOB
+     *            è‡ªå‹•ç”Ÿæˆã™ã‚‹ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã€‚
      */
     public void setEncoding(final String argEncoding) {
         fEncoding = argEncoding;
     }
 
     /**
-     * ’†ŠÔXMLƒtƒ@ƒCƒ‹‚©‚çƒ\[ƒXƒR[ƒh‚ðŽ©“®¶¬‚µ‚Ü‚·B
+     * ä¸­é–“XMLãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argMetaXmlSourceFile
-     *            ƒƒ^î•ñ‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éXMLƒtƒ@ƒCƒ‹B
+     *            ãƒ¡ã‚¿æƒ…å ±ãŒå«ã¾ã‚Œã¦ã„ã‚‹XMLãƒ•ã‚¡ã‚¤ãƒ«ã€‚
      * @param argRuntimePackage
-     *            ƒ‰ƒ“ƒ^ƒCƒ€ƒpƒbƒP[ƒWBnull‚¨‚æ‚Ñ’·‚³0‚Ì•¶Žš—ñ‚Ìê‡‚Í’è‹`‘‚²‚Æ‚Éƒ‰ƒ“ƒ^ƒCƒ€ƒNƒ‰ƒX‚ð¶¬B
+     *            ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã€‚nullãŠã‚ˆã³é•·ã•0ã®æ–‡å­—åˆ—ã®å ´åˆã¯å®šç¾©æ›¸ã”ã¨ã«ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ã‚¯ãƒ©ã‚¹ã‚’ç”Ÿæˆã€‚
      * @param argTargetLang
-     *            o—Í‘ÎÛƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªžã€‚
      * @param argDirectoryTarget
-     *            ƒ\[ƒXƒR[ƒh¶¬æƒfƒBƒŒƒNƒgƒŠ (/main‚ðœ‚­•”•ª‚ðŽw’è‚µ‚Ü‚·)B
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ç”Ÿæˆå…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª (/mainã‚’é™¤ãéƒ¨åˆ†ã‚’æŒ‡å®šã—ã¾ã™)ã€‚
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void process(final File argMetaXmlSourceFile,
             final String argRuntimePackage, final String argTargetLang,
@@ -65,26 +65,26 @@ public class BlancoBatchProcessXml2SourceFile {
         final BlancoBatchProcessStructure[] structures = new BlancoBatchProcessXmlParser()
                 .parse(argMetaXmlSourceFile);
         if (structures == null || structures.length == 0) {
-            // ˆ—‚µ‚È‚¢B
+            // å‡¦ç†ã—ãªã„ã€‚
             return;
         }
 
         for (int index = 0; index < structures.length; index++) {
-            // ƒƒ^î•ñ‚Ì‰ðÍŒ‹‰Ê‚ð‚à‚Æ‚Éƒ\[ƒXƒR[ƒhŽ©“®¶¬‚ðŽÀs‚µ‚Ü‚·B
+            // ãƒ¡ã‚¿æƒ…å ±ã®è§£æžçµæžœã‚’ã‚‚ã¨ã«ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
             structure2Source(structures[index], argRuntimePackage,
                     argTargetLang, argDirectoryTarget);
         }
     }
 
     /**
-     * —^‚¦‚ç‚ê‚½ƒNƒ‰ƒXî•ñƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çAJavaƒ\[ƒXƒR[ƒh‚ðŽ©“®¶¬‚µ‚Ü‚·B
+     * ä¸Žãˆã‚‰ã‚ŒãŸã‚¯ãƒ©ã‚¹æƒ…å ±ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã€Javaã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argStructure
-     *            î•ñB
+     *            æƒ…å ±ã€‚
      * @param argDirectoryTarget
-     *            ƒ\[ƒXƒR[ƒh‚Ìo—ÍæƒfƒBƒŒƒNƒgƒŠ
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å‡ºåŠ›å…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void structure2Source(
             final BlancoBatchProcessStructure argStructure,
