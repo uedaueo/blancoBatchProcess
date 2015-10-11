@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- blancoCalcParser define file for blancoAntTask -->
+<blanco version="0.1.0">
+  <target name="blancoCalcParser">
+    <blancocalcparser name="batchprocess">
+      <propertyblock name="blancobatchprocess-common" waitY="1">
+        <startstring>バッチ処理定義・共通</startstring>
+        <propertykey name="name" waitX="1">
+          <value>バッチ処理ID</value>
+        </propertykey>
+        <propertykey name="description" waitX="1">
+          <value>説明</value>
+        </propertykey>
+        <propertykey name="package" waitX="1">
+          <value>パッケージ</value>
+        </propertykey>
+        <propertykey name="suffix" waitX="1">
+          <value>サフィックス</value>
+        </propertykey>
+      </propertyblock>
+
+      <tableblock name="blancobatchprocess-inparameter-list" waitY="2" titleheight="3" rowname="inparameter">
+        <startstring>バッチ処理定義・入力パラメータ一覧</startstring>
+
+        <tablecolumn name="name">
+          <value>パラメータ</value>
+        </tablecolumn>
+        <tablecolumn name="type">
+          <value>型</value>
+        </tablecolumn>
+        <tablecolumn name="require">
+          <value>必須</value>
+        </tablecolumn>
+        <tablecolumn name="default">
+          <value>デフォルト</value>
+        </tablecolumn>
+        <tablecolumn name="description">
+          <value>説明</value>
+        </tablecolumn>
+
+        <valuemapping>
+          <result>true</result>
+          <source>○</source>
+        </valuemapping>
+
+        <valuemapping>
+          <result>blanco:string</result>
+          <source>文字列</source>
+        </valuemapping>
+        <valuemapping>
+          <result>blanco:int</result>
+          <source>整数(int)</source>
+        </valuemapping>
+        <valuemapping>
+          <result>blanco:long</result>
+          <source>整数(long)</source>
+        </valuemapping>
+        <valuemapping>
+          <result>blanco:decimal</result>
+          <source>数値(decimal)</source>
+        </valuemapping>
+        <valuemapping>
+          <result>blanco:boolean</result>
+          <source>真偽</source>
+        </valuemapping>
+      </tableblock>
+
+      <propertyblock name="blancobatchprocess-output" waitY="1">
+        <startstring>バッチ処理定義・戻り値</startstring>
+        <propertykey name="end-success" waitX="1">
+          <value>正常終了</value>
+        </propertykey>
+        <propertykey name="end-batchprocess-exception" waitX="1">
+          <value>バッチ処理例外終了</value>
+        </propertykey>
+        <propertykey name="end-illegal-argument-exception" waitX="1">
+          <value>不正入力終了</value>
+        </propertykey>
+        <propertykey name="end-io-exception" waitX="1">
+          <value>入出力例外終了</value>
+        </propertykey>
+        <propertykey name="end-error" waitX="1">
+          <value>異常終了</value>
+        </propertykey>
+        <propertykey name="description" waitX="1">
+          <value>その他の値(説明)</value>
+        </propertykey>
+      </propertyblock>
+    </blancocalcparser>
+  </target>
+</blanco>
