@@ -14,7 +14,7 @@ public class BlancoBatchProcessConstants extends AbstractBlancoBatchProcessConst
      *
      * [@BlancoConstantsVersion]
      */
-    public static final String VERSION = "0.6.2-I201510120657";
+    public static final String VERSION = "0.6.2-I201510122155";
 
     /**
      * Getter for version constants.

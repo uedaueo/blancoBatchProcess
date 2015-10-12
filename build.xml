@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="blancoBatchProcess" default="build" basedir=".">
 	<!-- blancoAnt(0.1.7)により自動生成されました。 (2008/12/05) -->
-	<property name="version" value="0.6.2" />
+	<property name="version" value="2.0.0" />
 
 	<property name="project" value="blancoBatchProcess" />
 	<property name="project.lower" value="blancobatchprocess" />
