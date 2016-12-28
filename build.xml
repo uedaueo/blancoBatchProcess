@@ -41,6 +41,7 @@
 			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
 			<fileset dir="../blanco2gDistribution/lib/blanco2g" includes="*.jar" />
 			<fileset dir="../blanco2gDistribution/lib/eclipse" includes="*.jar" />
+			<fileset dir="target/lib" includes="*.jar" />
 		</classpath>
 	</taskdef>
 
@@ -48,24 +49,28 @@
 	<taskdef name="blancoanttask" classname="blanco.anttask.task.BlancoAntTaskTask">
 		<classpath>
 			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+			<fileset dir="target/lib" includes="*.jar" />
 		</classpath>
 	</taskdef>
 
 	<taskdef name="blancoconstants" classname="blanco.constants.task.BlancoConstantsTask">
 		<classpath>
 			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+			<fileset dir="target/lib" includes="*.jar" />
 		</classpath>
 	</taskdef>
 
 	<taskdef name="blancomessage" classname="blanco.message.task.BlancoMessageTask">
 		<classpath>
 			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+			<fileset dir="target/lib" includes="*.jar" />
 		</classpath>
 	</taskdef>
 
 	<taskdef name="blancometa2xml" classname="blanco.meta2xml.task.BlancoMeta2XmlTask">
 		<classpath>
 			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+			<fileset dir="target/lib" includes="*.jar" />
 		</classpath>
 	</taskdef>
 
@@ -78,6 +83,7 @@
 	<taskdef name="blancovalueobject" classname="blanco.valueobject.task.BlancoValueObjectTask">
 		<classpath>
 			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+			<fileset dir="target/lib" includes="*.jar" />
 		</classpath>
 	</taskdef>
 
@@ -91,7 +97,8 @@
 	<!-- 自分自身のAntタスク。 -->
 	<taskdef name="blancobatchprocess" classname="blanco.batchprocess.task.BlancoBatchProcessTask">
 		<classpath>
-			<fileset dir="lib" includes="*.jar" />
+			<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
+			<fileset dir="target/lib" includes="*.jar" />
 		</classpath>
 	</taskdef>
 
@@ -125,7 +132,7 @@
 		<echo>building jar</echo>
 
 		<!-- 定義書読込設定XMLファイル(blancoCalcParserが利用) をコピーします。 -->
-		<copy file="src/blanco/batchprocess/BlancoBatchProcessMeta2Xml.xml" todir="bin/blanco/batchprocess" />
+		<copy file="src/main/java/blanco/batchprocess/BlancoBatchProcessMeta2Xml.xml" todir="bin/blanco/batchprocess" />
 
 		<delete file="${project.main.jar}" />
 		<jar destfile="${project.main.jar}">
@@ -133,7 +140,7 @@
 			<!-- classの取り込み (※sampleは除外) -->
 			<zipfileset dir="bin" includes="**/*" excludes="blanco/sample/**" />
 			<!-- Javaソースコード(通常)の取り込み (※sampleは除外) -->
-			<zipfileset dir="src" includes="**/*" prefix="src" excludes="blanco/sample/**" />
+			<zipfileset dir="src/main/java/" includes="**/*" prefix="src" excludes="blanco/sample/**" />
 			<!-- Javaソースコード(自動生成)の取り込み (※sampleは除外) -->
 			<zipfileset dir="blanco/main" includes="**/*.java" prefix="src" excludes="blanco/sample/**" />
 			<!-- プロパティファイルの取り込み -->
@@ -146,26 +153,13 @@
 		<mkdir dir="bin" />
 		<javac destdir="bin" debug="true" source="1.6" target="1.6" fork="true" encoding="${encoding}">
 			<src path="blanco/main/" />
-			<src path="src/" />
+			<src path="src/main/java/" />
 			<classpath>
 				<!-- ワイルドカードで一括取り込み -->
-				<fileset dir="lib" includes="*.jar" />
+				<fileset dir="target/lib" includes="*.jar" />
 				<pathelement path="${eclipse.dir}/plugins/org.junit_3.8.2.v20080602-1318/junit.jar" />
 			</classpath>
 			<include name="**/*.java" />
 		</javac>
-	</target>
-
-	<target name="javadoc">
-		<echo>JavaDocを生成します。</echo>
-		<delete dir="javadoc" />
-		<javadoc destdir="javadoc">
-			<fileset dir="src" includes="**/*.java" />
-			<fileset dir="blanco/main" includes="**/*.java" />
-			<classpath>
-				<fileset dir="lib" includes="*.jar" />
-				<fileset dir="../blanco2gDistribution/lib/blanco1g" includes="*.jar" />
-			</classpath>
-		</javadoc>
 	</target>
 </project>
