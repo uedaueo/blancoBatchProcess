@@ -5,9 +5,51 @@
 	<groupId>blanco.batchprocess</groupId>
 	<artifactId>blanco-batchprocess</artifactId>
 	<packaging>jar</packaging>
-	<version>2.0.1</version>
+	<version>2.0.0</version>
 	<name>blanco-batchprocess</name>
 	<url>https://igapyon.github.io/blancofw-maven2</url>
+
+	<!-- basic spec for jar -->
+	<properties>
+		<!-- set source as UTF-8 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<github.global.server>github</github.global.server>
+		<git.branchName>gh-pages</git.branchName>
+		<git.repositoryOwner>uedaueo</git.repositoryOwner>
+		<git.repositoryName>blancofw-maven2</git.repositoryName>
+		<git.isMerge>true</git.isMerge>
+	</properties>
+
+	<distributionManagement>
+		<!-- deploy into local repository for github -->
+		<repository>
+			<id>deploy-repository</id>
+			<name>deployRepository</name>
+			<url>file:///${project.build.directory}/gh-pages</url>
+		</repository>
+	</distributionManagement>
+
+	<!-- ===================================== -->
+	<!-- blanco Framework standard maven defs. -->
+	<!-- v201612251240 ....................... -->
+	<!-- ===================================== -->
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://central.maven.org/maven2/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<!-- blancofw repository -->
+		<repository>
+			<id>blancofw</id>
+			<name>blancofw maven repos</name>
+			<url>https://raw.github.com/uedaueo/blancofw-maven2/gh-pages/</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<dependency>
@@ -42,10 +84,16 @@
 		</dependency>
 
 		<dependency>
-			<groupId>blanco.fw</groupId>
-			<artifactId>blanco-fw</artifactId>
-			<version>[0.6,1.0)</version>
+			<groupId>blanco.constants</groupId>
+			<artifactId>blanco-constants</artifactId>
+			<version>2.0.1</version>
 		</dependency>
+
+		<!--		<dependency>-->
+<!--			<groupId>blanco.fw</groupId>-->
+<!--			<artifactId>blanco-fw</artifactId>-->
+<!--			<version>[0.6,1.0)</version>-->
+<!--		</dependency>-->
 
 		<!-- https://mvnrepository.com/artifact/org.apache.ant/ant -->
 		<dependency>
@@ -54,34 +102,6 @@
 			<version>[1.9.7,2.0)</version>
 		</dependency>
 	</dependencies>
-
-	<!-- ===================================== -->
-	<!-- blanco Framework standard maven defs. -->
-	<!-- v201612251240 ....................... -->
-	<!-- ===================================== -->
-	<repositories>
-		<!-- blancofw repository -->
-		<repository>
-			<id>blancofw</id>
-			<name>blancofw maven repos</name>
-			<url>https://igapyon.github.io/blancofw-maven2</url>
-		</repository>
-	</repositories>
-
-	<distributionManagement>
-		<!-- deploy into local repository for github -->
-		<repository>
-			<id>deploy-repository</id>
-			<name>deployRepository</name>
-			<url>file:///${project.basedir}/../blancofw-maven2</url>
-		</repository>
-	</distributionManagement>
-
-	<!-- basic spec for jar -->
-	<properties>
-		<!-- set source as UTF-8 -->
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 
 	<build>
 		<plugins>
@@ -156,6 +176,38 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.12</version>
+				<configuration>
+					<!-- git commit message -->
+					<message>Maven artifacts for ${project.version}</message>
+					<noJekyll>true</noJekyll>
+					<outputDirectory>${project.build.directory}/${git.branchName}</outputDirectory>
+					<branch>refs/heads/${git.branchName}</branch>
+					<includes>
+						<include>**/*</include>
+					</includes>
+
+					<repositoryName>${git.repositoryName}</repositoryName>
+					<repositoryOwner>${git.repositoryOwner}</repositoryOwner>
+
+					<!-- true：履歴を残す　false：直近バージョンのみ repositoryに残る -->
+					<merge>${git.isMerge}</merge>
+
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 </project>
