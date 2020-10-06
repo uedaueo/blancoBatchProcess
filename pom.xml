@@ -5,7 +5,7 @@
 	<groupId>blanco.batchprocess</groupId>
 	<artifactId>blanco-batchprocess</artifactId>
 	<packaging>jar</packaging>
-	<version>2.0.0</version>
+	<version>2.1.0</version>
 	<name>blanco-batchprocess</name>
 	<url>https://igapyon.github.io/blancofw-maven2</url>
 
@@ -16,7 +16,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<github.global.server>github</github.global.server>
-		<git.branchName>gh-pages</git.branchName>
+		<git.branchName>gh-pages-poi4</git.branchName>
 		<git.repositoryOwner>uedaueo</git.repositoryOwner>
 		<git.repositoryName>blancofw-maven2</git.repositoryName>
 		<git.isMerge>true</git.isMerge>
@@ -27,7 +27,7 @@
 		<repository>
 			<id>deploy-repository</id>
 			<name>deployRepository</name>
-			<url>file:///${project.build.directory}/gh-pages</url>
+			<url>file:///${project.build.directory}/${git.branchName}</url>
 		</repository>
 	</distributionManagement>
 
@@ -38,7 +38,7 @@
 	<repositories>
 		<repository>
 			<id>central</id>
-			<url>http://central.maven.org/maven2/</url>
+			<url>https://repo1.maven.org/maven2/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -47,16 +47,22 @@
 		<repository>
 			<id>blancofw</id>
 			<name>blancofw maven repos</name>
-			<url>https://raw.github.com/uedaueo/blancofw-maven2/gh-pages/</url>
+			<url>https://raw.github.com/uedaueo/blancofw-maven2/${git.branchName}/</url>
 		</repository>
 	</repositories>
 
 	<dependencies>
+
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>[3.8.1,4.0)</version>
-			<scope>test</scope>
+			<groupId>blanco.anttask</groupId>
+			<artifactId>blanco-anttask</artifactId>
+			<version>[2.0,3.0)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>blanco.batchprocess</groupId>
+			<artifactId>blanco-batchprocess</artifactId>
+			<version>[2.0,3.0)</version>
 		</dependency>
 
 		<dependency>
@@ -72,12 +78,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>blanco.xml.bind</groupId>
-			<artifactId>blanco-xmlbinding</artifactId>
-			<version>[2.0,3.0)</version>
-		</dependency>
-
-		<dependency>
 			<groupId>blanco.valueobject</groupId>
 			<artifactId>blanco-valueobject</artifactId>
 			<version>[2.0,3.0)</version>
@@ -86,14 +86,44 @@
 		<dependency>
 			<groupId>blanco.constants</groupId>
 			<artifactId>blanco-constants</artifactId>
-			<version>2.0.1</version>
+			<version>[2.0,3.0)</version>
 		</dependency>
 
-		<!--		<dependency>-->
-<!--			<groupId>blanco.fw</groupId>-->
-<!--			<artifactId>blanco-fw</artifactId>-->
-<!--			<version>[0.6,1.0)</version>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>blanco.message</groupId>
+			<artifactId>blanco-message</artifactId>
+			<version>[2.0,3.0)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>blanco.meta2xml</groupId>
+			<artifactId>blanco-meta2xml</artifactId>
+			<version>[2.0,3.0)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>blanco.resourcebundle</groupId>
+			<artifactId>blanco-resourcebundle</artifactId>
+			<version>[2.0,3.0)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>blanco.stringgroup</groupId>
+			<artifactId>blanco-stringgroup</artifactId>
+			<version>[0.0,1.0)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>blanco.beanutils</groupId>
+			<artifactId>blanco-beanutils</artifactId>
+			<version>[1.0,2.0)</version>
+		</dependency>
+
+		<dependency>
+			<groupId>blanco.xml.bind</groupId>
+			<artifactId>blanco-xmlbinding</artifactId>
+			<version>[2.0,3.0)</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.ant/ant -->
 		<dependency>
@@ -101,10 +131,200 @@
 			<artifactId>ant</artifactId>
 			<version>[1.9.7,2.0)</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.2</version>
+			<!--			<version>3.13</version>-->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.2</version>
+			<!--			<version>3.13</version>-->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>4.1.2</version>
+			<!--			<version>3.13</version>-->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-scratchpad</artifactId>
+			<version>4.1.2</version>
+			<!--			<version>3.13</version>-->
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>3.1.0</version>
+			<!--			            <version>2.6.0</version>-->
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+
+					<execution>
+						<id>blanco-meta-anttask</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<taskdef name="blancoanttask" classname="blanco.anttask.task.BlancoAntTaskTask" classpathref="maven.runtime.classpath">
+								</taskdef>
+								<blancoanttask metadir="meta/objects" encoding="${project.build.sourceEncoding}" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>blanco-meta-constants</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<taskdef name="blancoconstants" classname="blanco.constants.task.BlancoConstantsTask" classpathref="maven.runtime.classpath">
+								</taskdef>
+								<blancoconstants metadir="meta/program" encoding="${project.build.sourceEncoding}" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>blanco-meta-message</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<taskdef name="blancomessage" classname="blanco.message.task.BlancoMessageTask" classpathref="maven.runtime.classpath">
+								</taskdef>
+								<blancomessage metadir="meta/program" encoding="${project.build.sourceEncoding}" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>blanco-meta-meta2xml</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<taskdef name="blancometa2xml" classname="blanco.meta2xml.task.BlancoMeta2XmlTask" classpathref="maven.runtime.classpath">
+								</taskdef>
+								<blancometa2xml metadir="meta/program" encoding="${project.build.sourceEncoding}" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>blanco-meta-resourcebundle</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<taskdef name="blancoresourcebundle" classname="blanco.resourcebundle.task.BlancoResourceBundleTask" classpathref="maven.runtime.classpath">
+								</taskdef>
+								<blancoresourcebundle metadir="meta/program" encoding="${project.build.sourceEncoding}" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>blanco-meta-valueobject</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<taskdef name="blancovalueobject" classname="blanco.valueobject.task.BlancoValueObjectTask" classpathref="maven.runtime.classpath">
+								</taskdef>
+								<blancovalueobject metadir="meta/program" encoding="${project.build.sourceEncoding}" />
+								<!--								<blancovalueobject metadir="meta/objects" encoding="${project.build.sourceEncoding}" sheetType="php" targetdir="sample" targetStyle="maven" verbose="true" />-->
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>blanco-meta-stringgroup</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<taskdef name="blancostringgroup" classname="blanco.stringgroup.task.BlancoStringGroupTask" classpathref="maven.runtime.classpath">
+								</taskdef>
+								<blancostringgroup metadir="meta/program" encoding="${project.build.sourceEncoding}" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>blanco-clean</id>
+						<phase>clean</phase>
+						<configuration>
+							<target>
+								<delete dir="tmp" />
+								<delete dir="blanco" />
+								<delete dir="sample" />
+								<delete dir="bin" />
+								<delete dir="classes" />
+								<mkdir dir="bin" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<dependencies>
+					<dependency>
+						<groupId>commons-net</groupId>
+						<artifactId>commons-net</artifactId>
+						<version>1.4.1</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.ant</groupId>
+						<artifactId>ant-commons-net</artifactId>
+						<version>1.8.1</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
 			<!-- add java source folder -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -126,14 +346,14 @@
 				</executions>
 			</plugin>
 
-			<!-- compile as 1.6 compatible -->
+			<!-- compile as 1.8 compatible -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.0</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
 					<excludes>
 						<exclude>blanco/sample/**/*</exclude>
 					</excludes>
@@ -159,22 +379,6 @@
 						<exclude>blanco/sample/**/*</exclude>
 					</excludes>
 				</configuration>
-			</plugin>
-
-			<!-- copy jar files into lib directory. -->
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>install</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/lib</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 
 			<plugin>

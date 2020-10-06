@@ -1,7 +1,7 @@
 /*******************************************************************************
  * blanco Framework
  * Copyright (C) 2004-2012 Toshiki IGA
- * 
+ *
  * This library is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -21,21 +21,16 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *      Toshiki IGA - initial API and implementation
  *******************************************************************************/
 package blanco.batchprocess;
 
-import blanco.constants.BlancoConstantsVersion;
-import blanco.gettersetter.BlancoGetterSetter;
-
-@BlancoConstantsVersion(prefix = "0.6.2-I")
 public abstract class AbstractBlancoBatchProcessConstants {
 	/**
 	 * プロダクト名。英字で指定します。
 	 */
-	@BlancoGetterSetter(setter = false)
 	public static final String PRODUCT_NAME = "BlancoDbTableAccessor";
 
 	/**

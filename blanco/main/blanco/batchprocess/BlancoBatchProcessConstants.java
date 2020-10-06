@@ -3,11 +3,8 @@
  */
 package blanco.batchprocess;
 
-import blanco.fw.BlancoGeneratedBy;
-
 /**
  */
-@BlancoGeneratedBy(name = "Blanco2g")
 public class BlancoBatchProcessConstants extends AbstractBlancoBatchProcessConstants {
     /**
      * Version Number.
