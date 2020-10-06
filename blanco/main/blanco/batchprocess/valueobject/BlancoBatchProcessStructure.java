@@ -1,12 +1,3 @@
-/*
- * blanco Framework
- * Copyright (C) 2004-2009 IGA Tosiki
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- */
 package blanco.batchprocess.valueobject;
 
 import java.util.List;
@@ -47,7 +38,7 @@ public class BlancoBatchProcessStructure {
      * フィールドを保持するリスト。
      *
      * フィールド: [inputItemList]。
-     * デフォルト: [new java.util.ArrayList<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure&gt;()]。
      */
     private List<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure> fInputItemList = new java.util.ArrayList<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure>();
 
@@ -169,7 +160,7 @@ public class BlancoBatchProcessStructure {
      * フィールド [inputItemList] の値を取得します。
      *
      * フィールドの説明: [フィールドを保持するリスト。]。
-     * デフォルト: [new java.util.ArrayList<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure&gt;()]。
      *
      * @return フィールド[inputItemList]から取得した値。
      */
@@ -246,5 +237,54 @@ public class BlancoBatchProcessStructure {
         buf.append(",showMessageBeginEnd=" + fShowMessageBeginEnd);
         buf.append("]");
         return buf.toString();
+    }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoBatchProcessStructure target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoBatchProcessStructure#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fName
+        // Type: java.lang.String
+        target.fName = this.fName;
+        // Name: fPackage
+        // Type: java.lang.String
+        target.fPackage = this.fPackage;
+        // Name: fDescription
+        // Type: java.lang.String
+        target.fDescription = this.fDescription;
+        // Name: fSuffix
+        // Type: java.lang.String
+        target.fSuffix = this.fSuffix;
+        // Name: fInputItemList
+        // Type: java.util.List
+        if (this.fInputItemList != null) {
+            final java.util.Iterator<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure> iterator = this.fInputItemList.iterator();
+            for (; iterator.hasNext();) {
+                blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure loopSource = iterator.next();
+                blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure loopTarget = null;
+                // フィールド[generics]はサポート外の型[blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure]です。
+                target.fInputItemList.add(loopTarget);
+            }
+        }
+        // Name: fOutput
+        // Type: blanco.batchprocess.valueobject.BlancoBatchProcessOutputStructure
+        // フィールド[fOutput]はサポート外の型[blanco.batchprocess.valueobject.BlancoBatchProcessOutputStructure]です。
+        // Name: fShowMessageBeginEnd
+        // Type: boolean
+        target.fShowMessageBeginEnd = this.fShowMessageBeginEnd;
     }
 }

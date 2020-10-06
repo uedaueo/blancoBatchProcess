@@ -1,12 +1,3 @@
-/*
- * blanco Framework
- * Copyright (C) 2004-2009 IGA Tosiki
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- */
 package blanco.batchprocess.valueobject;
 
 /**
@@ -17,7 +8,7 @@ public class BlancoBatchProcessOutputStructure {
      * 正常終了時の戻り値。
      *
      * フィールド: [END_SUCCESS]。
-     * デフォルト: ["0"]。
+     * デフォルト: [&quot;0&quot;]。
      */
     private String fEndSuccess = "0";
 
@@ -32,7 +23,7 @@ public class BlancoBatchProcessOutputStructure {
      * 入力異常終了時の戻り値。
      *
      * フィールド: [END_ILLEGAL_ARGUMENT_EXCEPTION]。
-     * デフォルト: ["7"]。
+     * デフォルト: [&quot;7&quot;]。
      */
     private String fEndIllegalArgumentException = "7";
 
@@ -40,7 +31,7 @@ public class BlancoBatchProcessOutputStructure {
      * 入出力例外終了の戻り値。
      *
      * フィールド: [END_IO_EXCEPTION]。
-     * デフォルト: ["8"]。
+     * デフォルト: [&quot;8&quot;]。
      */
     private String fEndIoException = "8";
 
@@ -48,7 +39,7 @@ public class BlancoBatchProcessOutputStructure {
      * 異常終了時の戻り値。
      *
      * フィールド: [END_ERROR]。
-     * デフォルト: ["9"]。
+     * デフォルト: [&quot;9&quot;]。
      */
     private String fEndError = "9";
 
@@ -74,7 +65,7 @@ public class BlancoBatchProcessOutputStructure {
      * フィールド [END_SUCCESS] の値を取得します。
      *
      * フィールドの説明: [正常終了時の戻り値。]。
-     * デフォルト: ["0"]。
+     * デフォルト: [&quot;0&quot;]。
      *
      * @return フィールド[END_SUCCESS]から取得した値。
      */
@@ -119,7 +110,7 @@ public class BlancoBatchProcessOutputStructure {
      * フィールド [END_ILLEGAL_ARGUMENT_EXCEPTION] の値を取得します。
      *
      * フィールドの説明: [入力異常終了時の戻り値。]。
-     * デフォルト: ["7"]。
+     * デフォルト: [&quot;7&quot;]。
      *
      * @return フィールド[END_ILLEGAL_ARGUMENT_EXCEPTION]から取得した値。
      */
@@ -142,7 +133,7 @@ public class BlancoBatchProcessOutputStructure {
      * フィールド [END_IO_EXCEPTION] の値を取得します。
      *
      * フィールドの説明: [入出力例外終了の戻り値。]。
-     * デフォルト: ["8"]。
+     * デフォルト: [&quot;8&quot;]。
      *
      * @return フィールド[END_IO_EXCEPTION]から取得した値。
      */
@@ -165,7 +156,7 @@ public class BlancoBatchProcessOutputStructure {
      * フィールド [END_ERROR] の値を取得します。
      *
      * フィールドの説明: [異常終了時の戻り値。]。
-     * デフォルト: ["9"]。
+     * デフォルト: [&quot;9&quot;]。
      *
      * @return フィールド[END_ERROR]から取得した値。
      */
@@ -218,5 +209,43 @@ public class BlancoBatchProcessOutputStructure {
         buf.append(",DESCRIPTION=" + fDescription);
         buf.append("]");
         return buf.toString();
+    }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoBatchProcessOutputStructure target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoBatchProcessOutputStructure#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fEndSuccess
+        // Type: java.lang.String
+        target.fEndSuccess = this.fEndSuccess;
+        // Name: fEndBatchProcessException
+        // Type: java.lang.String
+        target.fEndBatchProcessException = this.fEndBatchProcessException;
+        // Name: fEndIllegalArgumentException
+        // Type: java.lang.String
+        target.fEndIllegalArgumentException = this.fEndIllegalArgumentException;
+        // Name: fEndIoException
+        // Type: java.lang.String
+        target.fEndIoException = this.fEndIoException;
+        // Name: fEndError
+        // Type: java.lang.String
+        target.fEndError = this.fEndError;
+        // Name: fDescription
+        // Type: java.lang.String
+        target.fDescription = this.fDescription;
     }
 }

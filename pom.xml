@@ -5,7 +5,7 @@
 	<groupId>blanco.batchprocess</groupId>
 	<artifactId>blanco-batchprocess</artifactId>
 	<packaging>jar</packaging>
-	<version>2.1.0</version>
+	<version>2.1.1</version>
 	<name>blanco-batchprocess</name>
 	<url>https://igapyon.github.io/blancofw-maven2</url>
 
@@ -193,7 +193,7 @@
 							<target>
 								<taskdef name="blancoanttask" classname="blanco.anttask.task.BlancoAntTaskTask" classpathref="maven.runtime.classpath">
 								</taskdef>
-								<blancoanttask metadir="meta/objects" encoding="${project.build.sourceEncoding}" />
+								<blancoanttask metadir="meta/program" encoding="${project.build.sourceEncoding}" />
 							</target>
 						</configuration>
 						<goals>
