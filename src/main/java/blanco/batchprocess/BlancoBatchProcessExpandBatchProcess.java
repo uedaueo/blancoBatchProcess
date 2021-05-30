@@ -27,36 +27,36 @@ import blanco.commons.util.BlancoNameAdjuster;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * バッチ処理抽象クラスを展開します。
+ * Expand a batch processing abstract class.
  */
 class BlancoBatchProcessExpandBatchProcess {
     /**
-     * 出力対象となるプログラミング言語。
+     * A programming language to be output.
      */
     private int fTargetLang = BlancoBatchProcessSupportedLangStringGroup.NOT_DEFINED;
 
     /**
-     * ランタイムパッケージ。
+     * Runtime package.
      */
     private String fRuntimePackage = null;
 
     /**
-     * 内部的に利用するblancoCg用ファクトリ。
+     * A factory for blancoCg to be used internally.
      */
     private BlancoCgObjectFactory fCgFactory = null;
 
     /**
-     * 内部的に利用するblancoCg用ソースファイル情報。
+     * Source file information for blancoCg to be used internally.
      */
     private BlancoCgSourceFile fCgSourceFile = null;
 
     /**
-     * 内部的に利用するblancoCg用クラス情報。
+     * Class information for blancoCg to be used internally.
      */
     private BlancoCgClass fCgClass = null;
 
     /**
-     * 自動生成するソースファイルの文字エンコーディング。
+     * Character encoding of auto-generated source files.
      */
     private String fEncoding = null;
 
@@ -65,16 +65,17 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * 収集された情報を元に、ソースコードを自動生成します。
+     * Auto-generates source code based on the collected information.
      * 
      * @param argProcessStructure
-     *            メタファイルから収集できた処理構造データ。
+     *            Process structure data collected from metafiles.
      * @param argRuntimePackage
-     *            ランタイムパッケージ。nullおよび長さ0の文字列の場合は定義書ごとにランタイムクラスを生成。
+     *            Runtime package.
+     *            For null and zero-length strings, generates a runtime class for each definition document.
      * @param argTargetLang
-     *            出力対象プログラミング言語。
+     *            Target programming language.
      * @param argDirectoryTarget
-     *            ソースコードの出力先フォルダ。
+     *            Output directory for the source code.ソースコードの出力先フォルダ。
      */
     public void expandSourceFile(
             final BlancoBatchProcessStructure argProcessStructure,
@@ -83,7 +84,7 @@ class BlancoBatchProcessExpandBatchProcess {
         fRuntimePackage = argRuntimePackage;
         fTargetLang = argTargetLang;
 
-        // 従来と互換性を持たせるため、/mainサブフォルダに出力します。
+        // To make it compatible with the previous version, output to the /main subfolder.
         final File fileBlancoMain = new File(argDirectoryTarget
                 .getAbsolutePath()
                 + "/main");
@@ -97,14 +98,14 @@ class BlancoBatchProcessExpandBatchProcess {
                         .null2Blank(argProcessStructure.getDescription()));
         fCgSourceFile.getClassList().add(fCgClass);
 
-        fCgClass.setDescription("バッチ処理クラス ["
+        fCgClass.setDescription("Batch process class ["
                 + getBatchProcessClassName(argProcessStructure) + "]。");
         fCgClass.getLangDoc().getDescriptionList().add("");
-        fCgClass.getLangDoc().getDescriptionList().add("<P>バッチ処理の呼び出し例。</P>");
+        fCgClass.getLangDoc().getDescriptionList().add("<P>Example of a batch processing call.</P>");
 
         fCgClass.getLangDoc().getDescriptionList().add("<code>");
         fCgClass.getLangDoc().getDescriptionList().add(
-                "java -classpath (クラスパス) " + argProcessStructure.getPackage()
+                "java -classpath (classpath) " + argProcessStructure.getPackage()
                         + "." + getBatchProcessClassName(argProcessStructure)
                         + " -help");
         fCgClass.getLangDoc().getDescriptionList().add("</code>");
@@ -119,18 +120,18 @@ class BlancoBatchProcessExpandBatchProcess {
         if (BlancoStringUtil.null2Blank(
                 argProcessStructure.getOutput().getEndBatchProcessException())
                 .length() > 0) {
-            // バッチ処理例外終了の値が設定されている場合にのみ生成します。
+            // Generates only if the value for batch process exception termination is set.
 
             fCgSourceFile.getImportList().add(
                     getBatchProcessExceptionClassName(argProcessStructure));
 
             if (BlancoStringUtil.null2Blank(fRuntimePackage).length() == 0) {
-                // 定義書ごとに同一パッケージにランタイムクラスを生成。
+                // Generates runtime class in the same package for each definition document.
                 new BlancoBatchProcessExpandException().expandSourceFile(
                         argProcessStructure.getPackage(), fTargetLang,
                         argDirectoryTarget);
             } else {
-                // ランタイムパッケージ指定があるので、指定のランタイムパッケージにクラスを生成。
+                // Generates a class in the specified runtime package since there is a runtime package specification.
                 new BlancoBatchProcessExpandException().expandSourceFile(
                         fRuntimePackage, fTargetLang, argDirectoryTarget);
             }
@@ -147,17 +148,17 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * フィールドを展開します。
+     * Expands the field.
      * 
      * @param argProcessStructure
-     *            メタファイルから収集できた処理構造データ。
+     *           Process structure data collected from metafiles.
      */
     private void expandField(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         {
             final BlancoCgField field = fCgFactory.createField("END_SUCCESS",
-                    "int", "正常終了。");
+                    "int", "Normal end.");
             fCgClass.getFieldList().add(field);
 
             field.setAccess("public");
@@ -169,11 +170,11 @@ class BlancoBatchProcessExpandBatchProcess {
         if (BlancoStringUtil.null2Blank(
                 argProcessStructure.getOutput().getEndBatchProcessException())
                 .length() > 0) {
-            // バッチ処理例外終了の値が設定されている場合にのみ生成します。
+            // Generates only if the value for batch process exception termination is set.
 
             final BlancoCgField field = fCgFactory.createField(
                     "END_BATCHPROCESS_EXCEPTION", "int",
-                    "バッチ処理例外終了。内部的にBatchProcessExceptionが発生した場合。");
+                    "Termination due to Batch process exception. In the case that BatchProcessException is raised internally.");
             fCgClass.getFieldList().add(field);
 
             field.setAccess("public");
@@ -186,7 +187,7 @@ class BlancoBatchProcessExpandBatchProcess {
         {
             final BlancoCgField field = fCgFactory.createField(
                     "END_ILLEGAL_ARGUMENT_EXCEPTION", "int",
-                    "入力異常終了。内部的にjava.lang.IllegalArgumentExceptionが発生した場合。");
+                    "Termination due to abnormal input. In the case that java.lang.IllegalArgumentException is raised internally.");
             fCgClass.getFieldList().add(field);
 
             field.setAccess("public");
@@ -199,7 +200,7 @@ class BlancoBatchProcessExpandBatchProcess {
         {
             final BlancoCgField field = fCgFactory.createField(
                     "END_IO_EXCEPTION", "int",
-                    "入出力例外終了。内部的にjava.io.IOExceptionが発生した場合。");
+                    "Termination due to I/O exception. In the case that java.io.IOException is raised internally.");
             fCgClass.getFieldList().add(field);
 
             field.setAccess("public");
@@ -214,7 +215,7 @@ class BlancoBatchProcessExpandBatchProcess {
                     .createField(
                             "END_ERROR",
                             "int",
-                            "異常終了。バッチの処理開始に失敗した場合、および内部的にjava.lang.Errorまたはjava.lang.RuntimeExceptionが発生した場合。");
+                            "Abnormal end. In the case that batch process fails to start or java.lang.Error or java.lang.RuntimeException is raised internally.");
             fCgClass.getFieldList().add(field);
 
             field.setAccess("public");
@@ -225,30 +226,30 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * main メソッドを展開します。
+     * Expands the main method.
      * 
      * @param argProcessStructure
-     *            メタファイルから収集できた処理構造データ。
+     *            Process structure data collected from meta files.
      */
     private void expandMethodMain(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         final BlancoCgMethod method = fCgFactory.createMethod("main",
-                "コマンドラインから実行された際のエントリポイントです。");
+                "The entry point when executed from the command line.");
         fCgClass.getMethodList().add(method);
 
         method.setStatic(true);
         method.setFinal(true);
         method.getParameterList().add(
                 fCgFactory.createParameter("args", "java.lang.String[]",
-                        "コンソールから引き継がれた引数。"));
+                        "Agruments inherited from the console."));
 
         final List<java.lang.String> listLine = method.getLineList();
         listLine.add("final " + getBatchProcessClassName(argProcessStructure)
                 + " batchProcess = new "
                 + getBatchProcessClassName(argProcessStructure) + "();");
         listLine.add("");
-        listLine.add("// バッチ処理の引数。");
+        listLine.add("// Arguments for batch process.");
         final String valueObjectClassname = BlancoBatchProcessExpandProcessInput
                 .getBatchProcessValueObjectInputClassName(argProcessStructure);
         fCgSourceFile.getImportList().add(
@@ -271,7 +272,7 @@ class BlancoBatchProcessExpandBatchProcess {
         }
 
         listLine.add("");
-        listLine.add("// コマンドライン引数の解析をおこないます。");
+        listLine.add("// Parses command line arguments.");
         listLine.add("for (int index = 0; index < args.length; index++) {");
         listLine.add("String arg = args[index];");
         for (int index = 0; index < argProcessStructure.getInputItemList()
@@ -302,9 +303,9 @@ class BlancoBatchProcessExpandBatchProcess {
                 listLine.add("} catch (NumberFormatException e) {");
                 listLine.add("System.out.println(\""
                         + getBatchProcessClassName(argProcessStructure)
-                        + ": 処理開始失敗。入力パラメータ[input]のフィールド["
+                        + ": Failed to start the process. Tried to parse the field ["
                         + inputItem.getName()
-                        + "]を数値(int)としてパースを試みましたが失敗しました。: \" + e.toString());");
+                        + "] of the input parameter[input] as a number (int), but it failed.: \" + e.toString());");
                 listLine.add("System.exit(END_ILLEGAL_ARGUMENT_EXCEPTION);");
                 listLine.add("}");
                 break;
@@ -318,9 +319,9 @@ class BlancoBatchProcessExpandBatchProcess {
                 listLine
                         .add("System.out.println(\""
                                 + getBatchProcessClassName(argProcessStructure)
-                                + ": 処理開始失敗。入力パラメータ[input]のフィールド["
+                                + ": Failed to start the process. Tried to parse the field ["
                                 + inputItem.getName()
-                                + "]を数値(long)としてパースを試みましたが失敗しました。: \" + e.toString());");
+                                + "] of the input parameter[input] as a number (long), but it failed.: \" + e.toString());");
                 listLine.add("System.exit(END_ILLEGAL_ARGUMENT_EXCEPTION);");
                 listLine.add("}");
                 break;
@@ -335,9 +336,9 @@ class BlancoBatchProcessExpandBatchProcess {
                 listLine
                         .add("System.out.println(\""
                                 + getBatchProcessClassName(argProcessStructure)
-                                + ": 処理開始失敗。入力パラメータ[input]のフィールド["
+                                + ": Failed to start the process. Tried to parse the field ["
                                 + inputItem.getName()
-                                + "]を数値(decimal)としてパースを試みましたが失敗しました。: \" + e.toString());");
+                                + "] of the input parameter[input] as a number (decimal), but it failed.: \" + e.toString());");
                 listLine.add("System.exit(END_ILLEGAL_ARGUMENT_EXCEPTION);");
                 listLine.add("}");
                 break;
@@ -363,7 +364,7 @@ class BlancoBatchProcessExpandBatchProcess {
         listLine.add("} else {");
         listLine.add("System.out.println(\""
                 + getBatchProcessClassName(argProcessStructure)
-                + ": 入力パラメータ[\" + arg + \"]は無視されました。\");");
+                + ": The input parameter[\" + arg + \"] was ignored.\");");
         listLine.add("isNeedUsage = true;");
         listLine.add("}");
         listLine.add("}");
@@ -382,8 +383,8 @@ class BlancoBatchProcessExpandBatchProcess {
                         + "Processed == false) {");
                 listLine.add("System.out.println(\""
                         + getBatchProcessClassName(argProcessStructure)
-                        + ": 処理開始失敗。入力パラメータ[input]の必須フィールド値["
-                        + inputItem.getName() + "]に値が設定されていません。\");");
+                        + ": Failed to start the process. The required field value["
+                        + inputItem.getName() + "] in the input parameter[input] is not set to a value.\");");
                 listLine.add("System.exit(END_ILLEGAL_ARGUMENT_EXCEPTION);");
                 listLine.add("}");
             }
@@ -391,33 +392,33 @@ class BlancoBatchProcessExpandBatchProcess {
         listLine.add("");
         listLine.add("int retCode = batchProcess.execute(input);");
         listLine.add("");
-        listLine.add("// 終了コードを戻します。");
-        listLine.add("// ※注意：System.exit()を呼び出している点に注意してください。");
+        listLine.add("// Returns the exit code.");
+        listLine.add("// Note: Please note that calling System.exit().");
         listLine.add("System.exit(retCode);");
     }
 
     /**
-     * execute メソッドを展開します。
+     * Expands the execute method.
      * 
      * @param argProcessStructure
-     *            メタファイルから収集できた処理構造データ。
+     *            Process structure collected from meta files.
      */
     private void expandMethodExecute(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         final BlancoCgMethod method = fCgFactory.createMethod("execute",
-                "クラスをインスタンス化してバッチを実行する際のエントリポイントです。");
+                "The entry point for instantiating a class and running a batch.");
         fCgClass.getMethodList().add(method);
         method.setFinal(true);
-        method.getLangDoc().getDescriptionList().add("このメソッドは下記の仕様を提供します。");
+        method.getLangDoc().getDescriptionList().add("This method provides the following specifications.");
         method.getLangDoc().getDescriptionList().add("<ul>");
         method.getLangDoc().getDescriptionList()
-                .add("<li>メソッドの入力パラメータの内容チェック。");
+                .add("<li>Checks the contents of the input parameters of the method.");
         method
                 .getLangDoc()
                 .getDescriptionList()
                 .add(
-                        "<li>IllegalArgumentException, RuntimeException, Errorなどの例外をcatchして戻り値へと変換。");
+                        "<li>Catches exceptions such as IllegalArgumentException, RuntimeException, Error, etc. and converts them to return values.");
         method.getLangDoc().getDescriptionList().add("</ul>");
 
         method
@@ -430,13 +431,13 @@ class BlancoBatchProcessExpandBatchProcess {
                                                 + ".valueobject."
                                                 + BlancoBatchProcessExpandProcessInput
                                                         .getBatchProcessValueObjectInputClassName(argProcessStructure),
-                                        "バッチ処理の入力パラメータ。"));
+                                        "Input parameters for batch process."));
         method.setReturn(fCgFactory.createReturn("int",
                 getReturnJavadocDescription(argProcessStructure)));
         method.getThrowList().add(
                 fCgFactory
                         .createException("java.lang.IllegalArgumentException",
-                                "入力値に不正が見つかった場合。"));
+                                "If an invalid input value is found."));
 
         final List<java.lang.String> listLine = method.getLineList();
 
@@ -448,7 +449,7 @@ class BlancoBatchProcessExpandBatchProcess {
             listLine.add("");
         }
 
-        listLine.add("// バッチ処理の本体を実行します。");
+        listLine.add("// Execute the main body of the batch process.");
         listLine.add("int retCode = process(input);");
         listLine.add("");
         if (argProcessStructure.getShowMessageBeginEnd()) {
@@ -461,40 +462,40 @@ class BlancoBatchProcessExpandBatchProcess {
         if (BlancoStringUtil.null2Blank(
                 argProcessStructure.getOutput().getEndBatchProcessException())
                 .length() > 0) {
-            // バッチ処理例外終了の値が設定されている場合にのみ生成します。
+            // Generates only if the value for batch process exception termination is set.
 
             listLine.add("} catch (BlancoBatchProcessException ex) {");
             listLine.add("System.out.println(\""
                     + getBatchProcessClassName(argProcessStructure)
-                    + ": バッチ処理例外が発生しました。バッチ処理を中断します。:\" + ex.toString());");
-            listLine.add("// バッチ処理例外終了。");
+                    + ": A batch process exception has occurred. Abort the batch process.:\" + ex.toString());");
+            listLine.add("// Termination due to batch process exception.");
             listLine.add("return END_BATCHPROCESS_EXCEPTION;");
         }
         listLine.add("} catch (IllegalArgumentException ex) {");
         listLine.add("System.out.println(\""
                 + getBatchProcessClassName(argProcessStructure)
-                + ": 入力例外が発生しました。バッチ処理を中断します。:\" + ex.toString());");
-        listLine.add("// 入力異常終了。");
+                + ": An input exception has occurred. Abort the batch process.:\" + ex.toString());");
+        listLine.add("// Termination due to abnormal input.");
         listLine.add("return END_ILLEGAL_ARGUMENT_EXCEPTION;");
         listLine.add("} catch (IOException ex) {");
         listLine.add("System.out.println(\""
                 + getBatchProcessClassName(argProcessStructure)
-                + ": 入出力例外が発生しました。バッチ処理を中断します。:\" + ex.toString());");
-        listLine.add("// 入力異常終了。");
+                + ": An I/O exception has occurred. Abort the batch process.:\" + ex.toString());");
+        listLine.add("// Termination due to abnormal input.");
         listLine.add("return END_IO_EXCEPTION;");
         listLine.add("} catch (RuntimeException ex) {");
         listLine.add("System.out.println(\""
                 + getBatchProcessClassName(argProcessStructure)
-                + ": ランタイム例外が発生しました。バッチ処理を中断します。:\" + ex.toString());");
+                + ": A runtime exception has occurred. Abort the batch process.:\" + ex.toString());");
         listLine.add("ex.printStackTrace();");
-        listLine.add("// 異常終了。");
+        listLine.add("// Abnormal end.");
         listLine.add("return END_ERROR;");
         listLine.add("} catch (Error er) {");
         listLine.add("System.out.println(\""
                 + getBatchProcessClassName(argProcessStructure)
-                + ": ランタイムエラーが発生しました。バッチ処理を中断します。:\" + er.toString());");
+                + ": A runtime exception has occurred. Abort the batch process.:\" + er.toString());");
         listLine.add("er.printStackTrace();");
-        listLine.add("// 異常終了。");
+        listLine.add("// Abnormal end.");
         listLine.add("return END_ERROR;");
         listLine.add("}");
     }

@@ -14,25 +14,25 @@ import blanco.cg.valueobject.BlancoCgClass;
 import blanco.cg.valueobject.BlancoCgMethod;
 
 /**
- * blancoCgのための典型的なユーティリティ。
+ * A typical utility for blancoCg.
  * 
- * TODO blancoCgに併合できないかどうか検討すること。
+ * TODO Consider whether it could be annexed to blancoCg.
  */
 class BlancoCgUtil {
     /**
-     * 例外クラスのための典型的なコンストラクタ4つを追加します。
+     * Adds four typical constructors for the exception class.
      * 
      * @param argCgFactory
-     *            blancoCgオブジェクトファクトリのインスタンス。
+     *            An instance of the blancoCg object factory.
      * @param argCgClass
-     *            クラス情報。
+     *            Class information.
      */
     public static void addConstructorForException(
             final BlancoCgObjectFactory argCgFactory,
             final BlancoCgClass argCgClass) {
         {
             final BlancoCgMethod method = argCgFactory.createMethod(argCgClass
-                    .getName(), "詳細メッセージを持たない例外を構築します。");
+                    .getName(), "Constructs an exception without a detailed message.");
             argCgClass.getMethodList().add(method);
 
             method.setConstructor(true);
@@ -41,7 +41,7 @@ class BlancoCgUtil {
 
         {
             final BlancoCgMethod method = argCgFactory.createMethod(argCgClass
-                    .getName(), "指定された詳細メッセージを持つ例外を構築します。");
+                    .getName(), "Constructs an exception with a specified detailed message.");
             argCgClass.getMethodList().add(method);
 
             method.setConstructor(true);
@@ -49,12 +49,12 @@ class BlancoCgUtil {
 
             method.getParameterList().add(
                     argCgFactory.createParameter("message", "java.lang.String",
-                            "詳細メッセージ。"));
+                            "The detailed message."));
         }
 
         {
             final BlancoCgMethod method = argCgFactory.createMethod(argCgClass
-                    .getName(), "指定された詳細メッセージおよび原因を指定して例外を構築します。");
+                    .getName(), "Constructs an exception with a specified detailed message and cause.");
             argCgClass.getMethodList().add(method);
 
             method.setConstructor(true);
@@ -62,16 +62,16 @@ class BlancoCgUtil {
 
             method.getParameterList().add(
                     argCgFactory.createParameter("message", "java.lang.String",
-                            "詳細メッセージ。"));
+                            "The detailed message."));
             method.getParameterList().add(
                     argCgFactory.createParameter("cause",
-                            "java.lang.Throwable", "原因。"));
+                            "java.lang.Throwable", "The cause."));
 
         }
 
         {
             final BlancoCgMethod method = argCgFactory.createMethod(argCgClass
-                    .getName(), "原因を指定して例外を構築します。");
+                    .getName(), "Constructs an exception with a specified cause.");
             argCgClass.getMethodList().add(method);
 
             method.setConstructor(true);
@@ -79,7 +79,7 @@ class BlancoCgUtil {
 
             method.getParameterList().add(
                     argCgFactory.createParameter("cause",
-                            "java.lang.Throwable", "原因。"));
+                            "java.lang.Throwable", "The cause."));
 
         }
     }

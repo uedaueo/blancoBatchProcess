@@ -40,7 +40,7 @@ public class BlancoBatchProcessStructure {
      * フィールド: [inputItemList]。
      * デフォルト: [new java.util.ArrayList&lt;blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure&gt;()]。
      */
-    private List<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure> fInputItemList = new java.util.ArrayList<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure>();
+    private List<BlancoBatchProcessInputItemStructure> fInputItemList = new java.util.ArrayList<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure>();
 
     /**
      * 戻り値を記憶するフィールド。
@@ -152,7 +152,7 @@ public class BlancoBatchProcessStructure {
      *
      * @param argInputItemList フィールド[inputItemList]に設定する値。
      */
-    public void setInputItemList(final List<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure> argInputItemList) {
+    public void setInputItemList(final List<BlancoBatchProcessInputItemStructure> argInputItemList) {
         fInputItemList = argInputItemList;
     }
 
@@ -164,7 +164,7 @@ public class BlancoBatchProcessStructure {
      *
      * @return フィールド[inputItemList]から取得した値。
      */
-    public List<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure> getInputItemList() {
+    public List<BlancoBatchProcessInputItemStructure> getInputItemList() {
         return fInputItemList;
     }
 
@@ -271,15 +271,7 @@ public class BlancoBatchProcessStructure {
         target.fSuffix = this.fSuffix;
         // Name: fInputItemList
         // Type: java.util.List
-        if (this.fInputItemList != null) {
-            final java.util.Iterator<blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure> iterator = this.fInputItemList.iterator();
-            for (; iterator.hasNext();) {
-                blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure loopSource = iterator.next();
-                blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure loopTarget = null;
-                // フィールド[generics]はサポート外の型[blanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure]です。
-                target.fInputItemList.add(loopTarget);
-            }
-        }
+        // フィールド[fInputItemList]はサポート外の型[java.util.Listblanco.batchprocess.valueobject.BlancoBatchProcessInputItemStructure]です。
         // Name: fOutput
         // Type: blanco.batchprocess.valueobject.BlancoBatchProcessOutputStructure
         // フィールド[fOutput]はサポート外の型[blanco.batchprocess.valueobject.BlancoBatchProcessOutputStructure]です。
