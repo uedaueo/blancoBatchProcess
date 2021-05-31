@@ -25,24 +25,24 @@ import blanco.xml.bind.valueobject.BlancoXmlDocument;
 import blanco.xml.bind.valueobject.BlancoXmlElement;
 
 /**
- * 「バッチ処理定義書」Excel様式から情報を抽出します。
+ * Extracts information from the "Batch Processing Definition Form" Excel format.
  * 
- * このクラスは、中間XMLファイルから情報抽出する機能を担います。
+ * This class is responsible for extracting information from intermediate XML files.
  * 
  * @author IGA Tosiki
  */
 public class BlancoBatchProcessXmlParser {
     /**
-     * メッセージクラス。
+     * A message class.
      */
     protected final BlancoBatchProcessMessage fMsg = new BlancoBatchProcessMessage();
 
     /**
-     * 中間XMLファイルのXMLドキュメントをパースして、情報の配列を取得します。
+     * Parses an XML document in an intermediate XML file to get an array of information.
      * 
      * @param argMetaXmlSourceFile
-     *            中間XMLファイル。
-     * @return パースの結果得られた情報の配列。
+     *            An intermediate XML file.
+     * @return An array of information obtained as a result of parsing.
      */
     public BlancoBatchProcessStructure[] parse(final File argMetaXmlSourceFile) {
         final BlancoXmlDocument documentMeta = new BlancoXmlUnmarshaller()
@@ -55,24 +55,24 @@ public class BlancoBatchProcessXmlParser {
     }
 
     /**
-     * 中間XMLファイル形式のXMLドキュメントをパースして、バリューオブジェクト情報の配列を取得します。
+     * Parses an XML document in an intermediate XML file to get an array of value object information.
      * 
      * @param argXmlDocument
-     *            中間XMLファイルのXMLドキュメント。
-     * @return パースの結果得られたバリューオブジェクト情報の配列。
+     *            XML document of an intermediate XML file.
+     * @return An array of value object information obtained as a result of parsing.
      */
     public BlancoBatchProcessStructure[] parse(
             final BlancoXmlDocument argXmlDocument) {
         final List<BlancoBatchProcessStructure> listStructure = new ArrayList<BlancoBatchProcessStructure>();
-        // ルートエレメントを取得します。
+        // Gets the root element.
         final BlancoXmlElement elementRoot = BlancoXmlBindingUtil
                 .getDocumentElement(argXmlDocument);
         if (elementRoot == null) {
-            // ルートエレメントが無い場合には処理中断します。
+            // The process is aborted if there is no root element.
             return null;
         }
 
-        // sheet(Excelシート)のリストを取得します。
+        // Gets a list of sheets (Excel sheets).
         final List<blanco.xml.bind.valueobject.BlancoXmlElement> listSheet = BlancoXmlBindingUtil
                 .getElementsByTagName(elementRoot, "sheet");
 
@@ -84,23 +84,23 @@ public class BlancoBatchProcessXmlParser {
                     .getElementsByTagName(elementSheet,
                             "blancobatchprocess-common");
             if (listCommon.size() == 0) {
-                // commonが無い場合にはスキップします。
+                // Skips if there is no common.
                 continue;
             }
 
-            // 最初のアイテムのみ処理しています。
+            // Processes only the first item.
             final BlancoXmlElement elementCommon = listCommon.get(0);
             final String name = BlancoXmlBindingUtil.getTextContent(
                     elementCommon, "name");
             if (BlancoStringUtil.null2Blank(name).trim().length() == 0) {
-                // nameが空の場合には処理をスキップします。
+                // Skips the process if name is empty.
                 continue;
             }
 
             final BlancoBatchProcessStructure processStructure = parseElementSheet(
                     elementSheet, elementCommon);
             if (processStructure != null) {
-                // 得られた情報を記憶します。
+                // Memorizes the obtained information.
                 listStructure.add(processStructure);
             }
         }
@@ -112,26 +112,27 @@ public class BlancoBatchProcessXmlParser {
     }
 
     /**
-     * 中間XMLファイル形式の「sheet」XMLエレメントをパースして、バリューオブジェクト情報を取得します。
+     * Parses the "sheet" XML element in the intermediate XML file to get the value object information.
      * 
      * @param argElementSheet
-     *            中間XMLファイルの「sheet」XMLエレメント。
-     * @return パースの結果得られたバリューオブジェクト情報。「name」が見つからなかった場合には nullを戻します。
+     *            "sheet" XML element in the intermediate XML file.
+     * @return Value object information obtained as a result of parsing.
+     *           Null is returned if "name" is not found.
      */
     public BlancoBatchProcessStructure parseElementSheet(
             final BlancoXmlElement argElementSheet,
             final BlancoXmlElement argElementCommon) {
         final BlancoBatchProcessStructure processStructure = new BlancoBatchProcessStructure();
-        // 入力パラメータ情報を取得します。
+        // Gets the input parameter information.
         final BlancoXmlElement elementInparameterList = BlancoXmlBindingUtil
                 .getElement(argElementSheet,
                         "blancobatchprocess-inparameter-list");
 
-        // 出力パラメータ情報を取得します。
+        // Gets the output parameter information.
         final BlancoXmlElement elementOutput = BlancoXmlBindingUtil.getElement(
                 argElementSheet, "blancobatchprocess-output");
 
-        // シートから詳細な情報を取得します。
+        // Gets detailed information from the sheet.
         processStructure.setName(BlancoXmlBindingUtil.getTextContent(
                 argElementCommon, "name"));
         processStructure.setPackage(BlancoXmlBindingUtil.getTextContent(
@@ -158,7 +159,7 @@ public class BlancoBatchProcessXmlParser {
             return null;
         }
 
-        // 一覧の内容を取得します。
+        // Gets the contents of the list.
         final List<blanco.xml.bind.valueobject.BlancoXmlElement> listField = BlancoXmlBindingUtil
                 .getElementsByTagName(elementInparameterList, "inparameter");
         for (int indexField = 0; indexField < listField.size(); indexField++) {
@@ -187,9 +188,9 @@ public class BlancoBatchProcessXmlParser {
 
             if (new BlancoBatchProcessBlancoTypeStringGroup()
                     .convertToInt(inputItem.getType()) == BlancoBatchProcessBlancoTypeStringGroup.NOT_DEFINED) {
-                // TODO メッセージ定義書化が未実施。
-                throw new IllegalArgumentException("サポートしない型["
-                        + inputItem.getType() + "]が与えられました");
+                // TODO Message definition documentation has not been implemented.
+                throw new IllegalArgumentException("An unsupported type["
+                        + inputItem.getType() + "] has been given");
             }
 
             if (inputItem.getRequire() && inputItem.getDefault() != null) {
@@ -200,14 +201,14 @@ public class BlancoBatchProcessXmlParser {
             processStructure.getInputItemList().add(inputItem);
         }
 
-        // 出力値を取得します。
+        // Gets the output value.
         {
             final BlancoBatchProcessOutputStructure outputStructure = new BlancoBatchProcessOutputStructure();
 
             if (BlancoStringUtil.null2Blank(
                     BlancoXmlBindingUtil.getTextContent(elementOutput,
                             "end-success")).length() > 0) {
-                // TODO これが無かったら例外を発生すべき？
+                // TODO Whether to raise an exception if this is not present.
                 outputStructure.setEndSuccess(BlancoXmlBindingUtil
                         .getTextContent(elementOutput, "end-success"));
             }

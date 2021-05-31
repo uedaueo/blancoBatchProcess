@@ -18,44 +18,44 @@ import blanco.cg.valueobject.BlancoCgClass;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * blancoBatchProcessのための例外クラスを出力します。
+ * Outputs the exception class for blancoBatchProcess.
  */
 class BlancoBatchProcessExpandException {
     /**
-     * 出力対象となるプログラミング言語。
+     * A programming language to be output.
      */
     private int fTargetLang = BlancoBatchProcessSupportedLangStringGroup.NOT_DEFINED;
 
     /**
-     * 内部的に利用するblancoCg用ファクトリ。
+     * A factory for blancoCg to be used internally.
      */
     private BlancoCgObjectFactory fCgFactory = null;
 
     /**
-     * 内部的に利用するblancoCg用ソースファイル情報。
+     * Source file information for blancoCg to be used internally.
      */
     private BlancoCgSourceFile fCgSourceFile = null;
 
     /**
-     * 内部的に利用するblancoCg用クラス情報。
+     * Class information for blancoCg to be used internally.
      */
     private BlancoCgClass fCgClass = null;
 
     /**
-     * 収集された情報を元に、ソースコードを自動生成します。
+     * Auto-generates source code based on the collected information.
      * 
      * @param argRuntimePackage
-     *            メタファイルから収集できた処理構造データ。
+     *            Runtime package.
      * @param argTargetLang
-     *            出力対象プログラミング言語。
+     *            Target programming language.
      * @param argDirectoryTarget
-     *            ソースコードの出力先フォルダ。
+     *            Output directory for the source code.
      */
     public void expandSourceFile(final String argRuntimePackage,
             final int argTargetLang, final File argDirectoryTarget) {
         fTargetLang = argTargetLang;
 
-        // 従来と互換性を持たせるため、/mainサブフォルダに出力します。
+       // 従来と互換性を持たせるため、/mainサブフォルダに出力します。
         final File fileBlancoMain = new File(argDirectoryTarget
                 .getAbsolutePath()
                 + "/main");
@@ -64,16 +64,16 @@ class BlancoBatchProcessExpandException {
         fCgSourceFile = fCgFactory.createSourceFile(argRuntimePackage, null);
         fCgSourceFile.setEncoding("UTF-8"); // FIXME set encoding from input info.
         fCgClass = fCgFactory.createClass("BlancoBatchProcessException",
-                "バッチ処理において例外が発生した際に利用されます。blancoBatchProcessの例外です。");
+                "Used if an exception occurs in batch process. blancoBatchProcess exception.");
         fCgSourceFile.getClassList().add(fCgClass);
 
         fCgClass.getExtendClassList().add(
                 fCgFactory.createType("java.lang.RuntimeException"));
 
-        // シリアルIDの警告を抑制。
+        // Suppresses serial ID warning.
         fCgClass.getAnnotationList().add("SuppressWarnings(\"serial\")");
 
-        // コンストラクタを追加します。
+        // Adds a constructor.
         BlancoCgUtil.addConstructorForException(fCgFactory, fCgClass);
 
         switch (fTargetLang) {

@@ -75,7 +75,7 @@ class BlancoBatchProcessExpandBatchProcess {
      * @param argTargetLang
      *            Target programming language.
      * @param argDirectoryTarget
-     *            Output directory for the source code.ソースコードの出力先フォルダ。
+     *            Output directory for the source code.
      */
     public void expandSourceFile(
             final BlancoBatchProcessStructure argProcessStructure,
@@ -229,7 +229,7 @@ class BlancoBatchProcessExpandBatchProcess {
      * Expands the main method.
      * 
      * @param argProcessStructure
-     *            Process structure data collected from meta files.
+     *            Process structure data collected from metafiles.
      */
     private void expandMethodMain(
             final BlancoBatchProcessStructure argProcessStructure) {
@@ -401,7 +401,7 @@ class BlancoBatchProcessExpandBatchProcess {
      * Expands the execute method.
      * 
      * @param argProcessStructure
-     *            Process structure collected from meta files.
+     *            Process structure data collected from metafiles.
      */
     private void expandMethodExecute(
             final BlancoBatchProcessStructure argProcessStructure) {
@@ -449,7 +449,7 @@ class BlancoBatchProcessExpandBatchProcess {
             listLine.add("");
         }
 
-        listLine.add("// Execute the main body of the batch process.");
+        listLine.add("// Executes the main body of the batch process.");
         listLine.add("int retCode = process(input);");
         listLine.add("");
         if (argProcessStructure.getShowMessageBeginEnd()) {
@@ -501,19 +501,19 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * process メソッドを展開します。
+     * Expands the process method.
      * 
      * @param argProcessStructure
-     *            メタファイルから収集できた処理構造データ。
+     *            Process structure data collected from metafiles.
      */
     private void expandMethodProcess(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         final BlancoCgMethod method = fCgFactory.createMethod("process",
-                "具体的なバッチ処理内容を記述するためのメソッドです。");
+                "A method to describe the specific batch processing contents.");
         fCgClass.getMethodList().add(method);
 
-        method.getLangDoc().getDescriptionList().add("このメソッドに実際の処理内容を記述します。");
+        method.getLangDoc().getDescriptionList().add("This method is used to describe the actual process.");
         method
                 .getParameterList()
                 .add(
@@ -524,50 +524,49 @@ class BlancoBatchProcessExpandBatchProcess {
                                                 + ".valueobject."
                                                 + BlancoBatchProcessExpandProcessInput
                                                         .getBatchProcessValueObjectInputClassName(argProcessStructure),
-                                        "バッチ処理の入力パラメータ。"));
+                                        "Input parameters for batch process."));
         method.setReturn(fCgFactory.createReturn("int",
                 getReturnJavadocDescription(argProcessStructure)));
         method.getThrowList().add(
                 fCgFactory.createException("java.io.IOException",
-                        "入出力例外が発生した場合。"));
+                        "If an I/O exception occured."));
         method.getThrowList().add(
                 fCgFactory
                         .createException("java.lang.IllegalArgumentException",
-                                "入力値に不正が見つかった場合。"));
+                                "If an invalid input value is found."));
 
         final List<java.lang.String> listLine = method.getLineList();
-        listLine.add("// 入力パラメータをチェックします。");
+        listLine.add("// Checks the input parameters.");
         listLine.add("validateInput(input);");
         listLine.add("");
-        listLine.add("// この箇所でコンパイルエラーが発生する場合、"
+        listLine.add("// If you get a compile error at this point, "
+                + "You may be able to solve it by implementing a "
                 + BlancoNameAdjuster.toClassName(argProcessStructure.getName())
-                + "Processインタフェースを実装して " + argProcessStructure.getPackage()
-                + "パッケージに "
-                + BlancoNameAdjuster.toClassName(argProcessStructure.getName())
-                + "ProcessImplクラスを作成することにより解決できる場合があります。");
+                + "Process interface and creating an " + BlancoNameAdjuster.toClassName(argProcessStructure.getName())
+                + "ProcessImpl class in package " + argProcessStructure.getPackage() + ".");
         listLine.add("final "
                 + BlancoNameAdjuster.toClassName(argProcessStructure.getName())
                 + "Process process = new "
                 + BlancoNameAdjuster.toClassName(argProcessStructure.getName())
                 + "ProcessImpl();");
         listLine.add("");
-        listLine.add("// 処理の本体を実行します。");
+        listLine.add("// Executes the main body of the process.");
         listLine.add("final int retCode = process.execute(input);");
         listLine.add("");
         listLine.add("return retCode;");
     }
 
     /**
-     * execute メソッドを展開します。
+     * Expands the execute method.
      * 
      * @param argProcessStructure
-     *            メタファイルから収集できた処理構造データ。
+     *            Process structure data collected from metafiles.
      */
     private void expandMethodUsage(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         final BlancoCgMethod method = fCgFactory.createMethod("usage",
-                "このバッチ処理クラスの使い方の説明を標準出力に示すためのメソッドです。");
+                "A method to show an explanation of how to use this batch processing class on the stdout.");
         fCgClass.getMethodList().add(method);
 
         method.setStatic(true);
@@ -585,7 +584,7 @@ class BlancoBatchProcessExpandBatchProcess {
                     .size(); index++) {
                 final BlancoBatchProcessInputItemStructure inparam = (BlancoBatchProcessInputItemStructure) argProcessStructure
                         .getInputItemList().get(index);
-                strArg += " -" + inparam.getName() + "=値" + (index + 1) + "";
+                strArg += " -" + inparam.getName() + "=value" + (index + 1) + "";
             }
             strArg += "\");";
             listLine.add(strArg);
@@ -598,7 +597,7 @@ class BlancoBatchProcessExpandBatchProcess {
             listLine.add("System.out.println(\"    -" + inputItem.getName()
                     + "\");");
             if (inputItem.getDescription() != null) {
-                listLine.add("System.out.println(\"      説明["
+                listLine.add("System.out.println(\"      explanation["
                         + BlancoJavaSourceUtil
                                 .escapeStringAsJavaSource(inputItem
                                         .getDescription()) + "]\");");
@@ -606,46 +605,46 @@ class BlancoBatchProcessExpandBatchProcess {
             switch (new BlancoBatchProcessBlancoTypeStringGroup()
                     .convertToInt(inputItem.getType())) {
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_STRING:
-                listLine.add("System.out.println(\"      型[文字列]\");");
+                listLine.add("System.out.println(\"      type[string]\");");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_INT:
-                listLine.add("System.out.println(\"      型[数値(int)]\");");
+                listLine.add("System.out.println(\"      type[number(int)]\");");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_LONG:
-                listLine.add("System.out.println(\"      型[数値(long)]\");");
+                listLine.add("System.out.println(\"      type[number(long)]\");");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_DECIMAL:
-                listLine.add("System.out.println(\"      型[数値(decimal)]\");");
+                listLine.add("System.out.println(\"      type[number(decimal)]\");");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_BOOLEAN:
-                listLine.add("System.out.println(\"      型[真偽]\");");
+                listLine.add("System.out.println(\"      type[boolean]\");");
                 break;
             }
             if (inputItem.getRequire()) {
-                listLine.add("System.out.println(\"      必須パラメータ\");");
+                listLine.add("System.out.println(\"      a required parameter\");");
             }
             if (inputItem.getDefault() != null) {
-                listLine.add("System.out.println(\"      デフォルト値["
+                listLine.add("System.out.println(\"      default value["
                         + BlancoJavaSourceUtil
                                 .escapeStringAsJavaSource(inputItem
                                         .getDefault()) + "]\");");
             }
         }
         listLine.add("System.out.println(\"    -? , -help\");");
-        listLine.add("System.out.println(\"      説明[使い方を表示します。]\");");
+        listLine.add("System.out.println(\"      explanation[show the usage.]\");");
     }
 
     /**
-     * validateInput メソッドを展開します。
+     * Expands the validateInput method.
      * 
      * @param argProcessStructure
-     *            メタファイルから収集できた処理構造データ。
+     *            Process structure data collected from metafiles.
      */
     private void expandValidateInput(
             final BlancoBatchProcessStructure argProcessStructure) {
 
         final BlancoCgMethod method = fCgFactory.createMethod("validateInput",
-                "このバッチ処理クラスの入力パラメータの妥当性チェックを実施するためのメソッドです。");
+                "A method to check the validity of input parameters for this batch processing class.");
         fCgClass.getMethodList().add(method);
 
         method
@@ -658,17 +657,17 @@ class BlancoBatchProcessExpandBatchProcess {
                                                 + ".valueobject."
                                                 + BlancoBatchProcessExpandProcessInput
                                                         .getBatchProcessValueObjectInputClassName(argProcessStructure),
-                                        "バッチ処理の入力パラメータ。"));
+                                        "Input parameters for batch process."));
         method.getThrowList().add(
                 fCgFactory
                         .createException("java.lang.IllegalArgumentException",
-                                "入力値に不正が見つかった場合。"));
+                                "If an invalid input value is found."));
 
         final List<java.lang.String> listLine = method.getLineList();
 
         listLine.add("if (input == null) {");
         listLine
-                .add("throw new IllegalArgumentException(\"BlancoBatchProcessBatchProcess: 処理開始失敗。入力パラメータ[input]にnullが与えられました。\");");
+                .add("throw new IllegalArgumentException(\"BlancoBatchProcessBatchProcess: Failed to start the process. The input parameter[input] was given as null.\");");
         listLine.add("}");
 
         for (int index = 0; index < argProcessStructure.getInputItemList()
@@ -679,15 +678,15 @@ class BlancoBatchProcessExpandBatchProcess {
                     .convertToInt(inputItem.getType())) {
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_STRING:
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_DECIMAL:
-                // 必須かどうかで型が変わらないもののみチェックします。
+                // Checks only those that do not change type depending on whether they are needed or not.
                 if (inputItem.getRequire()) {
                     listLine.add("if (input.get"
                             + BlancoNameAdjuster.toClassName(inputItem
                                     .getName()) + "() == null) {");
                     listLine.add("throw new IllegalArgumentException(\""
                             + getBatchProcessClassName(argProcessStructure)
-                            + ": 処理開始失敗。入力パラメータ[input]の必須フィールド値["
-                            + inputItem.getName() + "]に値が設定されていません。\");");
+                            + ": Failed to start the process. The required field value["
+                            + inputItem.getName() + "] in the input parameter[input] is not set to a value.\");");
                     listLine.add("}");
                 }
                 break;
@@ -696,7 +695,7 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * 出力先となるバッチ処理クラス名を取得します。
+     * Gets the name of the batch processing class to output to.
      * 
      * @param argProcessStructure
      * @return
@@ -708,7 +707,7 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * バッチ処理例外クラス名を取得します。
+     * Gets the name of the batch processing exception class.
      * 
      * @param argProcessStructure
      * @return
@@ -719,7 +718,7 @@ class BlancoBatchProcessExpandBatchProcess {
                 argProcessStructure.getOutput().getEndBatchProcessException())
                 .length() == 0) {
             throw new IllegalArgumentException(
-                    "バッチ処理例外終了がOFFであるのに、BlancoBatchProcessException クラス名取得のメソッドが呼び出されました。矛盾しています");
+                    "The method to get the name of BlancoBatchoProcessException class was called while the batch processing exception termination is OFF. This is inconsistent.");
         }
 
         if (BlancoStringUtil.null2Blank(fRuntimePackage).length() == 0) {
@@ -731,19 +730,18 @@ class BlancoBatchProcessExpandBatchProcess {
     }
 
     /**
-     * バッチのメソッドの戻り値のJavaDoc説明を取得します。
+     * Gets the JavaDoc description of the return value of a batch method.
      * 
      * @param argProcessStructure
      * @return
      */
     private static String getReturnJavadocDescription(
             final BlancoBatchProcessStructure argProcessStructure) {
-        return "バッチ処理の終了コード。END_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR"
+        return "The exit code for batch process. Returns one of the values END_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR"
                 + (BlancoStringUtil.null2Blank(
                         argProcessStructure.getOutput()
                                 .getEndBatchProcessException()).length() == 0 ? ""
-                        : ", END_BATCHPROCESS_EXCEPTION")
-                + " のいずれかの値を戻します。"
+                        : ", or END_BATCHPROCESS_EXCEPTION")
                 + BlancoStringUtil.null2Blank(argProcessStructure.getOutput()
                         .getDescription());
     }
