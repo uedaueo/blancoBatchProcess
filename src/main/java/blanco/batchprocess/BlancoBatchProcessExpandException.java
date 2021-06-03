@@ -55,7 +55,7 @@ class BlancoBatchProcessExpandException {
             final int argTargetLang, final File argDirectoryTarget) {
         fTargetLang = argTargetLang;
 
-       // 従来と互換性を持たせるため、/mainサブフォルダに出力します。
+       // To make it compatible with the previous version, output to the /main subfolder.
         final File fileBlancoMain = new File(argDirectoryTarget
                 .getAbsolutePath()
                 + "/main");

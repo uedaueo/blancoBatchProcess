@@ -1,7 +1,7 @@
 package blanco.batchprocess.task.valueobject;
 
 /**
- * 処理クラス [BlancoBatchProcessProcess]の入力バリューオブジェクトクラスです。
+ * An input value object class for the processing class [BlancoBatchProcessProcess].
  */
 public class BlancoBatchProcessProcessInput {
     /**

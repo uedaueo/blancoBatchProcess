@@ -22,13 +22,13 @@ import blanco.valueobject.valueobject.BlancoValueObjectClassStructure;
 import blanco.valueobject.valueobject.BlancoValueObjectFieldStructure;
 
 /**
- * 処理(blancoProcess)のためのバリューオブジェクトクラス。
+ * Value object class for processing (blancoProcess).
  * 
- * 処理クラスのための入力バリューオブジェクトを生成します。
+ * Generates an input value object for the processing class.
  */
 class BlancoBatchProcessExpandProcessInput {
     /**
-     * 自動生成するソースファイルの文字エンコーディング。
+     * Character encoding of auto-generated source files.
      */
     private String fEncoding = null;
 
@@ -37,11 +37,11 @@ class BlancoBatchProcessExpandProcessInput {
     }
 
     /**
-     * 収集された情報を元に、ソースコードを自動生成します。
+     * Auto-generates source code based on the collected information.
      * 
      * @param argProcessStructure
      * @param argDirectoryTarget
-     *            ソースコードの出力先フォルダ。
+     *            Output directory of the source code.
      */
     public void expandSourceFile(
             final BlancoBatchProcessStructure argProcessStructure,
@@ -51,10 +51,10 @@ class BlancoBatchProcessExpandProcessInput {
                 .setName(getBatchProcessValueObjectInputClassName(argProcessStructure));
         voStructure.setPackage(argProcessStructure.getPackage()
                 + ".valueobject");
-        voStructure.setDescription("処理クラス ["
+        voStructure.setDescription("An input value object class for the processing class ["
                 + BlancoBatchProcessExpandProcess
                         .getProcessInterfaceName(argProcessStructure)
-                + "]の入力バリューオブジェクトクラスです。");
+                + "].");
         for (int index = 0; index < argProcessStructure.getInputItemList()
                 .size(); index++) {
             final BlancoBatchProcessInputItemStructure inputItem = (BlancoBatchProcessInputItemStructure) argProcessStructure
@@ -69,18 +69,18 @@ class BlancoBatchProcessExpandProcessInput {
                 voFieldStructure.setType("java.lang.String");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_INT:
-                // 必須かどうかにかかわらず、常にプリミティブ型とします。
+                // It is always a primitive type, regardless of whether it is required or not.
                 voFieldStructure.setType("int");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_LONG:
-                // 必須かどうかにかかわらず、常にプリミティブ型とします。
+                // It is always a primitive type, regardless of whether it is required or not.
                 voFieldStructure.setType("long");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_DECIMAL:
                 voFieldStructure.setType("java.math.BigDecimal");
                 break;
             case BlancoBatchProcessBlancoTypeStringGroup.BLANCO_BOOLEAN:
-                // 必須かどうかにかかわらず、常にプリミティブ型とします。
+                // It is always a primitive type, regardless of whether it is required or not.
                 voFieldStructure.setType("boolean");
                 break;
             }
@@ -98,7 +98,7 @@ class BlancoBatchProcessExpandProcessInput {
             xml2java.setEncoding(fEncoding);
             xml2java.structure2Source(voStructure, argDirectoryTarget);
         } catch (IOException e) {
-            // TODO 自動生成された catch ブロック
+            // TODO Auto-generated catch block.
             e.printStackTrace();
         }
     }

@@ -29,17 +29,17 @@ package blanco.batchprocess;
 
 public abstract class AbstractBlancoBatchProcessConstants {
 	/**
-	 * プロダクト名。英字で指定します。
+	 * Product name. Specify it in English.
 	 */
 	public static final String PRODUCT_NAME = "BlancoDbTableAccessor";
 
 	/**
-	 * プロダクト名の小文字版。英字で指定します。
+	 * The lowercase version of the product name. Specify it in English.
 	 */
 	public static final String PRODUCT_NAME_LOWER = "blancobatchprocess";
 
 	/**
-	 * 処理の過程で利用されるサブディレクトリ。
+	 * A subdirectory used during processing.
 	 */
 	public static final String TARGET_SUBDIRECTORY = "/batchprocess";
 }

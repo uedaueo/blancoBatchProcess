@@ -17,46 +17,47 @@ import blanco.batchprocess.stringgroup.BlancoBatchProcessSupportedLangStringGrou
 import blanco.batchprocess.valueobject.BlancoBatchProcessStructure;
 
 /**
- * 「バッチ処理定義書」Excel様式からバッチ処理を処理する抽象親クラス・ソースコードを生成。
+ * Generates abstract parent class and source code for batch processing from "Batch Processing Definition Form" Excel format.
  * 
- * このクラスは、中間XMLファイルからソースコードを自動生成する機能を担います。
+ * This class is responsible for generation of source code from intermediate XML files.
  * 
  * @author IGA Tosiki
  */
 public class BlancoBatchProcessXml2SourceFile {
     /**
-     * メッセージクラス。
+     * Message class.
      */
     protected final BlancoBatchProcessMessage fMsg = new BlancoBatchProcessMessage();
 
     /**
-     * 自動生成するソースファイルの文字エンコーディング。
+     * Character encoding of auto-generated source files.
      */
     private String fEncoding = null;
 
     /**
-     * 自動生成するソースファイルの文字エンコーディングを指定します。
+     * Specifies the character encoding of the generated source file.
      * 
      * @param argEncoding
-     *            自動生成するソースファイルの文字エンコーディング。
+     *            Character encoding of auto-generated source files.
      */
     public void setEncoding(final String argEncoding) {
         fEncoding = argEncoding;
     }
 
     /**
-     * 中間XMLファイルからソースコードを自動生成します。
+     * Auto-generates source code from intermediate XML files.
      * 
      * @param argMetaXmlSourceFile
-     *            メタ情報が含まれているXMLファイル。
+     *            An XML file that contains meta-information.
      * @param argRuntimePackage
-     *            ランタイムパッケージ。nullおよび長さ0の文字列の場合は定義書ごとにランタイムクラスを生成。
+     *            Runtime package.
+     *            For null and zero-length strings, generates a runtime class for each definition document.
      * @param argTargetLang
-     *            出力対象プログラミング言語。
+     *            Target programming language.
      * @param argDirectoryTarget
-     *            ソースコード生成先ディレクトリ (/mainを除く部分を指定します)。
+     *            Output directory of the generated source code (specify the part excluding /main).
      * @throws IOException
-     *             入出力例外が発生した場合。
+     *             If an I/O exception occurs.
      */
     public void process(final File argMetaXmlSourceFile,
             final String argRuntimePackage, final String argTargetLang,
@@ -65,26 +66,26 @@ public class BlancoBatchProcessXml2SourceFile {
         final BlancoBatchProcessStructure[] structures = new BlancoBatchProcessXmlParser()
                 .parse(argMetaXmlSourceFile);
         if (structures == null || structures.length == 0) {
-            // 処理しない。
+            // No processing.
             return;
         }
 
         for (int index = 0; index < structures.length; index++) {
-            // メタ情報の解析結果をもとにソースコード自動生成を実行します。
+            // Executes automatic source code generation based on the result of parsing meta-information.
             structure2Source(structures[index], argRuntimePackage,
                     argTargetLang, argDirectoryTarget);
         }
     }
 
     /**
-     * 与えられたクラス情報バリューオブジェクトから、Javaソースコードを自動生成します。
+     * Auto-generates Java source code from a given class information value object.
      * 
      * @param argStructure
-     *            情報。
+     *            Information.
      * @param argDirectoryTarget
-     *            ソースコードの出力先ディレクトリ
+     *            Output directory of the source code.
      * @throws IOException
-     *             入出力例外が発生した場合。
+     *             If an I/O exception occurs.
      */
     public void structure2Source(
             final BlancoBatchProcessStructure argStructure,

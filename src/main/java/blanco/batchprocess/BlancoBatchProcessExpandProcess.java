@@ -22,38 +22,38 @@ import blanco.commons.util.BlancoNameAdjuster;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * 処理(blancoProcess)のためのメインクラス。
+ * Main class for processing (blancoProcess).
  * 
- * 処理インタフェースを展開します。
+ * Expands the processing interface.
  */
 class BlancoBatchProcessExpandProcess {
     /**
-     * 出力対象となるプログラミング言語。
+     * Target programming language.
      */
     private int fTargetLang = BlancoBatchProcessSupportedLangStringGroup.NOT_DEFINED;
 
     /**
-     * ランタイムパッケージ。
+     * Runtime package.
      */
     private String fRuntimePackage = null;
 
     /**
-     * 内部的に利用するblancoCg用ファクトリ。
+     * A factory for blancoCg to be used internally.
      */
     private BlancoCgObjectFactory fCgFactory = null;
 
     /**
-     * 内部的に利用するblancoCg用ソースファイル情報。
+     * Source file information for the blancoCg to be used internally.
      */
     private BlancoCgSourceFile fCgSourceFile = null;
 
     /**
-     * 内部的に利用するblancoCg用クラス情報。
+     * Class information for the blancoCg to be used internally.
      */
     private BlancoCgInterface fCgInterface = null;
 
     /**
-     * 自動生成するソースファイルの文字エンコーディング。
+     * Character encoding of the auto-generated source files.
      */
     private String fEncoding = null;
 
@@ -62,16 +62,17 @@ class BlancoBatchProcessExpandProcess {
     }
 
     /**
-     * 収集された情報を元に、ソースコードを自動生成します。
+     * Auto-generates source code based on the collected information.
      * 
      * @param argProcessStructure
-     *            メタファイルから収集できた処理構造データ。
+     *            Process structure collected from metafiles.
      * @param argRuntimePackage
-     *            ランタイムパッケージ。nullおよび長さ0の文字列の場合は定義書ごとにランタイムクラスを生成。
+     *            Runtime package.
+     *            For null and zero-length strings, generates a runtime class for each definition document.
      * @param argTargetLang
-     *            出力対象プログラミング言語。
+     *            Target programming language.
      * @param argDirectoryTarget
-     *            ソースコードの出力先フォルダ。
+     *            Output directory of the generated source code.
      */
     public void expandSourceFile(
             final BlancoBatchProcessStructure argProcessStructure,
@@ -80,7 +81,7 @@ class BlancoBatchProcessExpandProcess {
         fRuntimePackage = argRuntimePackage;
         fTargetLang = argTargetLang;
 
-        // 従来と互換性を持たせるため、/mainサブフォルダに出力します。
+        // To make it compatible with the previous version, output to the /main subfolder.
         final File fileBlancoMain = new File(argDirectoryTarget
                 .getAbsolutePath()
                 + "/main");
@@ -96,13 +97,13 @@ class BlancoBatchProcessExpandProcess {
 
         fCgInterface.setAccess("");
 
-        fCgInterface.setDescription("処理 ["
-                + getProcessInterfaceName(argProcessStructure) + "]インタフェース。");
+        fCgInterface.setDescription("Process ["
+                + getProcessInterfaceName(argProcessStructure) + "] interface.");
         fCgInterface.getLangDoc().getDescriptionList().add(
-                "このインタフェースを継承して [" + argProcessStructure.getPackage()
-                        + "]パッケージに["
-                        + getProcessInterfaceName(argProcessStructure)
-                        + "]クラスを作成して実際のバッチ処理を実装してください。<br>");
+                "Inherit this interface and create a [" + getProcessInterfaceName(argProcessStructure) 
+                        + "class in the ["
+                        + argProcessStructure.getPackage()
+                        + "] package to implement the actual batch processing.<br>");
         fCgInterface.getLangDoc().getDescriptionList().add("");
 
         expandMethodExecute(argProcessStructure);
@@ -119,18 +120,18 @@ class BlancoBatchProcessExpandProcess {
         if (BlancoStringUtil.null2Blank(
                 argProcessStructure.getOutput().getEndBatchProcessException())
                 .length() > 0) {
-            // バッチ処理例外終了の値が設定されている場合にのみ生成します。
+            // Generates only if the value for batch processing exception termination is set.
 
             fCgSourceFile.getImportList().add(
                     getBatchProcessExceptionClassName(argProcessStructure));
 
             if (BlancoStringUtil.null2Blank(fRuntimePackage).length() == 0) {
-                // 定義書ごとに同一パッケージにランタイムクラスを生成。
+                // Generates runtime classes in the same package for each definition document.
                 new BlancoBatchProcessExpandException().expandSourceFile(
                         argProcessStructure.getPackage(), fTargetLang,
                         argDirectoryTarget);
             } else {
-                // ランタイムパッケージ指定があるので、指定のランタイムパッケージにクラスを生成。
+                // Generates a class in the specified runtime package since there is a runtime package specification.
                 new BlancoBatchProcessExpandException().expandSourceFile(
                         fRuntimePackage, fTargetLang, argDirectoryTarget);
             }
@@ -147,15 +148,15 @@ class BlancoBatchProcessExpandProcess {
     }
 
     /**
-     * execute メソッドを展開します。
+     * Expands the execute method.
      * 
      * @param argProcessStructure
-     *            メタファイルから収集できた処理構造データ。
+     *            Process structure data collected from metafiles.
      */
     private void expandMethodExecute(
             final BlancoBatchProcessStructure argProcessStructure) {
         final BlancoCgMethod method = fCgFactory.createMethod("execute",
-                "クラスをインスタンス化して処理を実行する際のエントリポイントです。");
+                "The entry point for intastantiating the class and executing the process.");
         fCgInterface.getMethodList().add(method);
         method.setFinal(true);
 
@@ -169,38 +170,38 @@ class BlancoBatchProcessExpandProcess {
                                                 + ".valueobject."
                                                 + BlancoBatchProcessExpandProcessInput
                                                         .getBatchProcessValueObjectInputClassName(argProcessStructure),
-                                        "処理の入力パラメータ。"));
-        method.setReturn(fCgFactory.createReturn("int", "処理の実行結果。"));
+                                        "Innput parameters for a process."));
+        method.setReturn(fCgFactory.createReturn("int", "Result of the process."));
         method.getThrowList().add(
                 fCgFactory.createException("java.io.IOException",
-                        "入出力例外が発生した場合。"));
+                        "If an I/O exception occurs."));
         method.getThrowList().add(
                 fCgFactory
                         .createException("java.lang.IllegalArgumentException",
-                                "入力値に不正が見つかった場合。"));
+                                "If an invalid input value is found."));
     }
 
     /**
-     * execute メソッドを展開します。
+     * Expands the execute method.
      * 
      * @param argProcessStructure
-     *            メタファイルから収集できた処理構造データ。
+     *            Process structure collected from metafiles.
      */
     private void expandMethodProgress() {
         final BlancoCgMethod method = fCgFactory.createMethod("progress",
-                "処理の中でアイテムが処理されるたびに進捗報告としてコールバックします。");
+                "Whenever an item is processed in the process, it is called back as a progress report.");
         fCgInterface.getMethodList().add(method);
         method.setFinal(true);
 
         method.getParameterList().add(
                 fCgFactory.createParameter("argProgressMessage",
-                        "java.lang.String", "現在処理しているアイテムに関するメッセージ。"));
+                        "java.lang.String", "Message about the item currently processed."));
         method.setReturn(fCgFactory.createReturn("boolean",
-                "処理をそのまま継続する場合は false。処理中断をリクエストしたい場合は true。"));
+                "It is false if you want to continue the process, or it is true  if you want to request to suspend the process."));
     }
 
     /**
-     * 出力先となる処理インタフェース名を取得します。
+     * Gets the name of the processing interface to be output to.
      * 
      * @param argProcessStructure
      * @return
@@ -212,7 +213,7 @@ class BlancoBatchProcessExpandProcess {
     }
 
     /**
-     * バッチ処理例外クラス名を取得します。
+     * Gets the name of the batch processing exception class.
      * 
      * @param argProcessStructure
      * @return
@@ -223,7 +224,7 @@ class BlancoBatchProcessExpandProcess {
                 argProcessStructure.getOutput().getEndBatchProcessException())
                 .length() == 0) {
             throw new IllegalArgumentException(
-                    "バッチ処理例外終了がOFFであるのに、BlancoBatchProcessException クラス名取得のメソッドが呼び出されました。矛盾しています");
+                    "The method to get the name of BlancoBatchoProcessException class was called while the batch processing exception termination is OFF. This is inconsistent.");
         }
 
         if (BlancoStringUtil.null2Blank(fRuntimePackage).length() == 0) {

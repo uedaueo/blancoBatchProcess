@@ -97,7 +97,7 @@ public class BlancoBatchProcessBatchProcess {
      *
      * @param input Input parameters for batch process.
      * @return The exit code for batch process. Returns one of the values END_SUCCESS, END_ILLEGAL_ARGUMENT_EXCEPTION, END_IO_EXCEPTION, END_ERROR
-     * @throws IOException If an I/O exception occured.
+     * @throws IOException If an I/O exception occurs.
      * @throws IllegalArgumentException If an invalid input value is found.
      */
     public int process(final BlancoBatchProcessProcessInput input) throws IOException, IllegalArgumentException {

@@ -529,7 +529,7 @@ class BlancoBatchProcessExpandBatchProcess {
                 getReturnJavadocDescription(argProcessStructure)));
         method.getThrowList().add(
                 fCgFactory.createException("java.io.IOException",
-                        "If an I/O exception occured."));
+                        "If an I/O exception occurs."));
         method.getThrowList().add(
                 fCgFactory
                         .createException("java.lang.IllegalArgumentException",
