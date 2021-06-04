@@ -13,7 +13,7 @@ interface BlancoBatchProcessProcess {
     /**
      * The entry point for intastantiating the class and executing the process.
      *
-     * @param input Innput parameters for a process.
+     * @param input Input parameters for a process.
      * @return Result of the process.
      * @throws IOException If an I/O exception occurs.
      * @throws IllegalArgumentException If an invalid input value is found.

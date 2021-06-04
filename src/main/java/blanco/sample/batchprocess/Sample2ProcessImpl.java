@@ -5,32 +5,32 @@ import java.io.IOException;
 import blanco.sample.batchprocess.valueobject.Sample2ProcessInput;
 
 /**
- * サンプル・バッチ処理のコンパイルを通すためのダミークラス。
+ * A dummy class for passing the sample batch process compilation.
  */
 public class Sample2ProcessImpl implements Sample2Process {
     /**
-     * クラスをインスタンス化して処理を実行する際のエントリポイントです。
+     * The entry point for intastantiating the class and executing the process.
      * 
      * @param input
-     *            処理の入力パラメータ。
-     * @return 処理の実行結果。
+     *            Input parameters for a process.
+     * @return Result of the process.
      * @throws IOException
-     *             入出力例外が発生した場合。
+     *             If an I/O exception occurs.
      * @throws IllegalArgumentException
-     *             入力値に不正が見つかった場合。
+     *             If an invalid input value is found.
      */
     public int execute(Sample2ProcessInput input) throws IOException,
             IllegalArgumentException {
-        // 特に処理は無し。
+        // No particular process.
         return 0;
     }
 
     /**
-     * 処理の中でアイテムが処理されるたびに進捗報告としてコールバックします。
+     * Whenever an item is processed in the process, it is called back as a progress report.
      * 
      * @param argProgressMessage
-     *            現在処理しているアイテムに関するメッセージ。
-     * @return 処理をそのまま継続する場合は false。処理中断をリクエストしたい場合は true。
+     *            Message about the item currently processed.
+     * @return It is false if you want to continue the process, or it is true  if you want to request to suspend the process.
      */
     public boolean progress(String argProgressMessage) {
         return false;

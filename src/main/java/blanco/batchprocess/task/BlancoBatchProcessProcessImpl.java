@@ -21,28 +21,28 @@ import blanco.batchprocess.message.BlancoBatchProcessMessage;
 import blanco.batchprocess.task.valueobject.BlancoBatchProcessProcessInput;
 
 /**
- * バッチ処理生成処理の実際の処理内容。
+ * Actual process contents of the batch processing generation.
  */
 public class BlancoBatchProcessProcessImpl implements BlancoBatchProcessProcess {
     /**
-     * メッセージクラス。
+     * Message class.
      */
     protected final BlancoBatchProcessMessage fMsg = new BlancoBatchProcessMessage();
 
     protected BlancoBatchProcessProcessInput fInput;
 
     /**
-     * 具体的なバッチ処理内容を記述するためのメソッドです。
+     * A method to describe the specific batch processing contents.
      * 
-     * このメソッドに実際の処理内容を記述します。
+     * This method is used to describe the actual process.
      * 
      * @param input
-     *            バッチ処理の入力パラメータ。
-     * @return バッチ処理の終了コード。正常終了の場合には、BlancoBatchProcessBatchProcess.END_SUCCESS。
+     *            Input parameters for batch process.
+     * @return The exit code for batch process.END_SUCCESS in case of normal completion.
      * @throws IOException
-     *             入出力例外が発生した場合。
+     *             If an I/O exception occurs.
      * @throws IllegalArgumentException
-     *             入力値に不正が見つかった場合。
+     *             If an invalid input value is found.
      */
     public int execute(final BlancoBatchProcessProcessInput input)
             throws IOException, IllegalArgumentException {
@@ -57,16 +57,16 @@ public class BlancoBatchProcessProcessImpl implements BlancoBatchProcessProcess 
                         .getMetadir()));
             }
 
-            // テンポラリディレクトリを作成。
+            // Creates a temporary directory.
             new File(input.getTmpdir()
                     + BlancoBatchProcessConstants.TARGET_SUBDIRECTORY).mkdirs();
 
-            // 指定されたメタディレクトリを処理します。
+            // Processes the specified meta directory.
             new BlancoBatchProcessMeta2Xml().processDirectory(fileMetadir,
                     input.getTmpdir()
                             + BlancoBatchProcessConstants.TARGET_SUBDIRECTORY);
 
-            // XML化された中間ファイルからソースコードを生成
+            // Generates source code from XML-ized intermediate files.
             final File[] fileMeta2 = new File(input.getTmpdir()
                     + BlancoBatchProcessConstants.TARGET_SUBDIRECTORY)
                     .listFiles();
@@ -75,8 +75,8 @@ public class BlancoBatchProcessProcessImpl implements BlancoBatchProcessProcess 
                     continue;
                 }
 
-                if (progress("ファイル [" + fileMeta2[index].getName()
-                        + "] を処理中...")) {
+                if (progress("Processing file [" + fileMeta2[index].getName()
+                        + "] ...")) {
                     return BlancoBatchProcessBatchProcess.END_ERROR;
                 }
 
@@ -88,16 +88,16 @@ public class BlancoBatchProcessProcessImpl implements BlancoBatchProcessProcess 
 
             return BlancoBatchProcessBatchProcess.END_SUCCESS;
         } catch (TransformerException ex) {
-            throw new IOException("XML変換の過程で例外が発生しました: " + ex.toString());
+            throw new IOException("An exception has occurred during the XML conversion process.: " + ex.toString());
         }
     }
 
     /**
-     * 処理の中でアイテムが処理されるたびに進捗報告としてコールバックします。
+     * Whenever an item is processed in the process, it is called back as a progress report.
      * 
      * @param argProgressMessage
-     *            現在処理しているアイテムに関するメッセージ。
-     * @return 処理をそのまま継続する場合は false。処理中断をリクエストしたい場合は true。
+     *            Message about the item currently processed.
+     * @return It is false if you want to continue the process, or it is true  if you want to request to suspend the process.
      */
     public boolean progress(String argProgressMessage) {
         if (fInput.getVerbose()) {

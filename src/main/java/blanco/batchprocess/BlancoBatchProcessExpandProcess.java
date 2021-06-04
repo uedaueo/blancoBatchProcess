@@ -170,7 +170,7 @@ class BlancoBatchProcessExpandProcess {
                                                 + ".valueobject."
                                                 + BlancoBatchProcessExpandProcessInput
                                                         .getBatchProcessValueObjectInputClassName(argProcessStructure),
-                                        "Innput parameters for a process."));
+                                        "Input parameters for a process."));
         method.setReturn(fCgFactory.createReturn("int", "Result of the process."));
         method.getThrowList().add(
                 fCgFactory.createException("java.io.IOException",
