@@ -99,7 +99,7 @@ class BlancoBatchProcessExpandBatchProcess {
         fCgSourceFile.getClassList().add(fCgClass);
 
         fCgClass.setDescription("Batch process class ["
-                + getBatchProcessClassName(argProcessStructure) + "]。");
+                + getBatchProcessClassName(argProcessStructure) + "].");
         fCgClass.getLangDoc().getDescriptionList().add("");
         fCgClass.getLangDoc().getDescriptionList().add("<P>Example of a batch processing call.</P>");
 

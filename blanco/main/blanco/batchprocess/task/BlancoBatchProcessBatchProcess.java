@@ -5,7 +5,7 @@ import java.io.IOException;
 import blanco.batchprocess.task.valueobject.BlancoBatchProcessProcessInput;
 
 /**
- * Batch process class [BlancoBatchProcessBatchProcess]。
+ * Batch process class [BlancoBatchProcessBatchProcess].
  *
  * <P>Example of a batch processing call.</P>
  * <code>
